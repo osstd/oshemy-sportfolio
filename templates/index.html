@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OS</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}" />
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+
+    <!-- preload images -->
+
+    <link rel="preload" href="{{ url_for('static', filename='assets/images/hero-banner.png') }}" as="image" />
+  </head>
+  <body>
+    <div class="preloader" data-preloader>
+      <div class="preloader-circle"></div>
+    </div>
+
+    <header class="header" data-header>
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="{{ url_for('static', filename='assets/favicon.png') }}" width="40" alt="OS home" />
+        </a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a
+                href="#"
+                class="label-lg navbar-link has-after active"
+      
+                >Home</a
+              >
+            </li>
+            <li class="navbar-item">
+              <a
+                href="{{url_for('services')}}"
+                class="label-lg navbar-link has-after"
+                >Services</a
+              >
+            </li>
+            <li class="navbar-item">
+              <a
+                href="{{url_for('portfolio')}}"
+                class="label-lg navbar-link has-after"
+                >Portfolio</a
+              >
+            </li>
+            <li class="navbar-item">
+              <a
+                href="{{url_for('contact')}}"
+                class="label-lg navbar-link has-after"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <!-- Hero -->
+        <section class="section hero has-before" aria-label="home">
+          <div class="container">
+            <div class="hero-content">
+              <p class="hero-subtitle">👋, My name is Omar.</p>
+              <h1 class="headline-lg">I'm a Structural Engineer</h1>
+              <p class="hero-text body-md">Based in Toronto, Ontario.</p>
+              <a href="" class="btn btn-primary">Let's start</a>
+            </div>
+            <figure class="hero-banner">
+              <img
+                src="{{ url_for('static', filename='assets/images/hero-banner.png') }}"
+                width="680"
+                height="645"
+                alt="Omar Shemy hero"
+                class="w-100"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <!-- Client -->
+        <section class="client" aria-label="Trusted client">
+          <div class="container">
+            <ul class="slider">
+              <li class="slider-item">
+                <img
+                  src="{{ url_for('static', filename='assets/images/client-1.svg') }}"
+                  width="130"
+                  height="40"
+                  alt="clients"
+                  class="w-100"
+                />
+              </li>
+              <li class="slider-item">
+                <img
+                  src="{{ url_for('static', filename='assets/images/client-2.svg') }}"
+                  width="130"
+                  height="40"
+                  alt="clients"
+                  class="w-100"
+                />
+              </li>
+              <li class="slider-item">
+                <img
+                  src="{{ url_for('static', filename='assets/images/client-3.svg') }}"
+                  width="130"
+                  height="40"
+                  alt="clients"
+                  class="w-100"
+                />
+              </li>
+              <li class="slider-item">
+                <img
+                  src="{{ url_for('static', filename='assets/images/client-4.svg') }}"
+                  width="130"
+                  height="40"
+                  alt="clients"
+                  class="w-100"
+                />
+              </li>
+              <li class="slider-item">
+                <img
+                  src="{{ url_for('static', filename='assets/images/client-5.svg') }}"
+                  width="130"
+                  height="40"
+                  alt="clients"
+                  class="w-100"
+                />
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- About -->
+        <section class="section about" aria-label="about me">
+          <div class="container">
+            <figure class="about-banner">
+              <img
+                src="{{ url_for('static', filename='assets/images/profile.jpg') }}"
+                width="580"
+                height="554"
+                loading="lazy"
+                alt="Omar Shemy"
+                class="w-100"
+              />
+            </figure>
+            <div class="about-content">
+              <h2 class="title-lg">
+                I'm a Structural Designer with over 5 years of experience.
+              </h2>
+              <p class="body-md secion-text">
+                I'm a Freelancer Front-end Developer with over 3 years of
+                experience. I'm from San Francisco. I code and create web
+                elements for amazing people around the world. I like work with
+                new people. New people new Experiences.
+              </p>
+              <ul class="about-list">
+                <li>
+                  <p class="list-text">
+                    <strong class="strong title-md">100+</strong> Project
+                    Completed
+                  </p>
+                </li>
+                <li>
+                  <p class="list-text">
+                    <strong class="strong title-md">100+</strong> Happy Clients
+                  </p>
+                </li>
+              </ul>
+              <div class="wrapper">
+                <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Me</a>
+                <a href="{{url_for('portfolio')}}" class="btn btn-secondary"
+                  >Portfolio</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+
+        <section class="section skill" aria-labelledby="skill-label">
+          <div class="container">
+            <div class="skill-content">
+              <h2 class="section-title headline-md" id="skill-label">
+                My Skills
+              </h2>
+              <ul class="skill-list">
+                <li>
+                  <div
+                    class="card card-sm"
+                    style="background-color: hsl(177, 39%, 72%)"
+                  >
+                    <div class="card-media">
+                      <ion-icon name="logo-html5"></ion-icon>
+                    </div>
+                    HTML
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="card card-sm"
+                    style="background-color: hsl(41, 99%, 64%)"
+                  >
+                    <div class="card-media">
+                      <ion-icon name="logo-css3"></ion-icon>
+                    </div>
+                    CSS
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="card card-sm"
+                    style="background-color: hsl(19, 97%, 85%)"
+                  >
+                    <div class="card-media">
+                      <ion-icon name="logo-react"></ion-icon>
+                    </div>
+                    React JS
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="card card-sm"
+                    style="background-color: hsl(221, 100%, 79%)"
+                  >
+                    <div class="card-media">
+                      <ion-icon name="logo-angular"></ion-icon>
+                    </div>
+                    Angular
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="card card-sm"
+                    style="background-color: hsl(76, 39%, 72%)"
+                  >
+                    <div class="card-media">
+                      <ion-icon name="logo-apple"></ion-icon>
+                    </div>
+                    iOs App
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="card card-sm"
+                    style="background-color: hsl(245, 100%, 90%)"
+                  >
+                    <div class="card-media">
+                      <ion-icon name="logo-android"></ion-icon>
+                    </div>
+                    App Dev
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <figure class="skill-banner">
+              <img
+                src="{{url_for('static', filename='assets/images/skill-banner.png')}}"
+                width="581"
+                height="657"
+                loading="lazy"
+                alt="Omar Shemy"
+                class="w-100"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+          <div class="container">
+            <h2 class="title-lg">Interested working with me?</h2>
+            <a href="{{url_for('contact')}}" class="btn btn-tertiary">Contact Now</a>
+          </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testi" aria-labelledby="testi-label">
+          <div class="container">
+            <h2 class="headline-md section-title text-center" id="testi-label">
+              Testimonial
+            </h2>
+            <ul class="slider">
+              <li class="slider-item card-container">
+                <div class="card card-lg">
+                  <figure class="card-media">
+                    <img
+                      src="{{url_for('static', filename='assets/images/testi-1.jpg')}}"
+                      w idth="100"
+                      height="100"
+                      loading="lazy"
+                      alt="John Doe"
+                      class="img-cover"
+                    />
+                  </figure>
+                  <div class="card-content">
+                    <blockquote class="body-sm">
+                      Dolor lorem is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s.
+                    </blockquote>
+                    <p class="client-name">Jennifer Lutheran</p>
+                    <p class="client-title">CEO at ohohkay</p>
+                  </div>
+                </div>
+              </li>
+              <li class="slider-item card-container">
+                <div class="card card-lg">
+                  <figure class="card-media">
+                    <img
+                      src="{{url_for('static', filename='assets/images/testi-2.jpg')}}"
+                      w idth="100"
+                      height="100"
+                      loading="lazy"
+                      alt="John Doe"
+                      class="img-cover"
+                    />
+                  </figure>
+                  <div class="card-content">
+                    <blockquote class="body-sm">
+                      Dolor lorem is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s.
+                    </blockquote>
+                    <p class="client-name">Jennifer Lutheran</p>
+                    <p class="client-title">CEO at ohohkay</p>
+                  </div>
+                </div>
+              </li>
+              <li class="slider-item card-container">
+                <div class="card card-lg">
+                  <figure class="card-media">
+                    <img
+                      src="{{url_for('static', filename='assets/images/testi-3.jpg')}}"
+                      w idth="100"
+                      height="100"
+                      loading="lazy"
+                      alt="John Doe"
+                      class="img-cover"
+                    />
+                  </figure>
+                  <div class="card-content">
+                    <blockquote class="body-sm">
+                      Dolor lorem is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s.
+                    </blockquote>
+                    <p class="client-name">Jennifer Lutheran</p>
+                    <p class="client-title">CEO at ohohkay</p>
+                  </div>
+                </div>
+              </li>
+              <li class="slider-item card-container">
+                <div class="card card-lg">
+                  <figure class="card-media">
+                    <img
+                      src="{{url_for('static', filename='assets/images/testi-4.jpg')}}"
+                      w idth="100"
+                      height="100"
+                      loading="lazy"
+                      alt="John Doe"
+                      class="img-cover"
+                    />
+                  </figure>
+                  <div class="card-content">
+                    <blockquote class="body-sm">
+                      Dolor lorem is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s.
+                    </blockquote>
+                    <p class="client-name">Jennifer Lutheran</p>
+                    <p class="client-title">CEO at ohohkay</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+     <!-- Footer -->
+     <footer class="footer">
+      <div class="container">
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+      </div>
+     </footer>
+
+    <!-- custom js -->
+    <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

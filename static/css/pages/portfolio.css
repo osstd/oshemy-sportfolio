@@ -66,6 +66,7 @@
 
 .portfolio-card .card-text {
   margin-block: 10px 25px;
+  padding: 0 3%;
 }
 
 /* Media query */
@@ -87,4 +88,9 @@
   .portfolio-card .card-text {
     margin-block-start: 20px;
   }
+}
+
+.card-text.bullet li {
+list-style: disc;
+list-style-position: outside;
 }

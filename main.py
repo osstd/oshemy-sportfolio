@@ -68,5 +68,10 @@ def contact():
     return render_template('contact.html', result=False)
 
 
+@app.route('/portfolio/sa')
+def sa():
+    return render_template('sa.html')
+
+
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

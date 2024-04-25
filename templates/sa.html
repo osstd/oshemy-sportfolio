@@ -72,6 +72,13 @@
                 </li>
                 <li class="navbar-item">
                     <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
                             href="{{url_for('contact')}}"
                             class="label-lg navbar-link has-after"
                     >Contact</a
@@ -96,12 +103,12 @@
                         class="section-title headline-md text-center"
                         id="portfolio-label"
                 >
-                    Latest Structural Analysis
+                    Structural Analysis
                 </h2>
                 <ul class="not-portfolio-list">
                     <li>
                         <div class="portfolio-card">
-                            <span class="chip label-md">Portal Frame Building with Overhead Crane</span>
+                            <span class="chip label-md">4-storey reinforced concrete apartment building</span>
                         </div>
                         <div class="portfolio-card">
 
@@ -116,14 +123,6 @@
                                         loading="lazy"
                                         class="img-cover"
                                 />
-                                <!--                                <a href="#" class="btn-icon" aria-label="More about ..."-->
-                                <!--                                >-->
-                                <!--                                    <ion-icon-->
-                                <!--                                            name="arrow-forward-sharp"-->
-                                <!--                                            aria-hidden="true"-->
-                                <!--                                    ></ion-icon-->
-                                <!--                                    >-->
-                                <!--                                </a>-->
                             </div>
                             <div
                                     class="card-banner img-holder"
@@ -143,16 +142,15 @@
                                 </h3>
                                 <ul class="card-text bullet">
                                     <li>
-                                        Design and provide calculation packs for review on
-                                        the main portal frame members, purlins and bracing
+                                        Design and provide calculation packs on
+                                        the main gravity members, slab reinforcing steel & seismic force resisting
+                                        system
                                     </li>
                                     <li>
                                         Provide detailed mark-ups of designs for drafting
                                         team
                                     </li>
                                 </ul>
-
-                                <!--                                <a href="#" class="btn btn-primary">View Projects</a>-->
                             </div>
                             <div class="card-content">
                                 <h3 class="title-md">
@@ -164,11 +162,14 @@
                                         create critical load case combination table
                                     </li>
                                     <li>
-                                        Documented design iteration process in BlueBeam
+                                        Designed beams, columns, and flat plates using hand calculations and spSlab
                                     </li>
                                     <li>
-                                        Created 2D design drawings in BlueBeam to illustrate
-                                        design
+                                        Performed a linear dynamic analysis using ETABS in accordance with NBCC-2015
+                                        to
+                                        obtain lateral seismic forces and
+                                        designed the shear walls in S-CONCRETE, as moderately ductile according to
+                                        A23.3-14
                                     </li>
                                 </ul>
                             </div>
@@ -176,7 +177,7 @@
                     </li>
                     <li>
                         <div class="portfolio-card">
-                            <span class="chip label-md">Portal Frame Building with Overhead Crane</span>
+                            <span class="chip label-md">Demolition and Reconstruction of a Parking Garage Slab</span>
                         </div>
                         <div class="portfolio-card">
 
@@ -191,14 +192,6 @@
                                         loading="lazy"
                                         class="img-cover"
                                 />
-                                <!--                                <a href="#" class="btn-icon" aria-label="More about ..."-->
-                                <!--                                >-->
-                                <!--                                    <ion-icon-->
-                                <!--                                            name="arrow-forward-sharp"-->
-                                <!--                                            aria-hidden="true"-->
-                                <!--                                    ></ion-icon-->
-                                <!--                                    >-->
-                                <!--                                </a>-->
                             </div>
                             <div
                                     class="card-banner img-holder"
@@ -218,16 +211,12 @@
                                 </h3>
                                 <ul class="card-text bullet">
                                     <li>
-                                        Design and provide calculation packs for review on
-                                        the main portal frame members, purlins and bracing
+                                        Complete demolition and reconstruction of the parking garage structural slab
                                     </li>
                                     <li>
-                                        Provide detailed mark-ups of designs for drafting
-                                        team
+                                        Analyse the new reinforced concrete slab and design of the reinforcing steel
                                     </li>
                                 </ul>
-
-                                <!--                                <a href="#" class="btn btn-primary">View Projects</a>-->
                             </div>
                             <div class="card-content">
                                 <h3 class="title-md">
@@ -235,15 +224,196 @@
                                 </h3>
                                 <ul class="card-text bullet">
                                     <li>
-                                        Derived loads from hand calculation and used Excel to
-                                        create critical load case combination table
+                                        Specified the structural sections and details for temporary column supports
+                                        during demolition
                                     </li>
                                     <li>
-                                        Documented design iteration process in BlueBeam
+                                        Conducting analysis using spSlab and SAFE and designing the reinforcing steel
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Structural Steel Frame Vertical Addition</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/sa/p4-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/sa/p4-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Analysis and design of all structural steel columns, beams, joists, cold formed
+                                        decks, diaphragms and moment frames
                                     </li>
                                     <li>
-                                        Created 2D design drawings in BlueBeam to illustrate
-                                        design
+                                        Coordinated the structure with the intricate architectural layout
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Used ETABS to design gravity members & seismic moment frames according to S16-14
+                                    </li>
+                                    <li>
+                                        Participated in coordination meetings with a team of architects, structural
+                                        engineers, mechanical engineers and general
+                                        contractors to realize client requirements while ensuring structural feasibility
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Aircraft Hangar</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/sa/p5-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/sa/p5-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Analysis and design of all structural steel columns, beams, box trusses, cold
+                                        formed
+                                        decks, diaphragm and concentric cross-braced frames
+                                    </li>
+                                    <li>
+                                        Meticulous design accounted for torsion caused by the eccentricity
+                                        between the center of mass and center of rigidity. The offset was due to the
+                                        absence of bracing bents on the mega-door side of the structure
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Derived loads from hand calculation and used Excel to iterate for the center of
+                                        rigidity and to transfer the torsional moment to the three remaining cross-braced
+                                        sides of the structure
+                                    </li>
+                                    <li>
+                                        Utilized a SAP2000 3D model to design wind columns, box trusses and verify the
+                                        chosen lateral sections from hand calculations
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Portal Frame Building With Overhead Crane</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/sa/p3-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/sa/p3-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Design and provide calculation packs for review on the main portal
+                                        frame members, purlins and bracing
+                                    </li>
+                                    <li>
+                                        Provide detailed markups of designs for drafting team
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Used SAP2000 to output design actions
+                                    </li>
+                                    <li>
+                                        Documented design iteration process in Bluebeam
                                     </li>
                                 </ul>
                             </div>
@@ -260,27 +430,32 @@
 <footer class="footer">
     <div class="container">
         <ul class="social-list">
-            <li>
+            <li class="none">
                 <a href="#" class="social-link">
                     <ion-icon name="logo-facebook"></ion-icon>
                 </a>
             </li>
             <li>
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="social-link">
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
                     <ion-icon name="logo-linkedin"></ion-icon>
                 </a>
             </li>
             <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
                 <a href="#" class="social-link">
                     <ion-icon name="logo-pinterest"></ion-icon>
                 </a>

@@ -1,277 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>OS | Services</title>
 
     <!-- favicon -->
 
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
 
 
     <!-- google font -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
     />
 
     <!-- custom css -->
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/services.css') }}" />
-  </head>
-  <body>
-    <!-- Preloader -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/services.css') }}"/>
+</head>
+<body>
+<!-- Preloader -->
 
-    <div class="preloader" data-preloader>
-      <div class="preloader-circle"></div>
-    </div>
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
 
-    <!-- Header -->
+<!-- Header -->
 
-    <header class="header" data-header>
-      <div class="container">
+<header class="header" data-header>
+    <div class="container">
         <a href="{{url_for('home')}}" class="logo">
-          <img src="{{ url_for('static', filename='assets/favicon.png') }}" width="40" alt="OS home" />
+            <img src="{{ url_for('static', filename='assets/favicon.png') }}" width="40" alt="OS home"/>
         </a>
         <nav class="navbar" data-navbar>
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a
-                href="{{url_for('home')}}"
-                class="label-lg navbar-link has-after"
-                >Home</a
-              >
-            </li>
-            <li class="navbar-item">
-              <a
-                href="#"
-                class="label-lg navbar-link has-after active"
-                >Services</a
-              >
-            </li>
-            <li class="navbar-item">
-              <a
-                href="{{url_for('portfolio')}}"
-                class="label-lg navbar-link has-after"
-                >Portfolio</a
-              >
-            </li>
-            <li class="navbar-item">
-              <a
-                href="{{url_for('contact')}}"
-                class="label-lg navbar-link has-after"
-                >Contact</a
-              >
-            </li>
-          </ul>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
         </nav>
 
         <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
 
         <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
-          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
         </button>
-      </div>
-    </header>
+    </div>
+</header>
 
-    <main>
-      <article>
+<main>
+    <article>
         <!-- Service -->
         <section
-          class="section service has-bg-image"
-          aria-labelledby="service-label"
-          style="background-image: url('{{ url_for('static', filename='assets/images/service-bg.png') }}')"
+                class="section service has-bg-image"
+                aria-labelledby="service-label"
+                style="background-image: url('{{ url_for('static', filename='assets/images/service-bg.png') }}')"
         >
-          <div class="container">
-            <h2
-              class="section-title headline-md text-center"
-              id="service-label"
-            >
-              My Services
-            </h2>
-            <ul class="service-list">
-              <li class="card-container">
-                <div
-                  class="card card-md"
-                  style="background-color: hsl(177, 39%, 72%)"
+            <div class="container">
+                <h2
+                        class="section-title headline-md text-center"
+                        id="service-label"
                 >
-                  <div class="card-media">
-                    <ion-icon
-                      name="phone-portrait-outline"
-                      aria-hidden="true"
-                    ></ion-icon>
-                  </div>
-                  <div>
-                    <h3 class="card-title title-sm">Web Design</h3>
-                    <p class="body-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="card-container">
-                <div
-                  class="card card-md"
-                  style="background-color: hsl(41, 99%, 64%)"
-                >
-                  <div class="card-media">
-                    <ion-icon
-                      name="laptop-outline"
-                      aria-hidden="true"
-                    ></ion-icon>
-                  </div>
-                  <div>
-                    <h3 class="card-title title-sm">Development</h3>
-                    <p class="body-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="card-container">
-                <div
-                  class="card card-md"
-                  style="background-color: hsl(19, 97%, 85%)"
-                >
-                  <div class="card-media">
-                    <ion-icon
-                      name="stats-chart-outline"
-                      aria-hidden="true"
-                    ></ion-icon>
-                  </div>
-                  <div>
-                    <h3 class="card-title title-sm">SEO Marketing</h3>
-                    <p class="body-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="card-container">
-                <div
-                  class="card card-md"
-                  style="background-color: hsl(221, 100%, 79%)"
-                >
-                  <div class="card-media">
-                    <ion-icon
-                      name="shapes-outline"
-                      aria-hidden="true"
-                    ></ion-icon>
-                  </div>
-                  <div>
-                    <h3 class="card-title title-sm">Web Design</h3>
-                    <p class="body-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="card-container">
-                <div
-                  class="card card-md"
-                  style="background-color: hsl(76, 39%, 72%)"
-                >
-                  <div class="card-media">
-                    <ion-icon
-                      name="code-slash-outline"
-                      aria-hidden="true"
-                    ></ion-icon>
-                  </div>
-                  <div>
-                    <h3 class="card-title title-sm">Development</h3>
-                    <p class="body-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="card-container">
-                <div
-                  class="card card-md"
-                  style="background-color: hsl(245, 100%, 90%)"
-                >
-                  <div class="card-media">
-                    <ion-icon
-                      name="globe-outline"
-                      aria-hidden="true"
-                    ></ion-icon>
-                  </div>
-                  <div>
-                    <h3 class="card-title title-sm">SEO Marketing</h3>
-                    <p class="body-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    My Services
+                </h2>
+                <figure class="services-banner">
+                    <img
+                            src="{{url_for('static', filename='assets/images/services-banner.jpg')}}"
+                            width="572"
+                            height="641"
+                            loading="lazy"
+                            alt="Omar Shemy"
+                            class="w-100"
+                    />
+                </figure>
+                <ul class="service-list">
+                    <li class="card-container">
+                        <div
+                                class="card card-md"
+                                style="background-color: hsl(177, 39%, 72%)"
+                        >
+                            <div class="card-media">
+                                <ion-icon
+                                        name="chevron-forward"
+                                        aria-hidden="true"
+                                ></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="card-title title-sm">Structural Analysis & Design</h3>
+                                <p class="body-sm">
+                                    Designing and analyzing structures such as buildings, foundations, bridges and
+                                    other infrastructure to ensure they meet governing code, safety, performance, and
+                                    durability requirements.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="card-container">
+                        <div
+                                class="card card-md"
+                                style="background-color: hsl(41, 99%, 64%)"
+                        >
+                            <div class="card-media">
+                                <ion-icon
+                                        name="chevron-forward"
+                                        aria-hidden="true"
+                                ></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="card-title title-sm">Structural Inspections</h3>
+                                <p class="body-sm">
+                                    Conducting structural inspections and assessments of existing buildings and
+                                    infrastructure to identify potential issues, assess structural integrity, and
+                                    recommend repairs or upgrades as required.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="card-container">
+                        <div
+                                class="card card-md"
+                                style="background-color: hsl(19, 97%, 85%)"
+                        >
+                            <div class="card-media">
+                                <ion-icon
+                                        name="chevron-forward"
+                                        aria-hidden="true"
+                                ></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="card-title title-sm">Construction Support Services</h3>
+                                <p class="body-sm">
+                                    Providing technical support during the construction phase, including reviewing
+                                    shop drawings, responding to contractor RFIs, and conducting site visits
+                                    to ensure compliance with design specifications.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="card-container">
+                        <div
+                                class="card card-md"
+                                style="background-color: hsl(221, 100%, 79%)"
+                        >
+                            <div class="card-media">
+                                <ion-icon
+                                        name="chevron-forward"
+                                        aria-hidden="true"
+                                ></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="card-title title-sm">Building Information Modeling (BIM)</h3>
+                                <p class="body-sm">
+                                    Utilizing BIM technology to create detailed 3D models of structures, facilitating
+                                    collaboration between project stakeholders, improving design accuracy, and
+                                    optimizing construction processes.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="card-container">
+                        <div
+                                class="card card-md"
+                                style="background-color: hsl(76, 39%, 72%)"
+                        >
+                            <div class="card-media">
+                                <ion-icon
+                                        name="chevron-forward"
+                                        aria-hidden="true"
+                                ></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="card-title title-sm">Project Management</h3>
+                                <p class="body-sm">
+                                    Overseeing construction projects from start to
+                                    completion, including scheduling, resource allocation, coordination with
+                                    stakeholders and quality control to ensure project
+                                    delivery within scope, time, and budget constraints.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="card-container">
+                        <div
+                                class="card card-md"
+                                style="background-color: hsl(245, 100%, 90%)"
+                        >
+                            <div class="card-media">
+                                <ion-icon
+                                        name="chevron-forward"
+                                        aria-hidden="true"
+                                ></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="card-title title-sm">Cost Estimation and Compliance</h3>
+                                <p class="body-sm">
+                                    Developing cost estimates for construction projects, including material costs, labor
+                                    costs, and other expenses, and ensuring compliance with budget constraints and
+                                    financial considerations throughout the project lifecycle.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </section>
-      </article>
-    </main>
+    </article>
+</main>
 
-    <!-- Footer -->
+<!-- Footer -->
 
-    <footer class="footer">
-      <div class="container">
+<footer class="footer">
+    <div class="container">
         <ul class="social-list">
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-pinterest"></ion-icon>
-            </a>
-          </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
         </ul>
         <p class="text-center">&copy; 2024 copyright all right reserved</p>
-      </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- custom js -->
-    <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
 </html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Portfolio | ER</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Portfolio | ER </a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-md text-center"
+                        id="portfolio-label"
+                >
+                    Engineering Reports
+                </h2>
+                <div>
+                    <p class="card-text">
+                        Structural engineering reports play a crucial role in the communication and
+                        documentation of engineering projects. These reports provide a comprehensive overview of design
+                        considerations, analysis methodologies, results, and recommendations. Effective
+                        writing involves clear and concise language, precise technical details, accurate data
+                        representation, and adherence to industry standards, codes and regulations and best practices.
+                        Structural reports, in particular, focus on detailing the structural analysis, design
+                        calculations, load assessments,
+                        and safety considerations.
+                    </p>
+                </div>
+
+                <ul class="not-portfolio-list">
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Site Visit Report</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                I've conducted numerous construction site visit reports, similar to this <a
+                                    href="{{url_for('file', num=15)}}" class="not-tag">sample.</a> These visits occur
+                                during the construction phase, involving thorough inspections of structural elements and
+                                detailed report writing to ensure compliance with the provided structural drawings.
+                                Reports are supplemented by photographs and/or demonstrative figures, sketches, excerpts
+                                from plans, sections, details, directives, structural notes, etc., as required for
+                                enforcing instructions or clearing any confusion.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Structural Survey Report</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Structural surveys are undertaken to report on structural defects, such as cracks in
+                                walls, damage caused by water, subsidence, or movement of foundations, among others. The
+                                initial report is usually based on visual inspections of the concerned area.
+                                Additionally, it identifies whether further intrusive investigations are necessary to
+                                determine the cause and condition of the defect(s). Recommendations on how to proceed
+                                and whether the problem extends to or affects additional areas/structural components are
+                                included.
+                            <p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Building Envelope Report</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                It could also be referred to as a facade inspection. Crumbling concrete cladding and
+                                collapsing
+                                or cracking facades represent risks to public safety. These risks can be reduced—or even
+                                eliminated—through thorough and consistent preventive maintenance, including building
+                                envelope inspections and reports. These reports are typically lengthy. I have conducted
+                                more than 10 envelope inspections. The reports usually include:
+                            </p>
+                            <ul class="card-text bullet-nest">
+                                <li>
+                                    The location and
+                                    description of the defects and their causes, which can contribute to the development
+                                    of
+                                    dangerous conditions (infiltrations, rust, efflorescence, scaling, cracks, etc.) as
+                                    well
+                                    as all problems with connectors or ties noted on components attached to any one of
+                                    the
+                                    facades
+                                </li>
+                                <li>
+                                    A description of the work needed for remedial actions, along with the recommended
+                                    schedule for carrying out these actions, if applicable
+                                </li>
+                                <li>
+                                    A summary of the report confirming that the facades of the building do not show
+                                    signs of
+                                    any dangerous condition, and if applicable, that recommendations have been issued to
+                                    the
+                                    owner in view of rectifying the defects reported
+                                </li>
+                                <li>
+                                    Appendices for the photos, drawings and all other relevant data which may complement
+                                    the
+                                    report
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Method Statements Report</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Depending on the project's complexity and scope of work, method statements can be
+                                provided to delineate the construction management approach. Typically, these statements
+                                detail the planned works and their execution to ensure safe and efficient construction
+                                with minimal adverse effects. Throughout the construction process, the method statement
+                                undergoes constant review, with any changes or enhancements resubmitted and approved by
+                                the relevant stakeholders.
+                            <p>
+                            <p class="card-text">
+                                Method statements are essential for assessing hazards and risks associated with
+                                construction activities. They are particularly critical for temporary works to prevent
+                                compromising the structural integrity of the building and neighboring properties. These
+                                statements may be mandated by party wall notices or required for submission to local
+                                authorities before obtaining permission for the proposed construction activities.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Feasibility Study and Report</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Feasibility studies are conducted in the initial phases of a new project to evaluate its
+                                feasibility across technical, economic, legal, operational, and scheduling dimensions.
+                                This evaluation becomes especially crucial during the renovation of existing properties
+                                as well,
+                                where alterations whether adding an internal atrium or adding extra floors must not
+                                compromise the building's structural integrity.
+                            <p>
+                            <p class="card-text">
+                                When evaluating existing buildings, it's vital to consider the five aforementioned
+                                factors. Firstly, any significant structural defects prompt a decision on whether the
+                                building should be demolished or repaired. Subsequently, design proposals, such as
+                                adding or removing floors, walls, or columns, are assessed. This includes vertical
+                                additions, where new floors are added to a building or existing structures are modified.
+                            </p>
+                            <p class="card-text">
+                                I've written multiple reports of varying length and scope. These
+                                range from simple assessments of equipment and additional loads in settings like banks,
+                                hospitals, and warehouses to more complex reports for existing structures involving
+                                significant modifications. In these complex cases, I compile relevant drawings from
+                                different construction phases of the buildings. It's common for buildings to undergo
+                                multiple modifications, extensions, and additions throughout their lifetime.
+                            </p>
+                            <p class="card-text">
+                                During these studies, I conduct site visits to ensure that the most current conditions
+                                align with the available compiled drawings. If needed, I also prepare sketches and
+                                updated plans to fill in any missing information. Additionally, I conduct structural
+                                models and preliminary analyses to ensure the feasibility of proposed changes.
+                                Regardless of the project's size, I always follow the essential steps outlined below to
+                                maintain thoroughness and accuracy.
+                            </p>
+                            <ul class="card-text bullet-nest">
+                                <li>
+                                    Desktop Study
+                                    <ul class="card-text bullet-inner">
+                                        <li>
+                                            Historical background of building
+                                        </li>
+                                        <li>
+                                            Current or previous technical drawings
+                                        </li>
+                                        <li>
+                                            Any other relevant documentation
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Site visit & inspection
+                                    <ul class="card-text bullet-inner">
+                                        <li>
+                                            On site discussion in regard to structural surveys and reports
+                                        </li>
+                                        <li>
+                                            Review of site parameters such as building fabric & load paths
+                                        </li>
+                                        <li>
+                                            Assessment of relevant factors such as condition, adjacent buildings etc.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Structural options & discussion
+                                    <ul class="card-text bullet-inner">
+                                        <li>
+                                            Assessment of proposed scheme from structural perspective
+                                        </li>
+                                        <li>
+                                            Whether it is technically feasible or not
+                                        </li>
+                                        <li>
+                                            Feasible design options
+                                        </li>
+                                        <li>
+                                            Discussion of options such as complexity, practicality, impact on proposed
+                                            architecture, etc.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Recommendations & conclusions
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

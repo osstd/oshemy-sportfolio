@@ -65,6 +65,13 @@
                 </li>
                 <li class="navbar-item">
                     <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
                             href="{{url_for('contact')}}"
                             class="label-lg navbar-link has-after"
                     >Contact</a
@@ -89,7 +96,7 @@
                         class="section-title headline-md text-center"
                         id="portfolio-label"
                 >
-                    Latest Projects
+                    Portfolio
                 </h2>
                 <ul class="portfolio-list">
                     <li>
@@ -99,29 +106,24 @@
                                     style="--width: ; --height: "
                             >
                                 <img
-                                        src="{{url_for('static', filename='assets/images/sam.png')}}"
+                                        src="{{url_for('static', filename='assets/images/1.jpeg')}}"
                                         width="800"
                                         height="540"
                                         loading="lazy"
                                         class="img-cover"
                                 />
-                                <a href="#" class="btn-icon" aria-label="More about ..."
-                                >
-                                    <ion-icon
-                                            name="arrow-forward-sharp"
-                                            aria-hidden="true"
-                                    ></ion-icon
-                                    >
-                                </a>
                             </div>
                             <div class="card-content">
                                 <span class="chip label-md">Structural Analysis</span>
                                 <h3 class="title-md">
-                                    Projects related to Structural Analysis
+                                    Demonstrations of Various Structural Analyses
                                 </h3>
                                 <p class="card-text">
                                     Proficient in conducting comprehensive structural analyses using advanced software
-                                    tools to ensure the integrity and safety of diverse construction projects.
+                                    tools to ensure the integrity and safety of diverse construction projects. All
+                                    analyses are carried out to meet the requirements of the NBCC (National Building
+                                    Code of Canada) Part 4 Structural Design, the respective provincial and
+                                    appropriate material standards.
                                 </p>
 
                                 <a href="{{url_for('sa')}}" class="btn btn-primary">View Projects</a>
@@ -135,35 +137,191 @@
                                     style="--width: ; --height: "
                             >
                                 <img
-                                        src="{{url_for('static', filename='assets/images/markups.png')}}"
+                                        src="{{url_for('static', filename='assets/images/2.png')}}"
                                         width="800"
                                         height="540"
                                         loading="lazy"
                                         class="img-cover"
                                 />
-                                <a href="#" class="btn-icon" aria-label="More about ..."
-                                >
-                                    <ion-icon
-                                            name="arrow-forward-sharp"
-                                            aria-hidden="true"
-                                    ></ion-icon
-                                    >
-                                </a>
                             </div>
                             <div class="card-content">
-                                <span class="chip label-md">Web Design</span>
+                                <span class="chip label-md">Component Analysis</span>
                                 <h3 class="title-md">
-                                    Engineering Markups
+                                    Individual member & component analysis
+                                </h3>
+                                <p class="card-text">
+                                    It is crucial to emphasize the analysis and design of individual members,
+                                    components, or concepts. Focusing on specific local elements allows for a deeper
+                                    understanding of their behavior under unusual loads, such as torsional stresses or
+                                    repetitive loading conditions. Through my experience, I have developed an excellent
+                                    ability to model, test, analyze, and design individual components using a range of
+                                    tools, including experimental modeling techniques and nonlinear finite element
+                                    methods.
+                                </p>
+
+                                <a href="{{url_for('ca')}}" class="btn btn-primary">View components</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/3.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <span class="chip label-md">Engineering Markups</span>
+                                <h3 class="title-md">
+                                    Engineering Drawing
                                 </h3>
                                 <p class="card-text">
                                     Demonstrated expertise in producing detailed engineering markups and annotations for
-                                    architectural and construction drawings. Skilled in communicating design
+                                    structural and construction drawings. Skilled in communicating design
                                     modifications and technical specifications effectively to interdisciplinary teams,
                                     ensuring seamless collaboration and accurate implementation in construction
                                     projects.
                                 </p>
 
-                                <a href="#" class="btn btn-primary">View markups</a>
+                                <a href="{{url_for('ed')}}" class="btn btn-primary">View drawings</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/4.jpeg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <span class="chip label-md">Engineering Calculations</span>
+                                <h3 class="title-md">
+                                    Engineering Design
+                                </h3>
+                                <p class="card-text">
+                                    I have attained mastery in engineering calculations and tools, employing advanced
+                                    software, mathematical modeling, and first principles to optimize designs, and
+                                    assess performance. Through meticulous analysis, innovative problem-solving, and
+                                    adherence
+                                    to national and provincial standards, I create efficient and sustainable designs
+                                    that meet client requirements.
+                                </p>
+
+                                <a href="{{url_for('ec')}}" class="btn btn-primary">View calculations</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/6.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <span class="chip label-md">Engineering Writing</span>
+                                <h3 class="title-md">
+                                    Structural Engineering Reports
+                                </h3>
+                                <p class="card-text">
+                                    Structural reports play a crucial role in the communication and documentation of
+                                    engineering projects. I have mastered writing structural reports, in particular,
+                                    that focus on detailing the
+                                    structural analysis, design calculations, load assessments, and safety
+                                    considerations. These reports serve as valuable tools for project stakeholders,
+                                    regulatory bodies, and construction
+                                    teams.
+                                </p>
+
+                                <a href="{{url_for('er')}}" class="btn btn-primary">View reports</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/5.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <span class="chip label-md">Structural Observations</span>
+                                <h3 class="title-md">
+                                    Real Life Observations
+                                </h3>
+                                <p class="card-text">
+                                    It has become a habit of mine to observe and study structures whenever I see one,
+                                    from old bridges to roof beams and construction sites. As a keen structural
+                                    engineer,
+                                    I try to think about their behavior and challenge myself to think about their
+                                    structural design.
+                                </p>
+
+                                <a href="{{url_for('eo')}}" class="btn btn-primary">View observations</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/7.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <span class="chip label-md">Tech Projects</span>
+                                <h3 class="title-md">
+                                    Demonstrations of Tech Applications
+                                </h3>
+                                <p class="card-text">
+                                    I am adept at leveraging technology, having developed numerous web applications
+                                    encompassing both front-end and back-end components. This includes the portfolio
+                                    website you are currently viewing, my <a class="not-tag"
+                                                                             href="https://the-blog-rouge.vercel.app">blog</a>,
+                                    and a variety of calculators designed
+                                    for different purposes like this beam <a class="not-tag"
+                                                                             href="https://beam-calculator-vercel.vercel.app">calculator</a>
+                                    and multiple calculators like <a class="not-tag"
+                                                                     href="https://the-column-calculator.vercel.app">this</a>.
+                                </p>
+
+                                <!--                                <a href="{{url_for('eo')}}" class="btn btn-primary">View observations</a>-->
                             </div>
                         </div>
                     </li>
@@ -178,27 +336,32 @@
 <footer class="footer">
     <div class="container">
         <ul class="social-list">
-            <li>
+            <li class="none">
                 <a href="#" class="social-link">
                     <ion-icon name="logo-facebook"></ion-icon>
                 </a>
             </li>
             <li>
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="social-link">
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
                     <ion-icon name="logo-linkedin"></ion-icon>
                 </a>
             </li>
             <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
                 <a href="#" class="social-link">
                     <ion-icon name="logo-pinterest"></ion-icon>
                 </a>

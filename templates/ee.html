@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Experience | Professional</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/ee.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Experience | Professional</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-sm text-center"
+                        id="portfolio-label"
+                >
+                    Professional Experience
+                </h2>
+                <div>
+                    <div class="card">
+                        <h1>Omar Shemy, M.Eng., A.M. ASCE</h1>
+                        <h1>Structural EIT</h1>
+
+                        <p>
+                            Omar Shemy joined Ojdrovic Engineering in 2023, bringing a wealth of knowledge acquired
+                            through a distinguished
+                            academic journey and professional experience. Omar has shown a thorough understanding of
+                            building structures through
+                            his work designing structural elements and connections on two 4-storey concrete structures,
+                            a storage structural
+                            steel
+                            facility and various deluxe houses.
+                        </p>
+
+                        <p>
+                            Mr. Shemy joined D.L. Turner Consultants Inc. in 2021. Since joining Turner, Mr. Shemy has
+                            been dedicated
+                            to honing his skills in structural analysis and design. Mr. Shemy has been actively
+                            conducting site visits during
+                            construction,
+                            where he inspects structural elements and writes reports to verify compliance with
+                            structural drawings.
+                            Additionally,
+                            he is responsible for preparing feasibility reports for structural interventions and
+                            producing reports on
+                            building envelope conditions and facade assessments.
+                        </p>
+
+                        <h2>Experience</h2>
+                        <p>Aug. 2023 – Oct. 2023 Ojdrovic Engineering,
+                            Structural EIT<br>
+                            Aug. 2021 – Apr. 2023 D. L. Turner Consultants Inc.,
+                            Junior Engineer</p>
+                        <h2>Education</h2>
+                        <p>M. Eng.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Civil Engineering (Structural), McGill
+                            University, Montreal,
+                            QC, 2021.<br>
+                            B. Eng.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Civil Engineering, McGill
+                            University, Montreal, QC,
+                            2018.</p>
+
+                        <h2>Relevant Project Experience</h2>
+
+                        <p class="leading-first-line">TLA Architects – <b>2500 Henri Bourassa</b> – 4-storey reinforced
+                            concrete residential
+                            (apartment) building with 1 basement, Montreal, 2022-2023. This structure consists of 4
+                            storeys, a green roof
+                            and a penthouse. Columns are continuous up to the roof of the fourth story, which is a green
+                            roof. The columns
+                            of the penthouse are supported on 18 transfer beams that transfer the loads to the green
+                            roof columns. Mr. Shemy
+                            was responsible for the analysis and design of all reinforced concrete footings, foundation
+                            walls, flat plates,
+                            columns, and transfer beams.</p>
+                        <p class="leading-first-line">Architem – <b>Dym Residence</b> – 2-storey deluxe house with a
+                            basement,
+                            Saint-Agathe-Des-Monts, 2021-2023. The structure consists of conventional ground and 2nd
+                            floor wood joists and steel
+                            framing, wood roof trusses and reinforced concrete foundation wall. The intricate
+                            architecture required 3-20 ft
+                            moment frames over windows to gain an un obstructed view of the scenery in front of the
+                            house. Mr. Shemy was
+                            responsible for the analysis and design of all the structural wood framing and wood shear
+                            walls, structural steel
+                            moment frames.</p>
+                        <p class="leading-first-line">Architem – <b>Aucoin</b> – 2-storey deluxe house with a basement,
+                            Knowlton, 2021-2023. The
+                            structure consists of conventional ground and 2nd floor wood joists and steel framing, wood
+                            roof trusses and
+                            reinforced concrete foundation wall. The Architectural layout required that one side of the
+                            house be free of any
+                            wood walls or steel bracings. Mr. Shemy was responsible for the analysis and design of all
+                            the structural wood
+                            framing and wood shear walls, structural steel moment frames to resist the torsional load
+                            resulting from the side of
+                            the house that doesn’t have lateral bracing.</p>
+                        <p class="leading-first-line">Caouette Architecte - <b>651 Notre-Dame West</b> – 6-storey
+                            masonry (brick and stone)
+                            building, Montreal. Detailed RBQ inspection of the front and rear facades. Rehabilitation of
+                            the (South) front,
+                            (West) stone facades and (North) rear brick façade. Mr. Shemy reported recommendations
+                            regarding: The stabilization,
+                            repairs and repointing of North facade cracked and damaged brick and stone pieces. Repair of
+                            damaged cut stone
+                            columns, replacement of damaged stone and brick on the West and South façades. Replacement
+                            of copper cornices and
+                            roof flashing on all facades.</p>
+                        <p class="leading-first-line">Pitsas Architectes – <b>Triassi Residence</b> – Basement
+                            renovation, Montreal, 2022.
+                            2-storey house supported on perimeter foundation walls and 3 load bearing CMU walls in
+                            between. At the client's
+                            request to convert the space into a six-car garage, Mr. Shemy undertook the responsibility
+                            of designing steel
+                            structure, comprising beams and columns to replace the loadbearing block walls, ensuring the
+                            transfer of loads while
+                            achieving the required open space.</p>
+                        <p class="leading-first-line">Agence Imagine Inc. – <b>Appin Residence</b> - Montreal, 2022. In
+                            a renovation project
+                            involving an existing 2-storey house with a basement, Mr. Shemy was tasked with
+                            accommodating a client's request for
+                            a 22-foot window overlooking the sunroom while retaining the existing sunroom structure. It
+                            was required to transfer
+                            the edge roof load of the sunroom in an eccentric manner to a new structural steel beam
+                            positioned directly over the
+                            window, which also needed to support the wood framing from the floor above. Mr. Shemy
+                            undertook the design of a
+                            special steel beam capable of resisting torsion resulting from eccentric loads.</p>
+                        <p class="leading-first-line">Cormier Lefebvre Architectes – <b>Nouveau Triplex</b> - 3-story
+                            wood residential
+                            (apartment) building, Laval, 2022. The structure consists of load bearing wood shear walls
+                            on the perimeter, wood
+                            joists and structural steel framing, wood roof trusses and reinforced concrete spread
+                            footings. Mr. Shemy analysed
+                            and designed all the shear walls, wood joists and structural steel gravity members.</p>
+                        <p class="leading-first-line">Zinno Zappitelli Architects – <b>Public Storage</b> – 2-storey
+                            structural steel storage
+                            facility – 22,000 sq. ft., Laval, 2021-2022. This Public Storage consists of two storeys in
+                            structural steel, a
+                            cantilever (Gerber) roof and concentrically braced frames. Mr. Shemy handled analysis and
+                            design of all reinforced
+                            concrete footings, pilasters, foundation walls and structural steel columns, beams, and
+                            bracings.</p>
+                        <h2>Roles & Responsibilities Expanded</h2>
+                        <p>- Perform structural analysis and design calculations using the governing provincial, federal
+                            and municipal codes and
+                            standards and engineering formulas<br>
+                            - Layout and detail portions of projects using schematic drawings prepared by the project
+                            lead engineer<br>
+                            - Preparation of plans, sections and details to incorporate in drawings by the technical
+                            draftsmen<br>
+                            - Research design options and technical documents and material specifications for project
+                            lead
+                            engineer<br>
+                            - Review of detailed structural shop drawings<br>
+                            - Direct and supervise the technical draftsmen<br>
+                            - Coordination of the structural drawings and design with the architectural and mechanical
+                            drawings and requirements to realize client requirements while ensuring structural
+                            feasibility and balancing
+                            environmental impact<br>
+                            - Attend and participate in coordination meetings with the Architect, General Contractor and
+                            Client<br>
+                            - Perform on site structural surveys including visual observations and inspections,
+                            recording of
+                            existing field conditions, take and verify measurements within existing buildings or ongoing
+                            construction projects</p>
+                        <p><strong style="font-size:15px;">Skills: </strong>Structural Analysis · Structural Dynamics ·
+                            Earthquake Resistant
+                            Design · Finite Element Analysis (FEA) · Planning · Critical Thinking · Problem-Solving ·
+                            Teamwork · Time Management
+                            · Research</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

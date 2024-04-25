@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Portfolio | CA</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Portfolio | CA </a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-md text-center"
+                        id="portfolio-label"
+                >
+                    Component Analysis
+                </h2>
+                <ul class="not-portfolio-list">
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Shear Strength of Short Reinforced Concrete Columns</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p1-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p1-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Developed a novel formula to predict the shear strength of short rectangular
+                                        bridge columns
+                                    </li>
+                                    <li>
+                                        Produced extensive report, including a literature review, testing methodologies,
+                                        detailed discussion, and analysis of results
+                                    </li>
+                                </ul>
+                                <!--                                <a href="#" class="btn btn-primary">View Projects</a>-->
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Proposed a simplified superposition procedure to predict shear strength of short
+                                        reinforced concrete bridge columns
+                                    </li>
+                                    <li>
+                                        Verified against experimental results and non-linear finite elements in VecTor2,
+                                        achieving 21% more accuracy in strength predictions
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Structural Steel Beam Eccentric Loading</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p8-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                        id="des"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p8-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        The <a class="not-tag" href="{{url_for('ed')}}#seq">brick veneer</a> shown and the bearing wall behind it were to be removed to make
+                                        room for a new 22 feet wide opening
+                                    </li>
+                                    <li>
+                                        A new structural steel beam was to be placed to support the existing
+                                        bearing wall and the brick veneer above the second floor, the second floor
+                                        joists in addition to the existing W8 beam from the lower roof shown in the
+                                        picture
+                                    </li>
+                                    <li>
+                                        The loading from the existing W8x40 supporting the external pergola, will be
+                                        acting at an eccentricity to the new proposed W14 beam centerline
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Measured dimensions of existing structural steel beams, wood joists, brick
+                                        veneer, wall composition,
+                                        gap tolerances and elevation differences
+                                    </li>
+                                    <li>
+                                        Carried out a detailed torsional (eccentric loading) sensitivity
+                                        structural analysis for the new W14 beam above the 22 feet wide
+                                        opening
+                                    </li>
+                                    <li>
+                                        Utilized AISC Design Guide 9: Torsional Analysis and WinTORQ to
+                                        calculate the torsional rotations
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Reinforcement fo Structural Steel Truss</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p4-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p4-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Reinforce existing structural steel truss in school gymnasium to support a
+                                        new soccer field placed above the roof of the gym
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Measured dimensions of existing truss members and tabulated member sizes
+                                    </li>
+                                    <li>
+                                        Utilized structural steel coupons, member sizes and bracing to
+                                        estimate the carrying capacity of the existing truss
+                                    </li>
+                                    <li>
+                                        Used EXCEL to derive the design actions on the truss from the
+                                        additional loads
+                                    </li>
+                                    <li>
+                                        Verified deflection calculations using a 2D model in SAP2000
+                                    </li>
+                                    <li>
+                                        Applied structural steel design principles to size steel plate reinforcement and
+                                        intermittent welds
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Reinforcing Bridge Girders Using FRP Shear Strips</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p5-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p5-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Examine the strengthening of prestressed concrete bridge girders using carbon
+                                        fiber reinforced polymer fabric
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Successfully executed the testing, study and comparison of the response of 4
+                                        specimens in 1/2 scale size, modeling old Champlain Bridge girders
+                                    </li>
+                                    <li>
+                                        Presented technical conference poster detailing the study and findings
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Old Champlain Bridge Pier Cap Retrofit Study</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p6-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p6-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Study the behavior of variable-depth cap beams at service loading and at
+                                        failure to analyze the effectiveness of crack control reinforcement and inclined
+                                        reinforcement
+                                    </li>
+                                    <li>
+                                        Investigate the influence of added external
+                                        horizontal post-tensioning
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Successfully executed the testing, study and comparison of the response of 4
+                                        specimens in 1/2 scale size, modeling old Champlain Bridge pier caps
+                                    </li>
+                                    <li>
+                                        Assisted in preparing the results, which were then summarized in a technical
+                                        paper
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Pile cap load capacity study</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p7-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p7-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Evaluate the capacity of the reinforced concrete pile cap to determine
+                                        the number of additional floors that could be added to the existing building as
+                                        a vertical addition
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Measured dimensions of pile cap and determined number of piles
+                                    </li>
+                                    <li>
+                                        Utilized strength results from concrete core drilling, pile diameter,
+                                        pile thickness and radar scanning of the pile cap's flexural reinforcing steel
+                                        size
+                                        and spacing to determine the capacity of the pile cap
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Cantilever Retaining Wall Design</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p3-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p3-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Design of a reinforced concrete cantilever retaining wall that retains a soil
+                                        embankment
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Performed soil, hydrostatic and surcharge load calculations
+                                    </li>
+                                    <li>
+                                        Performed stability checks on the wall (i.e sliding, overturning and bearing)
+                                    </li>
+                                    <li>
+                                        Used EXCEL to derive the design actions on wall and to size reinforcement
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Numerical Simulation of Solitary Wave Run Up</span>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p2-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ca/p2-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    What?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Reliable estimation of Tsunami waves run-up heights
+                                    </li>
+                                    <li>
+                                        Reported safety factors recommendations for coastal design heights
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="title-md">
+                                    How?
+                                </h3>
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Simulate the Tsunami phenomena running up a beach by approximating it as a
+                                        solitary wave
+                                    </li>
+                                    <li>
+                                        The solitary wave was generated using a numerical simulation scheme using
+                                        ANSYS FLUENT
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

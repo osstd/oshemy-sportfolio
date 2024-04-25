@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Portfolio | ED</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Portfolio | ED </a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-md text-center"
+                        id="portfolio-label"
+                >
+                    Engineering Drawing
+                </h2>
+                <div>
+                    <p class="card-text">
+                        Drawing is a crucial part of the engineering design process. Engineers use drawings to
+                        communicate their ideas and designs to stakeholders, including other engineers, clients,
+                        contractors,
+                        and architects. Drawings can take many forms, including sketches, diagrams, plans,
+                        elevations, sections, and details, and can be created using a variety of media, including pen
+                        and paper, Bluebeam, computer-aided design (CAD) software, and three-dimensional modeling
+                        programs.
+                    </p>
+
+                    <p class="card-text">
+                        Drawings allow engineers to visualize their designs, test their ideas, and communicate their
+                        intent to others. Drawings can be used to explore different design options, evaluate the
+                        feasibility of a proposed design, identify potential problems and solutions, and ensure that all
+                        stakeholders have a clear understanding of the design and its requirements.
+                    </p>
+
+                    <p class="card-text">
+                        Engineering drawings are as important as writing; it is the way we communicate with others, so
+                        one need to get good at making them to the agreed standards.
+                    </p>
+
+                    <p class="card-text">
+                        Utilizing hand-drawn markups enhances cognitive abilities and nurtures
+                        creativity. In an era dominated by fast software tools, returning to the drawing board offers a
+                        profound understanding of how structural components fit together, considering the real world
+                        physical and material compatibility. This manual, to-scale approach fosters a deep comprehension
+                        of
+                        structural intricacies, and tolerances making subsequent work in software more efficient and
+                        informed.
+                    </p>
+                </div>
+                <ul class="not-portfolio-list">
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Markups Demonstration</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Hand-drawing to scale encompassing various construction materials such as
+                                reinforced concrete, structural steel and wood made me cultivate a deep understanding of
+                                how
+                                these materials work together within a three-dimensional space. This process enhanced my
+                                spatial visualization
+                                skills, allowing me to visualize ideas more effectively and swiftly devise
+                                creative solutions. It led me to master a hands-on approach to problem-solving,
+                                fostering a
+                                comprehensive grasp of structural interactions.
+                            </p>
+                            <p class="card-text">
+                                It is important to note that these drawings are presented without context. In
+                                practice, each specification such as member sizes, reinforcing steel spacing, and sizing
+                                would be determined according to the appropriate design. For instance, footings would be
+                                sized based on the applied forces and the capacity of the underlying soil as reported by
+                                the geotechnical
+                                engineer.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/ed1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/ed2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/ed3.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/ed4.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/ed5.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/ed6.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Spatial Visualization</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Consistent drawing practices enabled me to mentally visualize the second 3D
+                                drawing in both of the following cases, using just a 2D plan view and maybe a couple of
+                                section cuts. While Autodesk
+                                Revit has
+                                become the industry standard for 3D modeling, there are instances, such as small
+                                projects or heritage buildings, where a 3D model is not an option. More often than not
+                                there are
+                                no blueprints on record. This ability enables me to effectively understand structural
+                                dynamics,
+                                support systems, and devise innovative solutions, even in the absence of digital models
+                                or blueprints. Finally, this skill also empowers me to
+                                maintain full control and gain a thorough understanding while working with digital 3D
+                                models, significantly enhancing my efficiency.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p1-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p1-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p1-3.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p1-4.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Real Life Application</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                I've crafted these 3D sketches to enhance understanding of the situation and the
+                                construction sequence. Drawing has enabled me to swiftly and clearly grasp
+                                the nuances, facilitating efficiency on-site by knowing precisely what dimensions,
+                                thicknesses, and gaps to measure for completing my <a href="{{url_for('ca')}}#des"
+                                                                                      class="not-tag">design.</a>
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+                            <div id="seq"
+                                 class="card-banner img-holder"
+                                 style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p2-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p2-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p2-3.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p2-4.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p2-6.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p2-5.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Actual Markups</span>
+                        </div>
+                        <p class="card-text">
+                            The following are actual markups showing applied design and specifications, the markups
+                            have been taken out of context for demonstration.
+                        </p>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p3-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p3-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="card-text">
+                                Samples from a reinforced concrete structure, ground-floor beam elevations, ground-floor
+                                slab bottom and top reinforcing
+                                steel. Mezzanine transfer beam elevations and bottom and top reinforcing steel. Roof
+                                slab bottom and top steel.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-3.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-4.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-5.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-6.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-7.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-8.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-9.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p4-10.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">3D Modeling</span>
+                        </div>
+                        <p class="card-text">
+                            One sample of 3D modeling and drawing demonstration.
+                        </p>
+                        <div class="portfolio-card">
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p5-1.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ed/p5-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

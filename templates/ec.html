@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Portfolio | EC</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Portfolio | EC </a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-md text-center"
+                        id="portfolio-label"
+                >
+                    Engineering Calculations
+                </h2>
+                <div>
+                    <p class="card-text">
+                        On a daily basis, my work involves a diverse range of tools and resources essential for
+                        structural engineering tasks. This includes using specialized structural analysis software like
+                        SAP2000 and ETABS for detailed structural analyses. Additionally, I frequently employ Excel
+                        spreadsheets and Mathcad sheets for basic calculations and data organization. For more complex
+                        issues or special studies, I rely on excerpts from literature, insights from subject-matter
+                        experts, and information from software manuals. Of course, adhering to design codes and
+                        standards is integral to my work, guiding everything from initial concepts to final hand
+                        calculations. This multifaceted approach ensures that my engineering designs are robust,
+                        compliant, and thoroughly vetted.
+                    </p>
+                </div>
+
+                <ul class="not-portfolio-list">
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Engineering Software Calcs</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                The output of engineering software includes the results, data, and visualizations
+                                generated by specialized software tools. This output
+                                encompasses a wide range of information, including structural analysis reports, design
+                                calculations, graphical representations of structural behavior and optimization results.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ec/p1-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ec/p1-2.png')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Excel Spreadsheets Calcs</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Excel and structural engineering design are inseparable. Spreadsheets are versatile
+                                tools that allow various calculations, charts and data organizations to be performed and
+                                replicated on a large scale efficiently and accurately. Reports related to
+                                structural analysis, design, and documentation could readily be generated.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ec/p2-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ec/p2-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ec/p3-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/ec/p3-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Mathcad Engineering Worksheets</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Mathcad is exceptionally powerful for documenting lengthy calculations and delineating
+                                load paths. Its efficiency shines through when handling
+                                extensive and repetitive calculations, streamlining the process of documenting
+                                load distributions, iterative analyses, and intricate mathematical relationships. This
+                                capability not only enhances the clarity and organization of design calculations but
+                                also facilitates comprehensive reviews and revisions, ensuring accuracy and reliability
+                                in structural engineering documentation. A sample <a class="not-tag"
+                                                                                     href="{{url_for('static', filename='assets/files/ec/wind_load_demo.pdf')}}">here.</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Hand Calculations</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Hand calculations in structural engineering design represent a cornerstone of
+                                traditional engineering practices. A valuable documentation, offering a transparent and
+                                auditable record of design calculations and decisions. Hand calculations play a
+                                pivotal role in complementing modern computational methods. A simple <a class="not-tag"
+                                                                                                        href="{{url_for('static', filename='assets/files/ec/hand_calc_demo.pdf')}}">calculation.</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Special Study Packages</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                Special study packages encompass dedicated research and
+                                documentation efforts focused on specific concepts, load transfer mechanisms, software
+                                solution verification methods, or specialized topics of investigation. These packages
+                                are meticulously prepared, often requiring a day or more of intensive research and
+                                analysis, to compile comprehensive insights, data, and findings. They serve as valuable
+                                resources for understanding and addressing unique challenges, verifying software
+                                solutions, exploring innovative approaches. Samples <a class="not-tag"
+                                                                                       href="{{url_for('static', filename='assets/files/ec/cant_defl_demo.pdf')}}">
+                                cantilever deflection</a> and <a class="not-tag"
+                                                                 href="{{url_for('static', filename='assets/files/ec/unbalanced_mom_demo.pdf')}}">
+                                unbalanced moment.</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">First Principles Packages</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                First principles are foundational principles that underpin engineering concepts and
+                                solutions, emphasizing a fundamental understanding of physics. In the
+                                age of automation, optimization, and fast calculations, the importance of returning to
+                                first principles cannot be overstated. These principles allow us to distill complex
+                                problems into clear fundamentals, ensuring that engineering solutions respect the
+                                governing laws of physics.
+                            </p>
+
+                            <p class="card-text">In my work, I recognize the value of first principles and often prepare
+                                <a
+                                        class="not-tag"
+                                        href="{{url_for('static', filename='assets/files/ec/ps_fp_demo.pdf')}}">
+                                    packages</a>
+                                centered around studying specific concepts or situations from this perspective. These
+                                packages delve deep into the core principles relevant to the problem at hand, breaking
+                                down complexities and providing a solid framework for analysis and decision-making. By
+                                employing first principles, every problem, regardless of its complexity, can be
+                                simplified and tackled methodically, leading to robust and reliable engineering
+                                solutions.</p>
+
+                            <p class="card-text">The practice of carrying these studies and calculations foster a deeper
+                                understanding
+                                of the underlying principles and behaviors governing structural systems, enhancing
+                                problem-solving skills and promoting innovation in engineering solutions.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

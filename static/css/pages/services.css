@@ -25,6 +25,11 @@
   color: var(--jet);
 }
 
+.services-banner {
+  padding-block-end:2%;
+  max-width: max-content;
+  margin-inline: auto
+}
 /* Media queries */
 
 @media (min-width: 768px) {

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Experience | Graduate</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/ge.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Experience | Graduate</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-sm text-center"
+                        id="portfolio-label"
+                >
+                    Graduate Experience
+                </h2>
+                <div>
+                    <div class="card">
+                        <h1>Omar Shemy, B.Eng.</h1>
+                        <h1>Graduate Researcher</h1>
+
+                        <p>
+                            A Robert Forsyth prize-winning, McGill University graduate with a B.Eng. in Civil
+                            Engineering, working towards an M.Eng. in Structural Engineering under supervision of a
+                            renowned Civil Engineering Professor. Possesses a strong set of technical skills, acquired
+                            through data compilation for the thesis project. Communication, time management and
+                            leadership skills gained through working as a Teaching Assistant for 8 courses while
+                            balancing study commitments and demanding projects throughout the term. Several in-program
+                            achievements awarded for demonstrating high quality and attention to detail in academic
+                            projects.
+                        </p>
+
+                        <h2>Thesis Project</h2>
+                        <p>Jan 2019 - Aug 2021</p>
+                        <p>
+                            <b>Thesis focused on the shear strength of
+                                short shear-critical reinforced concrete bridge columns, working with the
+                                renowned <a class="not-tag" href="{{url_for('file', num=5)}}">Dr Denis Mitchell</a></b>
+                        </p>
+                        <p>
+                            - Designed and built 8 short rectangular reinforced concrete bridge columns<br>
+                            - Tested column specimens in an agile manner<br>
+                            - Organized daily check-ins with co-supervisor and standup meetings to discuss blockers,
+                            present findings during the
+                            construction/testing phase<br>
+                            - Performed data cleansing of over 15,000 records from disparate data sources to develop a
+                            descriptive analytical
+                            model<br>
+                            - Developed hypotheses, validated theoretical phenomena by analyzing the data to understand
+                            data points linkages and
+                            develop trends and communicated preliminary trends with the team and stakeholders<br>
+                            - Compared results against tests from the literature and current standard design procedures
+                            (CSA S6-19, AASHTO
+                            2014), with a lens to improve<br>
+                            - Conducted research meetings with supervisor twice a week to report and discuss findings
+                            during the data analysis
+                            stage<br>
+                            - Proposed a simplified superposition procedure to predict shear strength of short columns
+                            and verified against
+                            experimental results and non-linear finite elements in VecTor2, achieving 21% more accuracy
+                            in strength
+                            predictions<br>
+                            - Produced extensive report, including a literature review, testing methodologies, detailed
+                            discussion, and analysis
+                            of results<br>
+                            - Coauthored technical paper entitled “Shear Strength of Short Rectangular Bridge Columns”,
+                            Journal of Bridge
+                            Engineering<br>
+                        </p>
+                        <p><b><a class="not-tag"
+                                 href="https://escholarship.mcgill.ca/concern/theses/7p88cn55z">Thesis</a> - <a
+                                class="not-tag"
+                                href="https://doi.org/10.1061/(ASCE)BE.1943-5592.0001824">Tech Paper</a> - <a
+                                class="not-tag"
+                                href="{{url_for('slides')}}">Seminar</a></b>
+                        </p>
+                        <p><strong style="font-size:15px;">Skills: </strong>Structural Analysis · Finite Element
+                            Analysis (FEA) · Critical Thinking · Research
+                            · Planning ·
+                            Problem-Solving · Teamwork · Time Management</p>
+                        <h2>Teaching Assistant</h2>
+                        <p>Jan 2019 - Apr 2021</p>
+                        <p>
+                            <b>Teaching Assistant for Design of Concrete Structures (two terms), <a class="not-tag"
+                                                                                                    href="{{url_for('file', num=2)}}">Construction
+                                Engineering</a>
+                                (two terms), Design Graphics & AutoCAD (three terms) and Sustainable Project Management
+                                courses</b>
+                        </p>
+                        <p>
+                            - Independently supervised classes of 50 students on average and over 400 students in total
+                            with excellent
+                            satisfaction rate<br>
+                            - Introduced bitesize sessions to simplify highly demanded complex engineering problems and
+                            evidenced
+                            problem-solving by recording on-demand tutorials demonstrating the use of AutoCAD to ease
+                            the transition to virtual
+                            learning during COVID-19<br>
+                            - Fostered an open environment for students requiring help by providing one-on-one support
+                            to address varying
+                            student concerns in weekly office hours and mentored struggling students outside of office
+                            hours during exam
+                            season<br>
+                            - Collected feedback on new assigned work based on assignment and midterm grades, factoring
+                            in attributes including
+                            attendance, contribution in tutorial and interaction<br>
+                        </p>
+                        <p><strong style="font-size:15px;">Skills: </strong>Public Speaking · Management · Planning ·
+                            Problem-Solving · Team
+                            Leadership · Teaching</p>
+                        <h2>University Research Aassistant</h2>
+                        <p>May 2017 - Aug 2018</p>
+                        <p>
+                            <b>Champlain Bridge Girder and Pier Cap Retrofit Study (Jacques Cartier and Champlain
+                                Bridges Inc. funded
+                                research)</b>
+                        </p>
+                        <p>
+                            Research Phases:<br>
+
+                            • Phase 1: examine the strengthening of prestressed concrete bridge girders using carbon
+                            fiber reinforced polymer
+                            fabric<br>
+                            • Phase 2: examine the behavior of variable-depth cap beams at service loading and at
+                            failure to analyze the
+                            effectiveness of crack control reinforcement and inclined reinforcement, as well as to
+                            investigate the influence of
+                            added external horizontal post-tensioning
+                        </p>
+                        <p>
+                            Responsibilities:<br>
+                            - Successfully executed the testing, study and comparison of the response of 10 specimens in
+                            1/2 scale size,
+                            modeling old Champlain Bridge girders and pier caps<br>
+                            - Presented two technical conference posters detailing the study and findings
+                        </p>
+                        <p><strong style="font-size:15px;">Skills: </strong>Presentation Skills · Planning ·
+                            Problem-Solving · Teamwork ·
+                            Analytical Skills</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Portfolio | EO</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Portfolio | EO </a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-md text-center"
+                        id="portfolio-label"
+                >
+                    Engineering Observations
+                </h2>
+                <div>
+                    <p class="card-text">
+                        In my daily life, I am constantly immersed in real-life observations of structures, whether it's
+                        walking down the streets or exploring various environments. I have developed a habit of keenly
+                        observing and analyzing structures around me, ranging from old bridges to roof beams in
+                        warehouses or even bare concrete skeletons under construction. This observational approach
+                        allows me to delve into the intricacies of structural design, pondering about load paths,
+                        structural actions, and the overall behavior of these elements within their environment. It's a
+                        continuous process of learning and understanding how different design choices manifest in
+                        real-world structures, enriching my knowledge and insights as a structural engineer.
+                    </p>
+                </div>
+
+                <ul class="not-portfolio-list">
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Roof Gerber System</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                The Gerber system is indeed remarkable and efficient, widely used as a roof framing
+                                system across North America. One intriguing aspect of Gerber systems is the concept of
+                                the unbraced length of the cantilever. Unlike slender members in tension, slender
+                                members in compression buckle. As the distance between support points
+                                increases, members in compression rapidly lose capacity. Moreover, the unsupported
+                                length of a member could be longer than the actual length of the member. What controls
+                                this, is the
+                                support conditions, giving rise to the term, effective length. The effective length of a
+                                cantilever can surpass its actual length, depending on the stability conditions provided
+                                at both the root and tip of the cantilever.
+                            </p>
+                            <p class="card-text">
+                                In the following case, lateral-torsional support is provided at the root of
+                                the cantilever.
+                                This support is achieved by the joist bottom chord extension and the two
+                                full-depth web stiffeners. However, at the tip of the cantilever, the joist is
+                                positioned on the link beam rather than the cantilever itself, resulting in a lack of
+                                support. This absence of lateral support for the top and, more crucially, the bottom
+                                in compression flange at the tip necessitates the use of an effective length factor (K)
+                                ranging from
+                                1.5 to 2.5 as per the CISC 1989 Design Module. Since, stability is not a game of
+                                numbers, an effective length factor (K) of 2.5 should be opted for in this situation.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p1-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p1-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Columns and Unbraced Lengths</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                The importance of unbraced length in column design is a focal
+                                point of my attention. I am constantly vigilant in identifying and analyzing the
+                                unbraced lengths of columns in various structures. This aspect is crucial as it directly
+                                influences the buckling behavior and overall stability of the structural system,
+                                prompting me to assess and optimize column designs for enhanced structural performance
+                                and safety. In modification projects where parts of existing floor slabs are demolished
+                                to create internal atrium's, assessing unbraced lengths of columns that have been
+                                exposed
+                                becomes critical.
+                            </p>
+                            <p class="card-text">
+                                Interestingly, the column in the photo has an unbraced length larger than the entire
+                                adjacent
+                                four-story building. At its top, this column doesn't support a mere sign or
+                                a simple beam but rather the edge of the tower above it, highlighting the complexity and
+                                importance
+                                of analyzing unbraced lengths in structural design for both safety and functionality.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p2-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p2-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Structural Steel CBF</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                I recently came across a new structural steel concentrically braced frame.
+                                Notably, bracing is placed on one bent across this side of the structure, which featured
+                                a double cross bracing
+                                strategically positioned at the center,
+                                utilizing tubes rather than plates or rods due to the higher lateral loads.
+                                Additionally, a beam was placed at about mid-height to reduce the unbraced length of the
+                                tubes
+                                when in compression, optimizing structural stability. The column, what seems to be a
+                                larger than usual W12
+                                was oriented with the strong axis facing the wind direction, especially crucial given
+                                the approximately more
+                                than 30 feet (~8.5m) unbraced length on one axis, dependent on girt placement.
+                            </p>
+                            <p class="card-text">
+
+                                For the cantilever, the designer went to town with two stiffeners at the column and a
+                                steel
+                                joist directly over the column
+                                with a bottom chord extension so that both the Gerber's top and bottom flanges are
+                                laterally supported at the column, while at the tip the joist is placed on
+                                the cantilever side to the left of the pin and not on the link beam or to the right
+                                of the pin, I rarely see this, but it is good practice because now the top flange of the
+                                tip of the
+                                cantilever is laterally supported. Most design offices assumed a (K) value of 1.5,
+                                regardless of the conditions. As a matter of fact, this is the appropriate situation at
+                                both the column (root) and tip of the cantilever, where a (K) value of 1.5 should only
+                                be allowed.
+                            </p>
+
+                            <p class="card-text">
+                                I am yet to see the combination where the
+                                joist is placed on the cantilever, to the left of the pin, as shown but also with a
+                                bottom chord joist extension which would brace the bottom flange of the cantilever,
+                                which is in compression. This is best practice and the cantilever tip is lateral
+                                torsionally
+                                supported as both the top and bottom flanges would be braced in this case. I wonder if a
+                                bottom chord extension on the joist placed
+                                on the tip of the cantilever and using a (K) of 1.0 would actually offset the extra
+                                weight of the cantilever beam, when opting for heavier beams influenced by a
+                                (K) > 1.5. The search continues for such scenario.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p4-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p4-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Reinforced Concrete Transfer Slab</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                In a recent project featuring a concrete braced frame, a distinctive arrangement was
+                                observed on the second-floor. It became apparent that several columns did not continue
+                                all the way down but rather terminated at the second-floor level, necessitating the
+                                transfer of their vertical loads. Additionally, discontinuous walls also required
+                                transferring both their vertical and lateral loads at the second-floor level. Each
+                                transfer beam would require two columns to support it at the ground-floor level.
+                            </p>
+
+                            <p class="card-text">
+                                To address this challenge without compromising the architectural vision of an
+                                unobstructed ground-floor space, conventional transfer beams were avoided. Instead, a
+                                strategic solution was implemented: the second-floor slab was designed to be thicker
+                                than the typical floor slab. This thicker slab not only met the shear strength
+                                requirements for transferring the gravity loads from the columns and walls but also
+                                served as a diaphragm. This diaphragm effectively transmitted the lateral loads from the
+                                walls that terminated at the second-floor level to the stiffer cores located at the
+                                ground-floor level.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p5-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p5-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="portfolio-card">
+                            <span class="chip label-md">Bridge Columns Loads</span>
+                        </div>
+                        <div>
+                            <p class="card-text">
+                                The comparison between the two bridge columns in the photos reveal distinct design
+                                strategies based on
+                                their load conditions. In the eccentric column subjected to tension, heavy stiffeners
+                                reinforce
+                                the beam-column junction, accompanied by numerous large-sized anchor bolts and
+                                substantial steel plates. These elements collectively bear the tensile force, ensuring
+                                structural integrity under significant loads.
+                            </p>
+
+                            <p class="card-text">
+                                On the other hand, further down the bridge
+                                where the geometry allowed for a central column. The compression-loaded column
+                                features lightly loaded anchor bolts also the anchor bolts are fewer,
+                                primarily serving to counter
+                                any incidental tensile forces due to eccentricities or unbalanced loads. This
+                                differential approach reflects a nuanced understanding of load distribution, with each
+                                design tailored to effectively manage the predominant forces acting on the respective
+                                column.
+                            </p>
+                        </div>
+                        <div class="portfolio-card">
+
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p3-1.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div
+                                    class="card-banner img-holder"
+                                    style="--width: ; --height: "
+                            >
+                                <img
+                                        src="{{url_for('static', filename='assets/images/eo/p3-2.jpg')}}"
+                                        width="800"
+                                        height="540"
+                                        loading="lazy"
+                                        class="img-cover"
+                                />
+                            </div>
+                            <div class="card-content">
+                            </div>
+                            <div class="card-content">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

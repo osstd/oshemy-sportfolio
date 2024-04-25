@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Experience</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/experience.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-md text-center"
+                        id="portfolio-label"
+                >
+                    Experience
+                </h2>
+                <div>
+                    <div class="card">
+                        <div class="card-header">Experience</div>
+                        <div class="card-body">
+                            <h1>Structural EIT</h1>
+                            <span>
+                                <b>Ojdrovic Engineering Inc.</b> , Toronto | Aug 2023 – Sept 2023
+                            </span>
+                            <ul class="card-text bullet">
+                                <li>
+                                    Coordination, Analysis and Design of Reinforced Masonry and Steel
+                                    Structures
+                                </li>
+                                <li>
+                                    Performed load feasibility studies, façade and masonry inspection
+                                    reports and multiple construction site visits reports
+                                </li>
+                                <!--                                <li class="toggle-btn">Key Achievements</li>-->
+                                <!--                                <ul class="dropdown">-->
+                                <!--                                    <li>Managed a team of 10 individuals</li>-->
+                                <!--                                    <li>Increased project efficiency by 30%</li>-->
+                                <!--                                    <li>Implemented new project management tools</li>-->
+                                <!--                                </ul>-->
+                            </ul>
+                            <h1>Junior Engineer</h1>
+                            <span>
+                                <b>D.L. Turner Consultants Inc.</b> , Montreal | Aug 2021 – Apr 2023
+                            </span>
+                            <ul class="card-text bullet">
+                                <li>
+                                    Coordination, Analysis and Design of Reinforced Concrete, Steel and
+                                    Wood Structures
+                                </li>
+                                <li>
+                                    Analyzed several industrial steel structures and multistory concrete
+                                    structures, designed gravity members & seismic force resisting
+                                    systems
+                                </li>
+                                <li>
+                                    Coordinated the structure of multiple deluxe houses with intricate
+                                    architectural layouts
+                                </li>
+                                <li>
+                                    Participated in coordination meetings with a team of architects, structural
+                                    engineers, mechanical engineers and general contractors to realize client
+                                    requirements while ensuring structural feasibility and balancing environmental
+                                    impact
+                                </li>
+                            </ul>
+                            <ul class="card-anchor">
+                                <li>Detailed structural engineering experience <a href="{{url_for('ee')}}"
+                                                                                  class="not-tag">here</a>.
+                                </li>
+                            </ul>
+                            <h1>Graduate Researcher</h1>
+                            <span><b>McGill University</b>, Montreal | May 2018 – Aug 2021</span>
+                            <ul class="card-text bullet">
+                                <li>
+                                    Developed a <a href="https://escholarship.mcgill.ca/concern/theses/7p88cn55z"
+                                                   class="not-tag">novel formula</a> to predict the shear strength of
+                                    short rectangular bridge
+                                    columns
+                                </li>
+                                <li>
+                                    Worked with a team of colleagues to organize testing schedules, discuss research
+                                    ideas, and generate creative solutions
+                                </li>
+                                <li>
+                                    Produced extensive report, including a literature review, testing methodologies,
+                                    detailed discussion, and analysis of results
+                                </li>
+                            </ul>
+                            <ul class="card-anchor">
+                                <li>
+                                    More details on graduate research <a href="{{url_for('ge')}}"
+                                                                         class="not-tag">here</a>. Also, <a
+                                        href="https://doi.org/10.1061/(ASCE)BE.1943-5592.0001824"
+                                        class="not-tag">Tech
+                                    Paper</a>.
+                                </li>
+                            </ul>
+                            <h1>Teaching Assistant</h1>
+                            <span><b>McGill University</b>, Montreal | Sept 2019 – May 2021</span>
+                            <ul class="card-text bullet">
+                                <li>
+                                    Teaching Assistant for Design of Concrete Structures, Construction Engineering and
+                                    Design Graphics & AutoCAD
+                                </li>
+                                <li>
+                                    Independently supervised and guided classes of 50 students on average and tutored
+                                    over 400 students in total; recorded on demand videos for virtual classes and
+                                    assigned online tasks to promote teamwork and creativity
+                                </li>
+                                <li>
+                                    Provided one-on-one support and student mentoring to address varying concerns in
+                                    weekly office hours
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Education</div>
+                        <div class="card-body">
+                            <h1>
+                                Master of Science (Thesis), Structural Engineering
+                            </h1>
+                            <span class="toggle-btn">McGill University</span>, Montreal | Jan 2019 – Aug 2021
+
+                            <div class="dropdown">
+                                Activities and societies: Teaching Assistants’ Representative of the Civil Engineering
+                                Graduate Student Society | Canadian Society of Civil Engineers | American Society of
+                                Civil Engineers | American Concrete Institute
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Thesis focused on the shear strength of short shear-critical reinforced concrete
+                                        bridge columns, working with the renowned Dr Denis Mitchell
+                                    </li>
+                                    <li>
+                                        Courses included: Structural Dynamics, Finite Element Analysis and Advanced
+                                        Materials
+                                    </li>
+                                    <li>
+                                        Received MEUSMA scholarship – full funding merit-based award
+                                    </li>
+                                    <li>
+                                        Received Graduate Excellence and NSERC merit-based awards
+                                    </li>
+                                </ul>
+                            </div>
+                            <h1>
+                                Bachelor of Engineering, Civil
+                            </h1>
+                            <span class="toggle-btn">McGill University</span>, Montreal | Sep 2013 – Aug 2018
+                            <div class="dropdown">
+                                Activities and societies: APT PETC Masonry Arch Competition | Canadian Society of
+                                Civil Engineers
+                                <ul class="card-text bullet">
+                                    <li>
+                                        Probabilistic Systems, Statistics, Systems Analysis & Linear Programming,
+                                        Computer Programming for Engineering, Construction Engineering and
+                                        Sustainable
+                                        Project Management
+                                    </li>
+                                    <li>
+                                        Graduated with a Distinction (Top 15%) and holder of 3 merit-based awards
+                                    </li>
+                                    <li>
+                                        Sole winner of the Robert Forsyth award for high standing in the subjects of
+                                        theory of structural design
+                                    </li>
+                                    <li>
+                                        Scored the highest final grade on Concrete Design, Geotechnical Engineering
+                                        and
+                                        Construction Engineering courses
+                                    </li>
+                                </ul>
+                                <ul class="card-anchor none">
+                                    <li>
+                                        <a href="{{url_for('file', num=13)}}" class="not-tag">Technical writing</a> · <a
+                                            href="{{url_for('file', num=14)}}"
+                                            class="not-tag">Capstone
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Scholastic Achievements and Extracurriculars</div>
+                        <div class="card-body award">
+                            <div class="card-body award">
+                                <p>
+                                    <strong>NSERC Award,</strong> McGill University | 2021 <br>
+                                    Full funding merit-based award
+                                </p>
+                                <p>
+                                    <strong>MEUSMA Award,</strong> McGill University | 2019-2021 <br>
+                                    Full funding merit-based award
+                                </p>
+                                <p>
+                                    <strong>Golden Key International Honor Society Scholar,</strong> McGill Chapter |
+                                    Sept
+                                    2019 <br>
+                                    Graduated in the top 15% of the program and joined Golden Key, the world’s largest
+                                    society promoting academic excellence
+                                </p>
+                                <p>
+                                    <strong>Robert Forsyth Prize in Civil Engineering,</strong> McGill Chapter | Apr
+                                    2018
+                                    <br>
+                                    Sole winner of the Robert Forsyth award for high standing in the subjects of theory
+                                    of
+                                    structural design
+                                </p>
+                                <a href="{{url_for('ae')}}" class="not-tag">Award List.</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script src="{{url_for('static', filename='js/scriptse.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

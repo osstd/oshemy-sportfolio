@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | Awards</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/ae.css') }}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<header class="header" data-header>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="logo">
+            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
+        </a>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('home')}}"
+                            class="label-lg navbar-link has-after"
+                    >Home</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('services')}}"
+                            class="label-lg navbar-link has-after"
+                    >Services</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('portfolio')}}"
+                            class="label-lg navbar-link has-after"
+                    >Portfolio</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('experience')}}"
+                            class="label-lg navbar-link has-after"
+                    >Experience</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="#"
+                            class="label-lg navbar-link has-after active"
+                    >Experience | Awards</a
+                    >
+                </li>
+                <li class="navbar-item">
+                    <a
+                            href="{{url_for('contact')}}"
+                            class="label-lg navbar-link has-after"
+                    >Contact</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
+
+        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+    </div>
+</header>
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <div class="container">
+                <h2
+                        class="section-title headline-sm text-center"
+                        id="portfolio-label"
+                >
+                    HONORS & Awards
+                </h2>
+                <div>
+                    <div class="card">
+                        <ol>
+                            <li>
+                                <p><strong>NSERC Award</strong><br>Jan 2021</p>
+                                <p>Natural Sciences and Engineering Research Council of Canada</p>
+                            </li>
+                            <li>
+                                <p><strong>Golden Key International Honor Society Scholar, McGill Chapter</strong><br>Issued
+                                    by <a class="not-tag"
+                                          href="{{url_for('file', num=8)}}">Golden Key</a> |
+                                    International Honour Society · Sep 2019</p>
+                                <p>Graduated in the top 15% of the program and joined Golden Key, the world’s largest
+                                    society promoting academic
+                                    excellence</p>
+                            </li>
+                            <li>
+                                <p><strong>Graduate Excellence Award</strong><br>Issued by McGill University · Jan 2019
+                                </p>
+                                <p>Full funding merit based, top-up award</p>
+                            </li>
+                            <li>
+                                <p><strong>MEUSMA Award</strong><br>Issued by McGill University · Jan 2019</p>
+                                <p>Full funding merit based award</p>
+                            </li>
+                            <li>
+                                <p><strong>Rubin Gruber SURE Award</strong><br>Issued by McGill University · May 2018
+                                </p>
+                                <p>
+                                    Summer undergraduate research grant, awarded based on merit, sole selected student
+                                    for
+                                    award</p>
+                            </li>
+                            <li>
+                                <p><strong>
+                                    Robert Forsyth Prize in Civil Engineering</strong><br>Issued by Department of Civil
+                                    Engineering | <a class="not-tag"
+                                                     href="http://coursecalendar.mcgill.ca/scholarships2005-06/Scolarships2005-06-1-5.html#wp1111470">McGill
+                                        University</a> · Apr 2018</p>
+                                <p>Sole winner of the <a class="not-tag" href="{{url_for('file', num=9)}}">Robert
+                                    Forsyth</a> award for
+                                    high
+                                    standing in the
+                                    subjects of theory of structural design</p>
+                            </li>
+                            <li>
+                                <p><strong>PETC Masonry Arch Student Competition</strong><br>Issued by <a
+                                        class="not-tag"
+                                        href="{{url_for('file', num=4)}}">APT</a> -
+                                    The Association for Preservation Technology · Sep 2017</p>
+                                <p>Second place in the Canadian universities national competition</p>
+                            </li>
+                            <li>
+                                <p><strong>Rubin Gruber SURE Award</strong><br>Issued by McGill University · May 2017
+                                </p>
+                                <p>Summer undergraduate research grant, awarded based on merit, two students selected
+                                    for
+                                    position</p>
+                            </li>
+                            <li>
+                                <p><strong>#1 ranked in Alexandria in AS Level Accounting (2013)</strong><br>Issued by
+                                    <a class="not-tag"
+                                       href="{{url_for('file', num=7)}}">Cambridge</a> International Examinations ·
+                                    Jun
+                                    2013</p>
+                                <p></p>
+                            </li>
+                            <li>
+                                <p><strong>Certificate of Achievement</strong><br>Issued by <a class="not-tag"
+                                                                                               href="{{url_for('file', num=6)}}">AMIDEAST</a>
+                                    |
+                                    Education USA · Jun 2013</p>
+                                <p>A Competitive College Club (CCC) student for the academic year 2013-2014</p>
+                            </li>
+                            <li>
+                                <p><strong>Certificate of Participation</strong><br>Issued by International <a
+                                        class="not-tag"
+                                        href="{{url_for('file', num=11)}}">
+                                    MASTERCLASSES</a> · Mar 2013</p>
+                                <p>Hands on particle physics, one of the two students selected based on merit from the
+                                    Advanced Level Physics
+                                    class
+                                    to join the MASTERCLASS</p>
+                            </li>
+                            <li>
+                                <p><strong>2nd place - FIRST LEGO League Robotics Championship</strong><br>FLL Open
+                                    Arabian Championship |
+                                    Amman, Jordan · Mar 2010</p>
+                                <p>
+                                    Represented Egypt in the Open Arabian Championship where we won the second place</p>
+                                <p><a class="not-tag" href="https://www.youtube.com/watch?v=H4lgFuYmAMc">Video</a>
+                                    showing tasks
+                                    demanded
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li class="none">
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+    </div>
+</footer>
+
+<!-- custom js -->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

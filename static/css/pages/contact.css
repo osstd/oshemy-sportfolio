@@ -80,6 +80,21 @@ textarea {
   word-break: break-all;
 }
 
+.alert {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success {
+    color: #fff;
+}
+
+.error {
+    color: #ff0000;
+}
+
 /* Media query */
 
 @media (min-width: 768px) {

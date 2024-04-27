@@ -20,11 +20,11 @@ def send_email(message, receiver_email):
                                 to_addrs=to,
                                 msg=message.as_string())
             connection.close()
-            return "Email sent successfully!"
+            return ["Email sent successfully!", 1]
     except smtplib.SMTPException as e:
-        return f"Error sending email: {e}"
+        return [f"Error sending email: {e}", 0]
     except Exception as e:
-        return f"Unexpected error: {e}"
+        return [f"Unexpected error: {e}", 0]
 
 
 @app.route('/')
@@ -69,8 +69,10 @@ def contact():
         msg = MIMEText(body, 'plain', 'utf-8')
         msg['Subject'] = subject
         result = send_email(msg, receiver_email)
-        # flash(result)
-        return render_template('contact.html', result=result)
+        if result[1] == 1:
+            return render_template('contact.html', result=result[0], success=True)
+        else:
+            return render_template('contact.html', result=result[0], success=False)
     return render_template('contact.html', result=False)
 
 

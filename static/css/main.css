@@ -98,8 +98,9 @@
   display: block;
 }
 
-.about .wrapper,
-.hero .wrapper {
+.about-content .wrapper,
+.hero .wrapper
+ {
   margin-block-start: 25px;
   display: flex;
   flex-wrap: wrap;

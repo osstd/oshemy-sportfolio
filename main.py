@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, render_template_string, flash
 from email.mime.text import MIMEText
+from urllib.parse import unquote
 import smtplib
 import os
 
@@ -102,6 +103,7 @@ def admin_slide(num, d, t):
     if request.method == 'POST':
         password = request.form.get('password')
         if password == ADMIN_PASSWORD:
+            decoded_t = unquote(t)
             total = num
             image_paths = []
             for x in range(1, total + 1):
@@ -109,7 +111,7 @@ def admin_slide(num, d, t):
                 image_path = url_for('static', filename=filename)
                 image_paths.append(image_path)
             image_paths_with_index = [(index, path) for index, path in enumerate(image_paths)]
-            return render_template('se.html', image_paths=image_paths_with_index, title=t)
+            return render_template('se.html', image_paths=image_paths_with_index, title=decoded_t)
         else:
             return render_template('login.html', error=True, num=num, d=d, t=t)
     return render_template('login.html', input=True)

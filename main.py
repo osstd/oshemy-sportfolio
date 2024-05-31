@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, render_template_string, flash
 from email.mime.text import MIMEText
 import smtplib
 import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('F_KEY')
+
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
 
 
 def send_email(message, receiver_email):
@@ -92,7 +94,25 @@ def slides():
         image_path = url_for('static', filename=filename)
         image_paths.append(image_path)
     image_paths_with_index = [(index, path) for index, path in enumerate(image_paths)]
-    return render_template('se.html', image_paths=image_paths_with_index)
+    return render_template('se.html', image_paths=image_paths_with_index, title="Thesis Seminar")
+
+
+@app.route('/admin_slide/<int:num>/<d>/<t>', methods=['GET', 'POST'])
+def admin_slide(num, d, t):
+    if request.method == 'POST':
+        password = request.form.get('password')
+        if password == ADMIN_PASSWORD:
+            total = num
+            image_paths = []
+            for x in range(1, total + 1):
+                filename = f'assets/files/serve/{d}/Slide{x}.jpeg'
+                image_path = url_for('static', filename=filename)
+                image_paths.append(image_path)
+            image_paths_with_index = [(index, path) for index, path in enumerate(image_paths)]
+            return render_template('se.html', image_paths=image_paths_with_index, title=t)
+        else:
+            return render_template('login.html', error=True, num=num, d=d, t=t)
+    return render_template('login.html', input=True)
 
 
 @app.route('/portfolio/sa')

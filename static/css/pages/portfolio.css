@@ -121,6 +121,10 @@
   display: inline;
 }
 
+span a.not-tag {
+  display: inline;
+}
+
 .card-text.bullet-nest {
   margin-block: 10px 25px;
   padding: 0 10%;

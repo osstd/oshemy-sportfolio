@@ -98,7 +98,8 @@
   display: block;
 }
 
-.about .wrapper {
+.about .wrapper,
+.hero .wrapper {
   margin-block-start: 25px;
   display: flex;
   flex-wrap: wrap;
@@ -110,7 +111,6 @@
 
 .skill {
   padding-block-end: 1%;
-
 }
 
 .skill .container,
@@ -212,7 +212,7 @@
 }
 
 .none {
-display: none;
+  display: none;
 }
 /* Media queries */
 
@@ -262,35 +262,38 @@ display: none;
   }
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
+  /* Hero, about and skill */
 
-    /* Hero, about and skill */
+  :is(.hero, .about, .skill) .container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
 
-    :is(.hero, .about, .skill) .container{
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-    }
- 
-    /* Hero */
-    .hero {text-align: left;}
-    .hero .btn{margin-inline: 0;}
+  /* Hero */
+  .hero {
+    text-align: left;
+  }
+  .hero .btn {
+    margin-inline: 0;
+  }
 
-    /* Client */
+  /* Client */
 
-    .client .slider-item {min-width: calc(20% - 24px);}
+  .client .slider-item {
+    min-width: calc(20% - 24px);
+  }
 
-    /* Skill */
+  /* Skill */
 
-    .skill .container {
-        align-items: flex-start;
-    }
+  .skill .container {
+    align-items: flex-start;
+  }
 }
 
 @media (min-width: 1200px) {
-
-    /* About */
-.about-list {
+  /* About */
+  .about-list {
     gap: 40px;
-}
-
+  }
 }

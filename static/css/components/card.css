@@ -12,6 +12,14 @@
   box-shadow: 3px 3px 0 var(--jet);
 }
 
+.card-md.no-hover-shadow:is(:hover, :focus-within) {
+  box-shadow: none;
+}
+
+:is(.card-lg, .card-sm).no-hover-shadow:is(:hover, :focus-within) {
+  box-shadow: none;
+}
+
 .card,
 .card-media {
   border: 2px solid var(--jet);

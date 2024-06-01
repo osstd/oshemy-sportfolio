@@ -4,20 +4,14 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
 let currentImageIndex = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 
 // Hide or show navigation buttons based on current image index
 function toggleNavButtons() {
-  if (currentImageIndex === 0) {
-    prevBtn.style.display = "none";
-  } else {
-    prevBtn.style.display = "block";
-  }
-
-  if (currentImageIndex === images.length - 1) {
-    nextBtn.style.display = "none";
-  } else {
-    nextBtn.style.display = "block";
-  }
+  prevBtn.style.display = currentImageIndex === 0 ? "none" : "block";
+  nextBtn.style.display =
+    currentImageIndex === images.length - 1 ? "none" : "block";
 }
 
 // Function to go to the previous image
@@ -83,6 +77,29 @@ images.forEach((image, index) => {
   }
 });
 
+// Touch events for mobile swipe
+wrapper.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+wrapper.addEventListener("touchmove", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+});
+
+wrapper.addEventListener("touchend", () => {
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeThreshold = 50; // Minimum swipe distance to trigger navigation
+  if (touchEndX < touchStartX - swipeThreshold) {
+    nextImage();
+  }
+  if (touchEndX > touchStartX + swipeThreshold) {
+    prevImage();
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const wrapperIcons = document.querySelectorAll(".wrapper i");
 
@@ -124,4 +141,3 @@ document.addEventListener("keydown", function (event) {
     }, 250);
   }
 });
-

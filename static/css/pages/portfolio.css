@@ -121,8 +121,45 @@
   display: inline;
 }
 
+.card-text a.not-tag.admin {
+  color: inherit;
+  display: inline;
+  cursor: none;
+  pointer-events: none;
+}
+
+.card-text a.not-tag.clickable {
+  color: hsl(19, 100%, 55%);
+  display: inline;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 span a.not-tag {
   display: inline;
+}
+
+span a.not-tag.admin {
+  cursor: none;
+  pointer-events: none;
+}
+
+span a.not-tag.admin.clickable {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.card-banner.img-holder.admin {
+  display: none;
+}
+
+span.admin {
+  display: inline;
+}
+
+span.admin.hidden {
+  visibility: hidden;
+  display: block;
 }
 
 .card-text.bullet-nest {

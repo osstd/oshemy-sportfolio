@@ -276,7 +276,7 @@
                                 projects or heritage buildings, where a 3D model is not an option. More often than not
                                 there are
                                 no blueprints on record. This ability enables me to effectively understand <a
-                                    class="not-tag"
+                                    class="not-tag admin"
                                     href="{{url_for('admin_slide', num=3, d='dr', t='Dym Residence')}}">structural</a>
                                 dynamics,
                                 support systems, and devise innovative solutions, even in the absence of digital models
@@ -492,12 +492,13 @@
                     <li>
                         <div>
                             <p class="card-text">
-                                <a class="not-tag"
+                                <a class="not-tag admin"
                                    href="{{url_for('admin_slide', num=4, d='hb', t='2500 Henri Bourassa')}}">Samples</a>
-                                from a reinforced concrete structure, ground-floor beam elevations, ground-floor
+                                from a reinforced concrete structure, ground-floor beam elevations. <span
+                                    class="admin hidden">Ground-floor
                                 slab bottom and top reinforcing
-                                steel. Mezzanine transfer beam elevations and bottom and top reinforcing steel. Roof
-                                slab bottom and top reinforcing steel.
+                                steel.</span> Mezzanine transfer beam elevations. <span class="admin hidden">Mezzanine bottom and top reinforcing steel.
+                                Roof slab bottom and top reinforcing steel.</span>
                             </p>
                         </div>
                         <div class="portfolio-card">
@@ -527,7 +528,7 @@
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder admin"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -535,11 +536,11 @@
                                         width="800"
                                         height="540"
                                         loading="lazy"
-                                        class="img-cover"
+                                        class="img-cover admin"
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder admin"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -547,7 +548,7 @@
                                         width="800"
                                         height="540"
                                         loading="lazy"
-                                        class="img-cover"
+                                        class="img-cover admin"
                                 />
                             </div>
                             <div
@@ -575,7 +576,7 @@
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder admin"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -583,11 +584,11 @@
                                         width="800"
                                         height="540"
                                         loading="lazy"
-                                        class="img-cover"
+                                        class="img-cover admin"
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder admin"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -595,11 +596,11 @@
                                         width="800"
                                         height="540"
                                         loading="lazy"
-                                        class="img-cover"
+                                        class="img-cover admin"
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder admin"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -607,11 +608,11 @@
                                         width="800"
                                         height="540"
                                         loading="lazy"
-                                        class="img-cover"
+                                        class="img-cover admin"
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder admin"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -619,7 +620,7 @@
                                         width="800"
                                         height="540"
                                         loading="lazy"
-                                        class="img-cover"
+                                        class="img-cover admin"
                                 />
                             </div>
                             <div class="card-content">
@@ -715,6 +716,7 @@
 
 <!-- custom js -->
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script src="{{url_for('static', filename='js/scripts-admin.js')}}"></script>
 <script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

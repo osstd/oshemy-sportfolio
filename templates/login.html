@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Omar Shemy</title>
+    <title>Omar Shemy | Login</title>
 
     <!-- favicon -->
 
@@ -88,23 +88,44 @@
 <main>
     <article>
         <section class="section has-before" aria-label="home">
-            <div class="container-input">
+            <div class="container-login">
+                {% if current_user.is_authenticated %}
+                <button class="btn btn-tertiary"><a href="{{ url_for('logout') }}">Logout</a></button>
+                {% else %}
+                <div class="container">
+                    <h1>Register or Login</h1>
+                    <form method="POST" class="login-form">
+                        <input class="input-field" type="text" name="username" placeholder="Username" required>
+                        <input class="input-field" type="password" name="password" placeholder="Password" required>
+                        <div class="button-container">
+                            <div>
+                                <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn btn-tertiary" type="submit" name="action" value="login">Login
+                                </button>
+                            </div>
 
-                {% if input %}
-                <h1>Show Slides Group</h1>
-                <form method="post" class="login-form">
-                    <label for="password" class="label">Enter Group #:</label>
-                    <input type="password" id="password" name="password" class="input-field">
-                    <button type="submit" class="btn btn-tertiary">Get</button>
-                </form>
-                <span>Note - admin login required</span>
-                {% endif %}
-                {% if error %}
-                <h1>Incorrect slides access #</h1>
-                <button type="submit" class="btn btn-tertiary"><a href="{{url_for('admin_slide', num=num, d=d, t=t)}}">Try
-                    again</a></button>
+                        </div>
 
+                    </form>
+                </div>
+                <div class="home-container">
+                    <button class="btn btn-primary"><a href="{{ url_for('home') }}">Back to Home</a></button>
+                </div>
                 {% endif %}
+                <div class="container">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <div class="alert" role="alert">
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                </div>
             </div>
         </section>
     </article>

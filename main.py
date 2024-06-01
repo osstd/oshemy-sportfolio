@@ -1,13 +1,62 @@
-from flask import Flask, render_template, request, redirect, url_for, render_template_string, flash
+from flask import Flask, abort, render_template, request, redirect, url_for, render_template_string, flash, jsonify
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user, \
+    AnonymousUserMixin
+from flask_pymongo import PyMongo
+from werkzeug.security import generate_password_hash, check_password_hash
+from functools import wraps
 from email.mime.text import MIMEText
 from urllib.parse import unquote
 import smtplib
 import os
 
+
+def admin_only(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if isinstance(current_user, AnonymousUserMixin):
+            return "You don't have the permission to access the requested resource. Please contact for the slides."
+        if int(current_user.id) != 1:
+            return abort(403)
+
+        return f(*args, **kwargs)
+
+    return decorated_function
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('F_KEY')
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 
-ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
+mongo = PyMongo(app)
+
+# Send a ping to confirm a successful connection to the mongo server no creation
+client = mongo.cx
+
+try:
+    client.admin.command('ping')
+except Exception as e:
+    print(f"Failed to connect to MongoDB: {e}")
+    flash(f"Failed to connect to MongoDB: {e}")
+
+db = client.portfoliopage
+users = db.portfolio_users
+
+login_manager = LoginManager(app)
+login_manager.login_view = 'auth'
+
+
+class User(UserMixin):
+    def __init__(self, user_id, username):
+        self.id = user_id
+        self.username = username
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    user = users.find_one({'_id': user_id})
+    if user:
+        return User(user['_id'], user['username'])
+    return None
 
 
 def send_email(message, receiver_email):
@@ -98,23 +147,68 @@ def slides():
     return render_template('se.html', image_paths=image_paths_with_index, title="Thesis Seminar")
 
 
-@app.route('/admin_slide/<int:num>/<d>/<t>', methods=['GET', 'POST'])
+@app.route('/admin_slide/<int:num>/<d>/<t>')
+@admin_only
+@login_required
 def admin_slide(num, d, t):
+    decoded_t = unquote(t)
+    total = num
+    image_paths = []
+    for x in range(1, total + 1):
+        filename = f'assets/files/serve/{d}/Slide{x}.jpeg'
+        image_path = url_for('static', filename=filename)
+        image_paths.append(image_path)
+    image_paths_with_index = [(index, path) for index, path in enumerate(image_paths)]
+    return render_template('se.html', image_paths=image_paths_with_index, title=decoded_t)
+
+
+@app.route('/l', methods=['GET', 'POST'])
+def auth():
     if request.method == 'POST':
+        action = request.form.get('action')
+        username = request.form.get('username')
         password = request.form.get('password')
-        if password == ADMIN_PASSWORD:
-            decoded_t = unquote(t)
-            total = num
-            image_paths = []
-            for x in range(1, total + 1):
-                filename = f'assets/files/serve/{d}/Slide{x}.jpeg'
-                image_path = url_for('static', filename=filename)
-                image_paths.append(image_path)
-            image_paths_with_index = [(index, path) for index, path in enumerate(image_paths)]
-            return render_template('se.html', image_paths=image_paths_with_index, title=decoded_t)
-        else:
-            return render_template('login.html', error=True, num=num, d=d, t=t)
-    return render_template('login.html', input=True)
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)
+        if action == 'register':
+            print("register route")
+            if users.find_one({'username': username}):
+                flash('Username already exists.')
+            else:
+                user_id = str(users.count_documents({}) + 1)
+                users.insert_one({'_id': user_id, 'username': username, 'password': hashed_password})
+                flash('Registration successful.')
+        elif action == 'login':
+            user = users.find_one({'username': username})
+            if user and check_password_hash(user['password'], password):
+                user_obj = User(user['_id'], user['username'])
+                login_user(user_obj)
+                return redirect(url_for('home'))
+            else:
+                flash('Invalid credentials.')
+    return render_template('login.html')
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/user_status', methods=['GET'])
+def user_status():
+    if isinstance(current_user, AnonymousUserMixin):
+        status = {'status': 0}
+    elif int(current_user.id) != 1:
+        status = {'status': 0}
+    else:
+        status = {'status': 1}
+    return jsonify(status)
 
 
 @app.route('/portfolio/sa')
@@ -163,4 +257,4 @@ def ae():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

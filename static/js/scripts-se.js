@@ -2,6 +2,7 @@ const wrapper = document.querySelector(".wrapper");
 const images = document.querySelectorAll(".wrapper img");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const slides = document.querySelectorAll(".slide");
 
 let currentImageIndex = 0;
 let touchStartX = 0;
@@ -78,25 +79,30 @@ images.forEach((image, index) => {
 });
 
 // Touch events for mobile swipe
-wrapper.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
+slides.forEach((slide) => {
+  slide.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
 
-wrapper.addEventListener("touchmove", (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-});
+  slide.addEventListener("touchmove", (e) => {
+    touchEndX = e.touches[0].clientX;
+  });
 
-wrapper.addEventListener("touchend", () => {
-  handleSwipe();
+  slide.addEventListener("touchend", () => {
+    handleSwipe();
+  });
 });
 
 function handleSwipe() {
-  const swipeThreshold = 50; // Minimum swipe distance to trigger navigation
-  if (touchEndX < touchStartX - swipeThreshold) {
-    nextImage();
-  }
-  if (touchEndX > touchStartX + swipeThreshold) {
-    prevImage();
+  const swipeThreshold = 50; // Adjust as needed
+  const deltaX = touchEndX - touchStartX;
+
+  if (Math.abs(deltaX) > swipeThreshold) {
+    if (deltaX > 0) {
+      prevImage();
+    } else {
+      nextImage();
+    }
   }
 }
 

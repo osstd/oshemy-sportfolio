@@ -154,12 +154,12 @@ span a.not-tag.admin.clickable {
 }
 
 span.admin {
+  display: block;
   display: inline;
 }
 
 span.admin.hidden {
-  visibility: hidden;
-  display: block;
+  display: none;
 }
 
 .card-text.bullet-nest {

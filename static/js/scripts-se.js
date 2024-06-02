@@ -2,11 +2,11 @@ const wrapper = document.querySelector(".wrapper");
 const images = document.querySelectorAll(".wrapper img");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-const slides = document.querySelectorAll(".slide");
 
 let currentImageIndex = 0;
-let touchStartX = 0;
-let touchEndX = 0;
+let startX;
+let currentX;
+let isDragging = false;
 
 // Hide or show navigation buttons based on current image index
 function toggleNavButtons() {
@@ -78,34 +78,6 @@ images.forEach((image, index) => {
   }
 });
 
-// Touch events for mobile swipe
-slides.forEach((slide) => {
-  slide.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-  });
-
-  slide.addEventListener("touchmove", (e) => {
-    touchEndX = e.touches[0].clientX;
-  });
-
-  slide.addEventListener("touchend", () => {
-    handleSwipe();
-  });
-});
-
-function handleSwipe() {
-  const swipeThreshold = 50; // Adjust as needed
-  const deltaX = touchEndX - touchStartX;
-
-  if (Math.abs(deltaX) > swipeThreshold) {
-    if (deltaX > 0) {
-      prevImage();
-    } else {
-      nextImage();
-    }
-  }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   const wrapperIcons = document.querySelectorAll(".wrapper i");
 
@@ -132,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// keys down event listener
+
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {
     prevImage();
@@ -145,5 +119,27 @@ document.addEventListener("keydown", function (event) {
     setTimeout(() => {
       nextBtn.classList.remove("hover");
     }, 250);
+  }
+});
+
+// touch slider
+
+wrapper.addEventListener("touchstart", (e) => {
+  isDragging = true;
+  startX = e.touches[0].clientX;
+});
+
+wrapper.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+  currentX = e.touches[0].clientX;
+});
+
+wrapper.addEventListener("touchend", () => {
+  isDragging = false;
+  const deltaX = currentX - startX;
+  if (deltaX > 50) {
+    prevImage();
+  } else if (deltaX < -50) {
+    nextImage();
   }
 });

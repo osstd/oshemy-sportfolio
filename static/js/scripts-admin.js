@@ -11,7 +11,7 @@ function checkUserStatus() {
           if (linkElement.classList.contains("clickable")) {
             linkElement.classList.remove("clickable");
           }
-          linkElement.addEventListener("touchstart", function (event) {
+          linkElement.addEventListener("click", function (event) {
             event.preventDefault();
           });
         }

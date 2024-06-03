@@ -41,6 +41,9 @@ except Exception as e:
 db = client.portfoliopage
 users = db.portfolio_users
 
+db2 = client.slidesviewer
+collection_slides = db2.slides
+
 login_manager = LoginManager(app)
 login_manager.login_view = 'auth'
 
@@ -77,26 +80,6 @@ def send_email(message, receiver_email):
         return [f"Error sending email: {e}", 0]
     except Exception as e:
         return [f"Unexpected error: {e}", 0]
-
-
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-
-@app.route('/services')
-def services():
-    return render_template('services.html')
-
-
-@app.route('/portfolio')
-def portfolio():
-    return render_template('portfolio.html')
-
-
-@app.route('/experience')
-def experience():
-    return render_template('experience.html')
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -188,6 +171,49 @@ def auth():
     return render_template('login.html')
 
 
+@app.route('/input')
+def input_slides():
+    return render_template('input.html')
+
+
+@app.route('/save', methods=['POST'])
+@admin_only
+@login_required
+def save_slides():
+    name = request.form.get('name')
+    title = request.form.get('title')
+    urls = request.form.getlist('urls')
+
+    # Save to MongoDB
+    document = {
+        'name': name,
+        'title': title,
+        'urls': urls
+    }
+    collection_slides.insert_one(document)
+    flash('Input done')
+
+    return redirect('/input')
+
+
+@app.route('/view/<name>')
+@admin_only
+@login_required
+def view(name):
+    # name = request.form.get('name')
+
+    document = collection_slides.find_one({'name': name})
+
+    if document:
+        urls = document.get('urls', [])
+        title = document.get('title', 'Title Not found')
+        urls_with_index = [(index, url) for index, url in enumerate(urls)]
+    else:
+        return
+
+    return render_template('viewer.html', urls=urls_with_index, title=title)
+
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -209,6 +235,26 @@ def user_status():
     else:
         status = {'status': 1}
     return jsonify(status)
+
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+@app.route('/services')
+def services():
+    return render_template('services.html')
+
+
+@app.route('/portfolio')
+def portfolio():
+    return render_template('portfolio.html')
+
+
+@app.route('/experience')
+def experience():
+    return render_template('experience.html')
 
 
 @app.route('/portfolio/sa')

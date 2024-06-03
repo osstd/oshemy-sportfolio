@@ -83,6 +83,14 @@
   width: 100%;
 }
 
+div {
+  margin: 1% 0%;
+}
+
+span {
+  margin: 2% 0%;
+}
+
 /* Media query */
 
 @media (min-width: 768px) {

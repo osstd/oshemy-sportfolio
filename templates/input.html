@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Omar Shemy | Login</title>
+    <title>Omar Shemy | Input Slides</title>
 
     <!-- favicon -->
 
@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/login.css') }}"/>
 
+    <!-- custom js -->
+    <script src="{{url_for('static', filename='js/scripts-input.js')}}"></script>
 </head>
 <body>
 <div class="preloader" data-preloader>
@@ -89,48 +91,33 @@
     <article>
         <section class="section has-before" aria-label="home">
             <div class="container-login">
-                {% if current_user.is_authenticated %}
-                <span>Omar Shemy Signed In</span>
-                <button class="btn btn-tertiary"><a href="{{ url_for('logout') }}">Logout</a></button>
-                {% else %}
                 <div class="container">
-                    <h1>Register or Login</h1>
-                    <form method="POST" class="login-form">
-                        <input class="input-field" type="text" name="username" placeholder="Username" required>
-                        <input class="input-field" type="password" name="password" placeholder="Password" required>
-                        <div class="button-container">
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
-                                </button>
-                            </div>
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="login">Login
-                                </button>
-                            </div>
-
-                        </div>
-
+                    <h1>Input required slides and URLs</h1>
+                    <form onsubmit="return false;" class="login-form">
+                        <label for="numberOfInputs">Number of URL Inputs:</label>
+                        <input type="number" id="numberOfInputs" name="numberOfInputs" class="input-field">
+                        <button type="button" onclick="generateUrlInputs()" class="btn btn-primary">Generate</button>
                     </form>
-                </div>
-                <div class="home-container">
-                    <button class="btn btn-primary"><a href="{{ url_for('home') }}">Back to Home</a></button>
-                </div>
-                {% endif %}
-                <div class="container">
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    <div class="alert" role="alert">
-                        {% for message in messages %}
-                        <p>{{ message }}</p>
-                        {% endfor %}
+                    <form action="/save" method="post" id="urlForm" class="login-form">
+                        <div id="urlInputsContainer"></div>
+                    </form>
+                    <div class="container">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="alert" role="alert">
+                            {% for message in messages %}
+                            <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
                     </div>
-                    {% endif %}
-                    {% endwith %}
                 </div>
             </div>
         </section>
     </article>
 </main>
+
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
@@ -172,5 +159,7 @@
 
 <!-- custom js -->
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+
+
 </body>
 </html>

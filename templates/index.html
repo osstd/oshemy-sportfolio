@@ -401,7 +401,8 @@
                 </a>
             </li>
         </ul>
-        <p class="text-center">&copy; 2024 copyright all right reserved</p>
+        <p class="text-center">{% if current_user.is_authenticated%}Omar Shemy Signed In {% endif %}&copy; 2024
+            copyright all right reserved</p>
     </div>
 </footer>
 

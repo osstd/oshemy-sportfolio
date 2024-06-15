@@ -24,6 +24,7 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/eo.css') }}"/>
 
 </head>
 <body>
@@ -98,7 +99,7 @@
 <main>
     <article>
         <section class="section portfolio" aria-labelledby="portfolio-label">
-            <div class="container">
+            <div id="section-container" class="container">
                 <h2
                         class="section-title headline-md text-center"
                         id="portfolio-label"
@@ -145,7 +146,9 @@
                                 support. This absence of lateral support for the top and, more crucially, the bottom
                                 in compression flange at the tip necessitates the use of an effective length factor (K)
                                 ranging from
-                                1.5 to 2.5 as per the CISC 1989 Design Module. Since, stability is not a game of
+                                1.5 to 2.5 as per the <a class="not-tag admin" href="javascript:void(0)"
+                                                         onclick="showPopup()">CISC 1989 Design Module</a>
+                                Since, stability is not a game of
                                 numbers, an effective length factor (K) of 2.5 should be opted for in this situation.
                             </p>
                         </div>
@@ -281,7 +284,9 @@
                                 torsionally
                                 supported as both the top and bottom flanges would be braced in this case. I wonder if a
                                 bottom chord extension on the joist placed
-                                on the tip of the cantilever and using a (K) of 1.0 would actually offset the extra
+                                on the <a class="not-tag admin" href="javascript:void(0)"
+                                          onclick="showPopup()">tip of the cantilever</a> and using a (K) of 1.0 would
+                                actually offset the extra
                                 weight of the cantilever beam, when opting for heavier beams influenced by a
                                 (K) > 1.5. The search continues for such scenario.
                             </p>
@@ -435,6 +440,11 @@
                     </li>
                 </ul>
             </div>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <img src="https://i.imgur.com/vZ4i9w7.jpg" alt="Description Image">
+                </div>
+            </div>
         </section>
     </article>
 </main>
@@ -481,6 +491,7 @@
 
 <!-- custom js -->
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script src="{{url_for('static', filename='js/scripts-eo.js')}}"></script>
 <script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

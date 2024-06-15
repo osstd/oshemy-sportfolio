@@ -4,7 +4,7 @@ I built this web app as a tool to showcase my structural engineering technical s
 
 ## Features
 
-- View past experience projects and demonstrations
+- View experience projects and demonstrations
 - Presenter slide show and navigating different slides
 - Admin user authentication to access parts of the app
   - Show certain components when admin is using the app in presenting mode vs when users are browsing it

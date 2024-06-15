@@ -2,7 +2,6 @@ function checkUserStatus() {
   fetch("/user_status")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.status);
       const linkElements = document.querySelectorAll("a.not-tag.admin");
       linkElements.forEach((linkElement) => {
         if (data.status === 1) {
@@ -50,7 +49,4 @@ function checkUserStatus() {
     .catch((error) => console.error("Error fetching user status:", error));
 }
 
-// Call the function to check user status on page load
-document.addEventListener("DOMContentLoaded", (event) => {
-  checkUserStatus();
-});
+document.addEventListener("DOMContentLoaded", checkUserStatus());

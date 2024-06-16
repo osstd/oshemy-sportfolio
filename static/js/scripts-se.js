@@ -15,7 +15,6 @@ function toggleNavButtons() {
     currentImageIndex === images.length - 1 ? "none" : "block";
 }
 
-// Function to go to the previous image
 function prevImage() {
   if (currentImageIndex > 0) {
     images[currentImageIndex].classList.remove("active");
@@ -29,7 +28,6 @@ function prevImage() {
   }
 }
 
-// Function to go to the next image
 function nextImage() {
   if (currentImageIndex < images.length - 1) {
     images[currentImageIndex].classList.remove("active");
@@ -48,9 +46,7 @@ const updateLineHeight = () => {
   const iElements = document.querySelectorAll(".wrapper i");
   iElements.forEach((iElement) => {
     const height = iElement.clientHeight;
-    //        console.log(`height is${height}`)
     iElement.style.lineHeight = `${height}px`;
-    //        console.log(`height is now ${iElement.style.lineHeight}`)
   });
 };
 
@@ -60,7 +56,6 @@ const debouncedUpdateLineHeight = () => {
   timeoutId = setTimeout(updateLineHeight, 10);
 };
 
-// Event listeners for navigation buttons
 prevBtn.addEventListener("click", prevImage);
 nextBtn.addEventListener("click", nextImage);
 window.addEventListener("resize", debouncedUpdateLineHeight);
@@ -70,7 +65,6 @@ window.addEventListener("resize", updateLineHeight);
 debouncedUpdateLineHeight();
 updateLineHeight();
 
-// Initial images setup
 toggleNavButtons();
 images.forEach((image, index) => {
   if (index !== 0) {
@@ -103,8 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-// keys down event listener
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {

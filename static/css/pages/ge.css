@@ -1,35 +1,35 @@
 .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5%;
-    overflow: hidden;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 2% 2%;
-    max-width: 95%;
-      }
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5%;
+  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 2% 2%;
+  max-width: 95%;
+}
 
 h1 {
-    font-size:2.0rem;
-    }
+  font-size: 2rem;
+}
 h2 {
-    font-size:1.8rem;
-    }
-h3{
-    font-size:1.5rem;
-    }
-p{
-    font-size:1.3rem;
-    margin-bottom:1.5%;
-    }
-ul{
-    font-size:1.1rem;
-    }
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+p {
+  font-size: 1.3rem;
+  margin-bottom: 1.5%;
+}
+ul {
+  font-size: 1.1rem;
+}
 .leading-first-line {
   text-indent: -1.5em;
   padding-left: 1.5em;
-    }
+}
 
 a.not-tag {
   color: hsl(19, 100%, 55%);

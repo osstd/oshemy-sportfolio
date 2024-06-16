@@ -81,18 +81,18 @@ textarea {
 }
 
 .alert {
-    min-height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .success {
-    color: #fff;
+  color: #fff;
 }
 
 .error {
-    color: #ff0000;
+  color: #ff0000;
 }
 
 /* Media query */
@@ -109,14 +109,14 @@ textarea {
 }
 
 @media (min-width: 992px) {
-    .contact .container {
-        grid-template-columns: 1fr 0.9fr;
-        align-items: center;
-        gap: 20px
-    }
+  .contact .container {
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 20px;
+  }
 
-    .contact-contact {
-        width: 70%;
-        margin-inline: auto;
-    }
+  .contact-contact {
+    width: 70%;
+    margin-inline: auto;
+  }
 }

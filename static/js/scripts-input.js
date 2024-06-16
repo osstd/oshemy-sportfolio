@@ -2,11 +2,7 @@ function generateUrlInputs() {
   const numberOfInputs = document.getElementById("numberOfInputs").value;
   const urlInputsContainer = document.getElementById("urlInputsContainer");
 
-  // Clear previous inputs
-
   urlInputsContainer.innerHTML = "";
-
-  // Add the title and name input and submit button if not already added
 
   if (!document.getElementById("nameInput")) {
     const nameInput = document.createElement("input");

@@ -26,12 +26,14 @@
 }
 
 .services-banner {
-  padding-block-end:2%;
+  padding-block-end: 2%;
   max-width: max-content;
-  margin-inline: auto
+  margin-inline: auto;
 }
 /* Media queries */
 
 @media (min-width: 768px) {
-  .service-list {grid-template-columns: 1fr 1fr;}
+  .service-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -65,16 +65,14 @@
   background-color: var(--white);
   color: var(--jet);
   display: flex;
-  /* place-items: center; */
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   ion-icon {
     margin: 0;
     padding: 0;
+  }
 }
-}
-
 
 /* Container query */
 

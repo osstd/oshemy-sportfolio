@@ -29,7 +29,6 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
-# Send a ping to confirm a successful connection to the mongo server no creation
 client = mongo.cx
 
 try:
@@ -184,7 +183,6 @@ def save_slides():
     title = request.form.get('title')
     urls = request.form.getlist('urls')
 
-    # Save to MongoDB
     document = {
         'name': name,
         'title': title,
@@ -200,8 +198,6 @@ def save_slides():
 @admin_only
 @login_required
 def view(name):
-    # name = request.form.get('name')
-
     document = collection_slides.find_one({'name': name})
 
     if document:

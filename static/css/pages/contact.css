@@ -95,6 +95,14 @@ textarea {
   color: #ff0000;
 }
 
+.g-recaptcha {
+  margin-bottom: 2%;
+}
+
+.retry {
+  margin: 0 auto;
+}
+
 /* Media query */
 
 @media (min-width: 768px) {

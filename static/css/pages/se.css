@@ -58,3 +58,88 @@ main {
   flex: 1;
   background-color: var(--white);
 }
+
+/* handle orientation */
+
+#orientation-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--orange-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+#orientation-message.hidden {
+  display: none;
+}
+
+.rotate-indicator {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.rotate-indicator .fa-mobile-alt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  color: #333;
+  animation: rotate-phone 4s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes rotate-phone {
+  0%,
+  25% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50%,
+  75% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .wrapper {
+    max-height: 325px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .wrapper img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .wrapper i {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  #orientation-message {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 896px) and (orientation: portrait) {
+  #orientation-message {
+    display: flex;
+  }
+
+  .section {
+    display: none;
+  }
+}

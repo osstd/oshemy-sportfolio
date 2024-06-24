@@ -26,6 +26,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/eo.css') }}"/>
 
+    <!--Viewer css-->
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css"
+    />
+
+
 </head>
 <body>
 <!-- Preloader -->
@@ -147,7 +155,8 @@
                                 in compression flange at the tip necessitates the use of an effective length factor (K)
                                 ranging from
                                 1.5 to 2.5 as per the <a class="not-tag admin" href="javascript:void(0)"
-                                                         onclick="showPopup()">CISC 1989 Design Module</a>
+                                                         onclick="handleTechGuide('https://i.imgur.com/vZ4i9w7.jpg')">CISC
+                                1989 Design Module</a>
                                 Since, stability is not a game of
                                 numbers, an effective length factor (K) of 2.5 should be opted for in this situation.
                             </p>
@@ -155,7 +164,7 @@
                         <div class="portfolio-card">
 
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -167,7 +176,7 @@
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -212,7 +221,7 @@
                         <div class="portfolio-card">
 
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -224,7 +233,7 @@
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -285,7 +294,8 @@
                                 supported as both the top and bottom flanges would be braced in this case. I wonder if a
                                 bottom chord extension on the joist placed
                                 on the <a class="not-tag admin" href="javascript:void(0)"
-                                          onclick="showPopup()">tip of the cantilever</a> and using a (K) of 1.0 would
+                                          onclick="handleTechGuide('https://i.imgur.com/vZ4i9w7.jpg')">tip of the
+                                cantilever</a> and using a (K) of 1.0 would
                                 actually offset the extra
                                 weight of the cantilever beam, when opting for heavier beams influenced by a
                                 (K) > 1.5. The search continues for such scenario.
@@ -294,7 +304,7 @@
                         <div class="portfolio-card">
 
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -306,7 +316,7 @@
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -351,7 +361,7 @@
                         <div class="portfolio-card">
 
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -363,7 +373,7 @@
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -409,7 +419,7 @@
                         <div class="portfolio-card">
 
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -421,7 +431,7 @@
                                 />
                             </div>
                             <div
-                                    class="card-banner img-holder"
+                                    class="card-banner img-holder-viewable"
                                     style="--width: ; --height: "
                             >
                                 <img
@@ -439,12 +449,6 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div id="popup" class="popup">
-                <div class="popup-content">
-                    <span class="close" onclick="hidePopup()">&times;</span>
-                    <img src="https://i.imgur.com/vZ4i9w7.jpg" alt="Description Image">
-                </div>
             </div>
         </section>
     </article>
@@ -492,7 +496,12 @@
 
 <!-- custom js -->
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+
+<!--Viewer js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
 <script src="{{url_for('static', filename='js/scripts-eo.js')}}"></script>
+
+<!--ionicons-->
 <script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

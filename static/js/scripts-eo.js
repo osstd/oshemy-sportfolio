@@ -1,28 +1,3 @@
-function popupControl() {
-  window.onclick = function (event) {
-    if (event.target == popup) {
-      hidePopup();
-    }
-  };
-
-  document.onkeydown = function (event) {
-    if (event.key === "Escape") {
-      hidePopup();
-    }
-  };
-}
-
-function showPopup() {
-  document.getElementById("popup").style.display = "block";
-  popupControl();
-  document.getElementById("section-container").style.display = "none";
-}
-
-function hidePopup() {
-  document.getElementById("popup").style.display = "none";
-  document.getElementById("section-container").style.display = "block";
-}
-
 function checkUserStatus() {
   fetch("/user_status")
     .then((response) => response.json())
@@ -43,4 +18,62 @@ function checkUserStatus() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", checkUserStatus());
+function imageViewer() {
+  const images = document.querySelectorAll(".img-holder-viewable img");
+
+  images.forEach(function (image) {
+    image.addEventListener("click", function () {
+      var imageInView = new Image();
+      imageInView.src = image.src;
+      var viewer = new Viewer(imageInView, {
+        inline: false,
+        navbar: false,
+        title: false,
+        toolbar: false,
+        viewed: function (e) {
+          var viewer = this.viewer;
+          var imageData = viewer.imageData;
+          var containerData = viewer.containerData;
+
+          var zoomRatio =
+            0.7 *
+            Math.min(
+              containerData.width / imageData.naturalWidth,
+              containerData.height / imageData.naturalHeight
+            );
+
+          viewer.zoomTo(zoomRatio, true);
+
+          var offsetX =
+            (containerData.width - imageData.naturalWidth * zoomRatio) / 2;
+          var offsetY =
+            (containerData.height - imageData.naturalHeight * zoomRatio) / 2;
+
+          viewer.moveTo(offsetX, offsetY);
+        },
+      });
+      viewer.show();
+    });
+  });
+}
+
+function handleTechGuide(imageURL) {
+  var image = new Image();
+  image.src = imageURL;
+  var viewer = new Viewer(image, {
+    inline: false,
+    navbar: false,
+    toolbar: false,
+    title: false,
+    hidden: function () {
+      viewer.destroy();
+    },
+  });
+
+  viewer.show();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  checkUserStatus();
+  imageViewer();
+});

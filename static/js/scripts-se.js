@@ -135,3 +135,22 @@ wrapper.addEventListener("touchend", () => {
     nextImage();
   }
 });
+
+// handle orientation
+
+function handleOrientationChange() {
+  const orientationMessage = document.getElementById("orientation-message");
+  const container = document.querySelector(".section");
+
+  if (window.innerWidth <= 768 && window.innerHeight > window.innerWidth) {
+    orientationMessage.classList.remove("hidden");
+    container.style.display = "none";
+  } else {
+    orientationMessage.classList.add("hidden");
+    container.style.display = "block";
+  }
+}
+
+handleOrientationChange();
+
+window.addEventListener("resize", handleOrientationChange);

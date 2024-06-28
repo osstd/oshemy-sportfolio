@@ -1,6 +1,5 @@
 from flask import Flask, abort, render_template, request, redirect, url_for, flash, jsonify
-from flask_wtf.csrf import CSRFProtect, generate_csrf, validate_csrf
-from wtforms import ValidationError
+from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user, \
     AnonymousUserMixin
@@ -120,36 +119,31 @@ async def send_email_async(message, receiver_email):
 def contact():
     if request.method == 'POST':
         recaptcha_response = request.form['g-recaptcha-response']
-        try:
-            validate_csrf(request.form.get('csrf_token'))
-            if not verify_recaptcha(recaptcha_response):
-                return render_template('contact.html', result="reCAPTCHA verification failed. Please try again.",
-                                       success=False, csrf_token=generate_csrf(), site_key=site_key)
+        if not verify_recaptcha(recaptcha_response):
+            return render_template('contact.html', result="reCAPTCHA verification failed. Please try again.",
+                                   success=False, site_key=site_key)
 
-            name = sanitize_input(request.form.get('name', ''))
-            phone = sanitize_input(request.form.get('phone', 'Not given'))
-            email = sanitize_input(request.form.get('email', ''))
-            subject = sanitize_input(request.form.get('subject', f'A new message from {name}'))
-            message = sanitize_input(request.form.get('message', ''))
+        name = sanitize_input(request.form.get('name', ''))
+        phone = sanitize_input(request.form.get('phone', 'Not given'))
+        email = sanitize_input(request.form.get('email', ''))
+        subject = sanitize_input(request.form.get('subject', f'A new message from {name}'))
+        message = sanitize_input(request.form.get('message', ''))
 
-            if not name or not email or not message:
-                return render_template('contact.html', result="Please fill all required fields", success=False)
-            if not validate_email(email):
-                return render_template('contact.html', result="Please enter a valid email address", success=False)
+        if not name or not email or not message:
+            return render_template('contact.html', result="Please fill all required fields", success=False)
+        if not validate_email(email):
+            return render_template('contact.html', result="Please enter a valid email address", success=False)
 
-            body = f"Thank you for contacting me!\nNew message submitted.\n\nMessage:\n{message}\n\nName: {name}" \
-                   f"\nEmail: " \
-                   f"{email}\nPhone: {phone}"
-            msg = MIMEText(body, 'plain', 'utf-8')
-            msg['Subject'] = subject
-            asyncio.run(send_email_async(msg, email))
+        body = f"Thank you for contacting me!\nNew message submitted.\n\nMessage:\n{message}\n\nName: {name}" \
+               f"\nEmail: " \
+               f"{email}\nPhone: {phone}"
+        msg = MIMEText(body, 'plain', 'utf-8')
+        msg['Subject'] = subject
+        asyncio.run(send_email_async(msg, email))
 
-            return render_template('contact.html', result="Your message has been sent. We'll get back to you soon!",
-                                   success=True)
-        except ValidationError:
-            return render_template('contact.html', result="Invalid form submission.", success=False)
-
-    return render_template('contact.html', result=False, csrf_token=generate_csrf(), site_key=site_key)
+        return render_template('contact.html', result="Your message has been sent. We'll get back to you soon!",
+                               success=True)
+    return render_template('contact.html', result=False, site_key=site_key)
 
 
 @app.route('/files/<int:num>')
@@ -187,6 +181,7 @@ def admin_slide(num, d, t):
 
 
 @app.route('/l', methods=['GET', 'POST'])
+@limiter.limit("5 per hour")
 def auth():
     if request.method == 'POST':
         action = request.form.get('action')
@@ -256,11 +251,6 @@ def view(name):
 def logout():
     logout_user()
     return redirect(url_for('home'))
-
-
-@app.route('/login')
-def login():
-    return render_template('login.html')
 
 
 @app.route('/user_status', methods=['GET'])

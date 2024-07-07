@@ -1,0 +1,23 @@
+<footer class="footer">
+    <div class="container">
+        <ul class="social-list">
+            <li>
+                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://the-blog-rouge.vercel.app" class="social-link">
+                    <ion-icon name="globe"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/__shemy" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+        </ul>
+        <p class="text-center">{% if current_user.is_authenticated%}Omar Shemy Signed In {% endif %}&copy; 2024
+            copyright all right reserved</p>
+    </div>
+</footer>

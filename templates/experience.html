@@ -36,58 +36,7 @@
 
 <!-- Header -->
 
-<header class="header" data-header>
-    <div class="container">
-        <a href="{{url_for('home')}}" class="logo">
-            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
-        </a>
-        <nav class="navbar" data-navbar>
-            <ul class="navbar-list">
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('home')}}"
-                            class="label-lg navbar-link has-after"
-                    >Home</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('services')}}"
-                            class="label-lg navbar-link has-after"
-                    >Services</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('portfolio')}}"
-                            class="label-lg navbar-link has-after"
-                    >Portfolio</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="#"
-                            class="label-lg navbar-link has-after active"
-                    >Experience</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('contact')}}"
-                            class="label-lg navbar-link has-after"
-                    >Contact</a
-                    >
-                </li>
-            </ul>
-        </nav>
-
-        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
-
-        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
-            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-        </button>
-    </div>
-</header>
+{{ get_header('Experience') | safe}}
 
 <main>
     <article>
@@ -149,7 +98,7 @@
                                 </li>
                             </ul>
                             <ul class="card-anchor">
-                                <li>Detailed structural engineering experience <a href="{{url_for('ee')}}"
+                                <li>Detailed structural engineering experience <a href="{{url_for('main.ee')}}"
                                                                                   class="not-tag">here</a>.
                                 </li>
                             </ul>
@@ -173,7 +122,7 @@
                             </ul>
                             <ul class="card-anchor">
                                 <li>
-                                    More details on graduate research <a href="{{url_for('ge')}}"
+                                    More details on graduate research <a href="{{url_for('main.ge')}}"
                                                                          class="not-tag">here</a>. Also, <a
                                         href="https://doi.org/10.1061/(ASCE)BE.1943-5592.0001824"
                                         class="not-tag">Tech
@@ -257,8 +206,9 @@
                                 </ul>
                                 <ul class="card-anchor none">
                                     <li>
-                                        <a href="{{url_for('file', num=13)}}" class="not-tag">Technical writing</a> · <a
-                                            href="{{url_for('file', num=14)}}"
+                                        <a href="{{url_for('slides.file', num=13)}}" class="not-tag">Technical
+                                            writing</a> · <a
+                                            href="{{url_for('slides.file', num=14)}}"
                                             class="not-tag">Capstone
                                     </a>
                                     </li>
@@ -293,56 +243,22 @@
                                     of
                                     structural design
                                 </p>
-                                <a href="{{url_for('ae')}}" class="not-tag">Award List.</a>
+                                <a href="{{url_for('main.ae')}}" class="not-tag">Award List.</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </article>
 </main>
 
 <!-- Footer -->
 
-<footer class="footer">
-    <div class="container">
-        <ul class="social-list">
-            <li class="none">
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="https://the-blog-rouge.vercel.app" class="social-link">
-                    <ion-icon name="globe"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="https://twitter.com/__shemy" class="social-link">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-            </li>
-            <li class="none">
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-            </li>
-            <li class="none">
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-pinterest"></ion-icon>
-                </a>
-            </li>
-        </ul>
-        <p class="text-center">&copy; 2024 copyright all right reserved</p>
-    </div>
-</footer>
+{{ render_footer() | safe }}
 
 <!-- custom js -->
+
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 <script src="{{url_for('static', filename='js/scriptse.js')}}"></script>
 <script

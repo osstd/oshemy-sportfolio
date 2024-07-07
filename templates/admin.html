@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Omar Shemy | Login</title>
+    <title>Omar Shemy | Admin</title>
 
     <!-- favicon -->
 
@@ -31,45 +31,41 @@
     <div class="preloader-circle"></div>
 </div>
 
-{{ get_header('Login') | safe}}
+{{ get_header('Admin') | safe }}
 
 <main>
     <article>
         <section class="section has-before" aria-label="home">
             <div class="container-login">
                 {% if current_user.is_authenticated %}
-                <span>Omar Shemy Signed In</span>
-                <button class="btn btn-tertiary"><a href="{{ url_for('auth.logout') }}">Logout</a></button>
+                <h1>Omar Shemy Signed In</h1>
+                <div>
+                    <button class="btn btn-tertiary"><a href="{{ url_for('slides.input_slides') }}">Add Slides</a>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn btn-tertiary"><a href="{{ url_for('users.view_users') }}">Users</a></button>
+                </div>
+                <div>
+                    <button class="btn btn-tertiary"><a href="{{ url_for('slides.view_directory') }}">Slides</a>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn btn-tertiary"><a href="{{ url_for('auth.auth') }}">Auth</a>
+                    </button>
+                </div>
                 {% else %}
                 <div class="container">
-                    <h1>Register or Login</h1>
-                    <form method="POST" class="login-form">
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                        <input class="input-field" type="text" name="username" placeholder="Username" required>
-                        <input class="input-field" type="password" name="password" placeholder="Password" required>
-                        <div class="button-container">
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
-                                </button>
-                            </div>
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="login">Login
-                                </button>
-                            </div>
-
-                        </div>
-
-                    </form>
-                </div>
-                <div class="home-container">
-                    <button class="btn btn-primary"><a href="{{ url_for('main.home') }}">Back to Home</a></button>
+                    <h1>Login</h1>
+                    <button class="btn btn-primary"><a href="{{ url_for('auth.auth') }}">Login</a></button>
                 </div>
                 {% endif %}
                 <div class="container">
                     {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                     {% for category, message in messages %}
-                    <div class="alert {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}" role="alert">
+                    <div class="alert {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}"
+                         role="alert">
                         {{message}}
                     </div>
                     {% endfor %}

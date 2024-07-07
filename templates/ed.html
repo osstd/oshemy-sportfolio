@@ -35,65 +35,7 @@
 
 <!-- Header -->
 
-<header class="header" data-header>
-    <div class="container">
-        <a href="{{url_for('home')}}" class="logo">
-            <img src="{{url_for('static', filename='assets/favicon.png')}}" width="40" alt="OS home"/>
-        </a>
-        <nav class="navbar" data-navbar>
-            <ul class="navbar-list">
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('home')}}"
-                            class="label-lg navbar-link has-after"
-                    >Home</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('services')}}"
-                            class="label-lg navbar-link has-after"
-                    >Services</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('portfolio')}}"
-                            class="label-lg navbar-link has-after"
-                    >Portfolio</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="#"
-                            class="label-lg navbar-link has-after active"
-                    >Portfolio | ED </a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('experience')}}"
-                            class="label-lg navbar-link has-after"
-                    >Experience</a
-                    >
-                </li>
-                <li class="navbar-item">
-                    <a
-                            href="{{url_for('contact')}}"
-                            class="label-lg navbar-link has-after"
-                    >Contact</a
-                    >
-                </li>
-            </ul>
-        </nav>
-
-        <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Now</a>
-
-        <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
-            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-        </button>
-    </div>
-</header>
+{{ get_header('Portfolio', 'ED') | safe}}
 
 <main>
     <article>
@@ -277,7 +219,7 @@
                                 there are
                                 no blueprints on record. This ability enables me to effectively understand <a
                                     class="not-tag admin"
-                                    href="{{url_for('view', name='dr')}}">structural</a>
+                                    href="{{url_for('slides.view', name='dr')}}">structural</a>
                                 dynamics,
                                 support systems, and devise innovative solutions, even in the absence of digital models
                                 or blueprints. Finally, this skill also empowers me to
@@ -349,7 +291,7 @@
                                 I've crafted these 3D sketches to enhance understanding of the situation and the
                                 construction sequence. Drawing has enabled me to swiftly and clearly grasp
                                 the nuances, facilitating efficiency on-site by knowing precisely what dimensions,
-                                thicknesses, and gaps to measure for completing my <a href="{{url_for('ca')}}#des"
+                                thicknesses, and gaps to measure for completing my <a href="{{url_for('main.ca')}}#des"
                                                                                       class="not-tag">design.</a>
                             </p>
                         </div>
@@ -493,7 +435,7 @@
                         <div>
                             <p class="card-text">
                                 <a class="not-tag admin"
-                                   href="{{url_for('admin_slide', num=4, d='hb', t='2500 Henri Bourassa')}}">Samples</a>
+                                   href="{{url_for('slides.admin_slide', num=4, d='hb', t='2500 Henri Bourassa')}}">Samples</a>
                                 from a reinforced concrete structure, ground-floor beam elevations. <span
                                     class="admin hidden">Ground-floor
                                 slab bottom and top reinforcing
@@ -676,45 +618,10 @@
 
 <!-- Footer -->
 
-<footer class="footer">
-    <div class="container">
-        <ul class="social-list">
-            <li class="none">
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/omar-shemy/" class="social-link">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="https://the-blog-rouge.vercel.app" class="social-link">
-                    <ion-icon name="globe"></ion-icon>
-                </a>
-            </li>
-            <li>
-                <a href="https://twitter.com/__shemy" class="social-link">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-            </li>
-            <li class="none">
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-            </li>
-            <li class="none">
-                <a href="#" class="social-link">
-                    <ion-icon name="logo-pinterest"></ion-icon>
-                </a>
-            </li>
-        </ul>
-        <p class="text-center">&copy; 2024 copyright all right reserved</p>
-    </div>
-</footer>
+{{ render_footer() | safe }}
 
 <!-- custom js -->
+
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 <script src="{{url_for('static', filename='js/scripts-admin.js')}}"></script>
 <script

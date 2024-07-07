@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Omar Shemy | Login</title>
+    <title>Omar Shemy | Error</title>
 
     <!-- favicon -->
 
@@ -31,46 +31,29 @@
     <div class="preloader-circle"></div>
 </div>
 
-{{ get_header('Login') | safe}}
+{{ get_header('Error!') | safe}}
 
 <main>
     <article>
         <section class="section has-before" aria-label="home">
             <div class="container-login">
+                {% if admin %}
                 {% if current_user.is_authenticated %}
                 <span>Omar Shemy Signed In</span>
                 <button class="btn btn-tertiary"><a href="{{ url_for('auth.logout') }}">Logout</a></button>
                 {% else %}
                 <div class="container">
-                    <h1>Register or Login</h1>
-                    <form method="POST" class="login-form">
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                        <input class="input-field" type="text" name="username" placeholder="Username" required>
-                        <input class="input-field" type="password" name="password" placeholder="Password" required>
-                        <div class="button-container">
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
-                                </button>
-                            </div>
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="login">Login
-                                </button>
-                            </div>
-
-                        </div>
-
-                    </form>
+                    <button class="btn btn-primary"><a href="{{ url_for('auth.auth') }}">Login</a></button>
                 </div>
-                <div class="home-container">
-                    <button class="btn btn-primary"><a href="{{ url_for('main.home') }}">Back to Home</a></button>
-                </div>
+                {% endif %}
                 {% endif %}
                 <div class="container">
                     {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                     {% for category, message in messages %}
-                    <div class="alert {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}" role="alert">
-                        {{message}}
+                    <div class="alert {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}"
+                         role="alert">
+                        {{message|safe}}
                     </div>
                     {% endfor %}
                     {% endif %}
@@ -80,11 +63,13 @@
         </section>
     </article>
 </main>
+
 <!-- Footer -->
 
 {{ render_footer() | safe }}
 
 <!-- custom js -->
+
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 </body>
 </html>

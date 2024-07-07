@@ -1,4 +1,6 @@
 function generateUrlInputs() {
+  document.getElementById("urlForm").style.display = "block";
+
   const numberOfInputs = document.getElementById("numberOfInputs").value;
   const urlInputsContainer = document.getElementById("urlInputsContainer");
 
@@ -12,7 +14,6 @@ function generateUrlInputs() {
     nameInput.setAttribute("placeholder", "Name");
     nameInput.classList.add("input-field");
     urlInputsContainer.appendChild(nameInput);
-    urlInputsContainer.appendChild(document.createElement("br"));
   }
 
   if (!document.getElementById("titleInput")) {
@@ -23,17 +24,26 @@ function generateUrlInputs() {
     titleInput.setAttribute("placeholder", "Title");
     titleInput.classList.add("input-field");
     urlInputsContainer.appendChild(titleInput);
-    urlInputsContainer.appendChild(document.createElement("br"));
   }
+
+  if (!document.getElementById("url-grid")) {
+    const urlInput = document.createElement("div");
+    urlInput.setAttribute("id", "url-grid");
+    urlInputsContainer.appendChild(urlInput);
+  }
+
+  const urlInput = document.getElementById("url-grid");
+
   for (let i = 0; i < numberOfInputs; i++) {
     const inputElement = document.createElement("input");
     inputElement.setAttribute("type", "text");
     inputElement.setAttribute("name", "urls");
-    inputElement.classList.add("input-field");
+    inputElement.classList.add("input-url");
     inputElement.setAttribute("placeholder", `URL ${i + 1}`);
-    urlInputsContainer.appendChild(inputElement);
-    urlInputsContainer.appendChild(document.createElement("br"));
+    urlInput.appendChild(inputElement);
   }
+
+  urlInputsContainer.appendChild(urlInput);
 
   if (!document.getElementById("submitButton")) {
     const submitButton = document.createElement("button");

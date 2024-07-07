@@ -30,14 +30,28 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/se.css') }}"/>
 
-    <!-- custom js -->
+    <!--Viewer css-->
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css"
+    />
 
 </head>
 <body>
+
 <!-- Preloader -->
 
 <div class="preloader" data-preloader>
     <div class="preloader-circle"></div>
+</div>
+
+<!--Orientation-->
+
+<div id="orientation-message" class="hidden">
+    <div class="rotate-indicator">
+        <i class="fas fa-mobile-alt"></i>
+    </div>
 </div>
 
 <!-- Header -->
@@ -56,7 +70,7 @@
             <div class="carousel">
                 <div class="wrapper">
                     {% for index, url in urls: %}
-                    <img src="{{url}}" alt="Slide {{ index + 1 }}">
+                    <img class="img-viewable" src="{{url}}" alt="Slide {{ index + 1 }}">
                     {% endfor %}
                     <i id="prevBtn" class="fas fa-chevron-left" style="left: 10px"></i>
                     <i id="nextBtn" class="fas fa-chevron-right" style="right: 10px"></i>
@@ -71,9 +85,12 @@
 {{ render_footer() | safe }}
 
 <!-- custom js -->
-
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 <script src="{{url_for('static', filename='js/scripts-se.js')}}"></script>
+
+<!--Viewer js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
+
 <script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

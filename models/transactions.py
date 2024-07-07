@@ -43,3 +43,10 @@ def delete_one(db_name, collection_name, filter_dict):
         get_collection(db_name, collection_name).delete_one(filter_dict)
     except Exception as error:
         raise DatabaseError(f"Error deleting record from {collection_name}: {str(error)}")
+
+
+def update_one(db_name, collection_name, filter_dict, update):
+    try:
+        get_collection(db_name, collection_name).update_one(filter_dict, update)
+    except Exception as error:
+        raise DatabaseError(f"Error updating record from {collection_name}: {str(error)}")

@@ -42,21 +42,19 @@
                 <button class="btn btn-tertiary"><a href="{{ url_for('auth.logout') }}">Logout</a></button>
                 {% else %}
                 <div class="container">
-                    <h1>Register or Login</h1>
                     <form method="POST" class="login-form">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <input class="input-field" type="text" name="username" placeholder="Username" required>
                         <input class="input-field" type="password" name="password" placeholder="Password" required>
                         <div class="button-container">
                             <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
-                                </button>
-                            </div>
-                            <div>
                                 <button class="btn btn-tertiary" type="submit" name="action" value="login">Login
                                 </button>
                             </div>
-
+                            <div>
+                                <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
+                                </button>
+                            </div>
                         </div>
 
                     </form>
@@ -69,7 +67,8 @@
                     {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                     {% for category, message in messages %}
-                    <div class="alert {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}" role="alert">
+                    <div class="alert alert-max {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}"
+                         role="alert">
                         {{message}}
                     </div>
                     {% endfor %}

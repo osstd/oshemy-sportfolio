@@ -29,6 +29,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/admin.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/viewdirectory.css') }}"/>
+
+    <!--Viewer css-->
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css"
+    />
 
 </head>
 <body>
@@ -46,14 +54,16 @@
 <main>
     <article>
         <section class="section portfolio" aria-labelledby="portfolio-label">
-            <h2
+            <h1
                     class="section-title headline-sm text-center"
                     id="portfolio-label"
             >
-                Registered {{title}}
-            </h2>
+                {{title}}
+            </h1>
             <div class="container">
+
                 <div>
+                    {% if users %}
                     <ul>
                         {% for user in users %}
                         <li> {{user.username}} - <a class="not-tag"
@@ -61,28 +71,59 @@
                         </li>
                         {% endfor %}
                     </ul>
+                    {% endif %}
+                    {% if slides %}
                     <ul style="padding: 5%;, margin:5%;">
                         {% for slide in slides %}
                         <li>
-                            {{slide.name}} - {{slide.title}}
-                            <br>
-                            <ol>
-                                {% for url in slide.urls %}
-                                {{url}}
-                                {% endfor %}
-                            </ol>
+                            <a class="not-tag"
+                               href="{{url_for('slides.update_slide', name=slide.name)}}">{{slide.name}}</a> -
+                            {{slide.title}} - <a class="not-tag"
+                                 href="{{url_for('slides.delete_slide', name=slide.name)}}">x</a>
 
                         </li>
                         {% endfor %}
                     </ul>
+                    {% endif %}
                 </div>
+                {% if slide %}
+                <div>
+                    <h2>Slide Name: {{ slide.name }}</h2>
+                    <form action="{{ url_for('slides.update_slide', name=slide.name) }}" id="editSlideForm"
+                          method="POST" class="form">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                        <label for="title" class="label">Title</label>
+                        <input id="title" type="text" name="title" value="{{ slide.title }}" class="input-field">
+
+                        <div id="imageContainer">
+                            {% for url in slide.urls %}
+                            <div class="grid-item" draggable="true">
+                                <div class="image-wrapper">
+                                    <img class="img-viewable" src="{{ url }}" alt="Slide image">
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" name="urls[]" value="{{ url }}">
+                                </div>
+
+                                <button type="button" class="deleteUrl">Delete</button>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <button class="btn btn-tertiary" type="button" id="addNewUrl">Add New Image URL</button>
+                        <button class="btn btn-primary" type="submit">Update Slide</button>
+                    </form>
+                </div>
+                {% endif %}
             </div>
 
             <div class="container">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                 {% for category, message in messages %}
-                <div class="alert {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}"
+                <div class="alert alert-max {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}"
                      role="alert">
                     {{message}}
                 </div>
@@ -98,9 +139,17 @@
 
 {{ render_footer() | safe }}
 
+
+<!--viewer js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
+
+<!--sortable js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
 <!-- custom js -->
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
-<script src="{{url_for('static', filename='js/scripts-se.js')}}"></script>
+<script src="{{url_for('static', filename='js/scripts-vdirectory.js')}}"></script>
+
 <script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

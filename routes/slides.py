@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required
 from utils import sanitize_input, serve_slides_thesis, serve_admin_slides, serve_file_by_num
-from models.transactions import get_collection, insert_one, find_one, DatabaseError
+from models.transactions import get_collection, insert_one, find_one, update_one, delete_one, DatabaseError
 from admin import admin_only
 from urllib.parse import unquote
 import asyncio
@@ -38,15 +38,21 @@ def input_slides():
 @admin_only
 @login_required
 def save_slides():
+
     name = sanitize_input(request.form.get('name'))
     title = sanitize_input(request.form.get('title'))
     urls = request.form.getlist('urls')
+
+    if not all([name, title, urls]):
+        flash("Please fill all required fields", 'error')
+        return redirect(url_for("slides.input_slides"))
 
     document = {
         'name': name,
         'title': title,
         'urls': urls
     }
+
     try:
         insert_one("slidesviewer", "slides", document)
         flash("Input done", "success")
@@ -83,3 +89,46 @@ def view_directory():
     except DatabaseError as e:
         flash(f"An error occurred:{e}", "error")
         return redirect(url_for("main.error"))
+
+
+@slides_bp.route('/delete-slide/<name>', methods=['GET', 'POST'])
+@admin_only
+@login_required
+def delete_slide(name):
+    try:
+        delete_one("slidesviewer", "slides", {'name': name})
+        flash("Slides document successfully deleted", "success")
+    except DatabaseError as e:
+        flash(f"An error occurred: {e}", "error")
+
+    return redirect(url_for("slides.view_directory"))
+
+
+@slides_bp.route('/update-slide/<name>', methods=['GET', 'POST'])
+@admin_only
+@login_required
+def update_slide(name):
+    if request.method == 'POST':
+        updated_slide = {
+            'name': name,
+            'title': request.form.get('title'),
+            'urls': request.form.getlist('urls[]')
+        }
+        try:
+            update_one("slidesviewer", "slides", {'name': name}, {"$set": updated_slide})
+            flash("Slides document successfully updated", "success")
+            return redirect(url_for("slides.view_directory"))
+        except DatabaseError as e:
+            flash(f"An error occurred: {e}", "error")
+            return redirect(url_for("main.error"))
+
+    try:
+        slide = find_one("slidesviewer", "slides", {'name': name})
+        if not slide:
+            flash("Slide not found", "error")
+            return redirect(url_for("slides.view_directory"))
+
+        return render_template('view-directory.html', slide=slide, title="Edit Slide")
+    except DatabaseError as e:
+        flash(f"An error occurred: {e}", "error")
+        return redirect(url_for("slides.view_directory"))

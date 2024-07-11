@@ -4,12 +4,11 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>OS | {{title}}</title>
+    <title>Omar Shemy | {{title}}</title>
 
     <!-- favicon -->
 
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
-
 
     <!-- google font -->
 
@@ -19,16 +18,12 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
     />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
 
     <!-- custom css -->
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/se.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/admin.css') }}"/>
 
     <!--Viewer css-->
 
@@ -40,42 +35,43 @@
 </head>
 <body>
 
-<!-- Preloader -->
+<!--Preloader-->
 
 <div class="preloader" data-preloader>
     <div class="preloader-circle"></div>
 </div>
 
-<!--Orientation-->
-
-<div id="orientation-message" class="hidden">
-    <div class="rotate-indicator">
-        <i class="fas fa-mobile-alt"></i>
-    </div>
-</div>
-
 <!-- Header -->
 
-{{ get_header('Admin', 'Slides') | safe}}
+{{ get_header('Admin', 'Media') | safe }}
 
 <main>
     <article>
-        <section class="section portfolio" aria-labelledby="portfolio-label">
+        <section class="section has-before" aria-label="home">
 
             <h2
                     class="section-title headline-sm text-center"
-                    id="portfolio-label"
+                    id="title-media"
             >
                 {{title|safe}}
             </h2>
-
-            <div class="carousel">
-                <div class="wrapper">
+            <div class="container">
+                <div class="media-grid">
                     {% for index, url in urls: %}
-                    <img class="img-viewable" src="{{url}}" alt="Slide {{ index + 1 }}">
+                    <div class="grid-item">
+                        {% if '.gif' in url or '.jpg' in url %}
+
+                        <img src="{{url}}" alt="">
+
+                        {% else %}
+
+                        <video controls>
+                            <source src="{{url}}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        {% endif %}
+                    </div>
                     {% endfor %}
-                    <i id="prevBtn" class="fas fa-chevron-left" style="left: 10px"></i>
-                    <i id="nextBtn" class="fas fa-chevron-right" style="right: 10px"></i>
                 </div>
             </div>
         </section>
@@ -88,18 +84,7 @@
 
 <!-- custom js -->
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
-<script src="{{url_for('static', filename='js/scripts-se.js')}}"></script>
 
-<!--Viewer js-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
 
-<script
-        type="module"
-        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-></script>
-<script
-        nomodule
-        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-></script>
 </body>
 </html>

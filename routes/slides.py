@@ -38,19 +38,20 @@ def input_slides():
 @admin_only
 @login_required
 def save_slides():
-
     name = sanitize_input(request.form.get('name'))
     title = sanitize_input(request.form.get('title'))
+    media = request.form.get('media')
     urls = request.form.getlist('urls')
 
-    if not all([name, title, urls]):
+    if not all([name, title, media, urls]):
         flash("Please fill all required fields", 'error')
         return redirect(url_for("slides.input_slides"))
 
     document = {
         'name': name,
         'title': title,
-        'urls': urls
+        'urls': urls,
+        'media': media
     }
 
     try:
@@ -66,11 +67,16 @@ def save_slides():
 @admin_only
 @login_required
 def view(name):
+    media = request.args.get('media', default=None, type=str)
+
     try:
         document = find_one("slidesviewer", "slides", {'name': name})
         urls = document.get('urls', [])
         title = document.get('title', 'Title Not found')
         urls_with_index = [(index, url) for index, url in enumerate(urls)]
+        if media:
+            return render_template('media.html', urls=urls_with_index, title=title)
+
         return render_template('viewer.html', urls=urls_with_index, title=title)
 
     except DatabaseError as e:
@@ -83,8 +89,9 @@ def view(name):
 @login_required
 def view_directory():
     try:
-        slides_results = get_collection("slidesviewer", "slides").find({}, {"name": 1, "title": 1, "urls": 1})
-        return render_template('view-directory.html', slides=slides_results, title="Slides")
+        slides_results = get_collection("slidesviewer", "slides").find({},
+                                                                       {"name": 1, "title": 1, "urls": 1, "media": 1})
+        return render_template('view-directory.html', slides=slides_results, title="Media")
 
     except DatabaseError as e:
         flash(f"An error occurred:{e}", "error")

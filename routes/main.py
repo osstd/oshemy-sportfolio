@@ -90,6 +90,11 @@ def ae():
     return render_template('ae.html')
 
 
+@main_bp.route('/media')
+def media():
+    return render_template('media.html')
+
+
 @main_bp.route('/contact', methods=['GET', 'POST'])
 @limiter.limit("5 per hour")
 def contact():

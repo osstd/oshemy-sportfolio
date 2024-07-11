@@ -26,6 +26,16 @@ function generateUrlInputs() {
     urlInputsContainer.appendChild(titleInput);
   }
 
+  if (!document.getElementById("mediaInput")) {
+    const mediaInput = document.createElement("input");
+    mediaInput.setAttribute("type", "text");
+    mediaInput.setAttribute("name", "media");
+    mediaInput.setAttribute("id", "mediaInput");
+    mediaInput.setAttribute("placeholder", "Media type");
+    mediaInput.classList.add("input-field");
+    urlInputsContainer.appendChild(mediaInput);
+  }
+
   if (!document.getElementById("url-grid")) {
     const urlInput = document.createElement("div");
     urlInput.setAttribute("id", "url-grid");

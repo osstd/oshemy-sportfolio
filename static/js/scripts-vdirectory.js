@@ -18,7 +18,7 @@ document.getElementById("addNewUrl").addEventListener("click", function () {
   newItem.draggable = true;
   newItem.innerHTML = `
         <div class="image-wrapper"><img src="" alt="New image"></div>
-        <div class="input-wrapper"><input type="text" name="urls[]" value="New URL" placeholder="Enter image URL"></div>
+        <div class="input-wrapper"><input type="text" name="urls[]" value="New URL" placeholder=""></div>
         <button type="button" class="deleteUrl">Delete</button>
     `;
   document.getElementById("imageContainer").appendChild(newItem);

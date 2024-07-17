@@ -144,6 +144,13 @@ main {
   margin-block-end: 2%;
 }
 
+.button-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+}
+
 #urlForm {
   display: none;
 }
@@ -207,6 +214,19 @@ main {
 .view-item.slide {
   grid-template-columns: 30% 70%;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+/* Fancy Box*/
+
+.gallery-item {
+  display: inline-block;
+  margin: 10px;
+}
+
+.gallery-item img,
+.gallery-item video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Media query */

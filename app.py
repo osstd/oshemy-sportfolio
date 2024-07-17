@@ -8,6 +8,10 @@ from routes.users import users_bp
 from models.models import User
 from models.transactions import get_by_id, DatabaseError
 from components import render_header, render_footer
+from logging_cofig import setup_logging
+
+
+logger = setup_logging()
 
 
 def create_app():
@@ -67,12 +71,12 @@ def register_context_processors(flask_app):
 def ping_mongo():
     try:
         mongo.cx.admin.command('ping')
-        print("Successfully connected to MongoDB")
+        logger.info("Successfully connected to MongoDB")
     except Exception as e:
-        print(f"Failed to connect to MongoDB: {e}")
+        logger.info(f"Failed to connect to MongoDB: {e}")
 
 
 app = create_app()
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=Config.DEBUG)

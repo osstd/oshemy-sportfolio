@@ -25,12 +25,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/admin.css') }}"/>
 
-    <!--Viewer css-->
-
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css"
-    />
+    <!--    FancyBox css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"/>
 
 </head>
 <body>
@@ -56,19 +52,20 @@
                 {{title|safe}}
             </h2>
             <div class="container">
-                <div class="media-grid">
+                <div class="media-grid gallery">
                     {% for index, url in urls: %}
                     <div class="grid-item">
                         {% if '.gif' in url or '.jpg' in url %}
-
-                        <img src="{{url}}" alt="">
-
+                        <a class="gallery-item" data-fancybox="gallery" href="{{url}}">
+                            <img src="{{url}}" alt="">
+                        </a>
                         {% else %}
-
-                        <video controls>
-                            <source src="{{url}}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <a class="gallery-item" data-fancybox="gallery" href="{{url}}">
+                            <video controls>
+                                <source src="{{url}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </a>
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -83,8 +80,11 @@
 {{ render_footer() | safe }}
 
 <!-- custom js -->
-<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
 
 </body>
 </html>

@@ -39,21 +39,24 @@
             <div class="container-login">
                 {% if current_user.is_authenticated %}
                 <h1>Omar Shemy Signed In</h1>
-                <div>
-                    <button class="btn btn-tertiary"><a href="{{ url_for('slides.input_slides') }}">Add Slides</a>
-                    </button>
+                <div class="button-container">
+                    <div>
+                        <button class="btn btn-tertiary"><a href="{{ url_for('auth.auth') }}">Auth</a>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="btn btn-tertiary"><a href="{{ url_for('users.view_users') }}">Users</a></button>
+                    </div>
+                    <div>
+                        <button class="btn btn-tertiary"><a href="{{ url_for('slides.view_directory') }}">Media</a>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="btn btn-tertiary"><a href="{{ url_for('slides.input_slides') }}">Slides</a>
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <button class="btn btn-tertiary"><a href="{{ url_for('users.view_users') }}">Users</a></button>
-                </div>
-                <div>
-                    <button class="btn btn-tertiary"><a href="{{ url_for('slides.view_directory') }}">Media</a>
-                    </button>
-                </div>
-                <div>
-                    <button class="btn btn-tertiary"><a href="{{ url_for('auth.auth') }}">Auth</a>
-                    </button>
-                </div>
+
                 {% else %}
                 <div class="container">
                     <h1>Login</h1>

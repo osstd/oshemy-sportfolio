@@ -1,3 +1,42 @@
+let ifViewer = false;
+
+function handleNavigation(event) {
+  if (ifViewer) {
+    return;
+  }
+
+  if (event.type === "click" && event.target.id === "prevBtn") {
+    prevImage();
+    prevBtn.classList.add("hover");
+    setTimeout(() => {
+      prevBtn.classList.remove("hover");
+    }, 250);
+  } else if (event.type === "click" && event.target.id === "nextBtn") {
+    nextImage();
+    nextBtn.classList.add("hover");
+    setTimeout(() => {
+      nextBtn.classList.remove("hover");
+    }, 250);
+  } else if (event.type === "keydown") {
+    if (event.key === "ArrowLeft") {
+      prevImage();
+      prevBtn.classList.add("hover");
+      setTimeout(() => {
+        prevBtn.classList.remove("hover");
+      }, 250);
+    } else if (event.key === "ArrowRight") {
+      nextImage();
+      nextBtn.classList.add("hover");
+      setTimeout(() => {
+        nextBtn.classList.remove("hover");
+      }, 250);
+    }
+  }
+}
+
+document.addEventListener("click", handleNavigation);
+document.addEventListener("keydown", handleNavigation);
+
 const wrapper = document.querySelector(".wrapper");
 const images = document.querySelectorAll(".wrapper img");
 const prevBtn = document.getElementById("prevBtn");
@@ -9,6 +48,7 @@ let currentX;
 let isDragging = false;
 
 // Hide or show navigation buttons based on current image index
+
 function toggleNavButtons() {
   prevBtn.style.display = currentImageIndex === 0 ? "none" : "block";
   nextBtn.style.display =
@@ -42,6 +82,7 @@ function nextImage() {
 }
 
 // adjust nav icon size
+
 const updateLineHeight = () => {
   const iElements = document.querySelectorAll(".wrapper i");
   iElements.forEach((iElement) => {
@@ -62,6 +103,7 @@ window.addEventListener("resize", debouncedUpdateLineHeight);
 window.addEventListener("resize", updateLineHeight);
 
 //Initial setup
+
 debouncedUpdateLineHeight();
 updateLineHeight();
 
@@ -96,22 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowLeft") {
-    prevImage();
-    prevBtn.classList.add("hover");
-    setTimeout(() => {
-      prevBtn.classList.remove("hover");
-    }, 250);
-  } else if (event.key === "ArrowRight") {
-    nextImage();
-    nextBtn.classList.add("hover");
-    setTimeout(() => {
-      nextBtn.classList.remove("hover");
-    }, 250);
-  }
 });
 
 // touch slider
@@ -153,22 +179,37 @@ function handleOrientationChange() {
 
 function imageViewer() {
   const images = document.querySelectorAll(".img-viewable");
+  const imageUrls = Array.from(images).map((img) => img.src);
 
-  images.forEach(function (image) {
+  let currentIndex = 0;
+
+  images.forEach(function (image, index) {
     image.addEventListener("click", function () {
-      var imageInView = new Image();
-      imageInView.src = image.src;
-      var viewer = new Viewer(imageInView, {
-        inline: false,
-        navbar: false,
-        title: false,
-        toolbar: false,
-        viewed: function (e) {
-          var viewer = this.viewer;
-          var imageData = viewer.imageData;
-          var containerData = viewer.containerData;
+      currentIndex = index;
 
-          var zoomRatio =
+      const viewerContainer = document.createElement("div");
+      document.body.appendChild(viewerContainer);
+
+      imageUrls.forEach((url) => {
+        const img = document.createElement("img");
+        img.src = url;
+        viewerContainer.appendChild(img);
+      });
+
+      const viewer = new Viewer(viewerContainer, {
+        inline: false,
+        navbar: true,
+        title: false,
+        toolbar: {
+          prev: 1,
+          next: 1,
+        },
+        viewed: function (e) {
+          const viewer = this.viewer;
+          const imageData = viewer.imageData;
+          const containerData = viewer.containerData;
+
+          const zoomRatio =
             0.7 *
             Math.min(
               containerData.width / imageData.naturalWidth,
@@ -177,15 +218,26 @@ function imageViewer() {
 
           viewer.zoomTo(zoomRatio, true);
 
-          var offsetX =
+          const offsetX =
             (containerData.width - imageData.naturalWidth * zoomRatio) / 2;
-          var offsetY =
+          const offsetY =
             (containerData.height - imageData.naturalHeight * zoomRatio) / 2;
 
           viewer.moveTo(offsetX, offsetY);
         },
+        shown: function () {
+          ifViewer = true;
+          document.body.classList.add("no-scroll");
+        },
+        hidden: function () {
+          ifViewer = false;
+          document.body.classList.remove("no-scroll");
+          document.body.removeChild(viewerContainer);
+        },
       });
+
       viewer.show();
+      viewer.view(currentIndex);
     });
   });
 }

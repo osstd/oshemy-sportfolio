@@ -10,4 +10,5 @@ class Config:
     EMAIL_USER = os.environ.get("E_ID")
     EMAIL_PASSWORD = os.environ.get("E_KEY")
     EMAIL_RECEIVER = os.environ.get("E_ID_TO")
+    DEBUG = os.environ.get('FLASK_DEBUG', 'False').lower() in ('true', '1', 't')
     RECAPTCHA_SITE_KEY = os.environ.get('S_KEY')

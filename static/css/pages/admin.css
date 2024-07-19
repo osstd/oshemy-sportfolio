@@ -144,11 +144,23 @@ main {
   margin-block-end: 2%;
 }
 
+.admin-container {
+  margin: 5% auto;
+}
+
 .button-container {
+  position: relative;
+  margin: 2%;
+  padding: 0 1%;
   display: grid;
-  grid-template-rows: 1fr;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   grid-gap: 10px;
+  overflow: auto;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.btn-tertiary {
+  min-width: 100px;
 }
 
 #urlForm {

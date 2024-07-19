@@ -1,6 +1,18 @@
 .section-title {
-  margin-top: 5%;
+  margin-top: max(40px, 5%);
   margin-block-end: 2%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  background-color: var(--white);
 }
 
 .video-container {

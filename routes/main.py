@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, current_app
+from flask import Blueprint, render_template, request, current_app, flash, redirect, url_for
+from flask_login import current_user
 from extensions import limiter
 from utils import validate_email, sanitize_input, verify_recaptcha, send_email_async
 from admin import admin_only
@@ -92,7 +93,14 @@ def ae():
 
 @main_bp.route('/media')
 def media():
-    return render_template('media.html')
+    if not current_user.is_authenticated:
+        flash(
+            'There is no more media at the moment. For portfolio specific media, that require admin privileges please '
+            'contact author.',
+            'error')
+        return redirect(url_for('main.error', allowed=0))
+
+    return redirect(url_for('slides.view_directory'))
 
 
 @main_bp.route('/contact', methods=['GET', 'POST'])

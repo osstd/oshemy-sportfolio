@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Omar Shemy | {{title}}</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/media_anon.css') }}"/>
+
+</head>
+<body>
+
+<!--Preloader-->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+{{ get_header('Media', 'Viewer') | safe }}
+
+<main>
+    <article>
+        <section class="section has-before" aria-label="home">
+
+            <h2
+                    class="section-title headline-sm text-center"
+                    id="title-media"
+            >
+                {{title|safe}}
+            </h2>
+            <div class="video-container">
+
+                <div class="video-wrapper">
+                    {% for index, url in urls: %}
+                    <iframe src="{{url}}" width="640" height="480" allow="autoplay fullscreen" allowfullscreen></iframe>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+{{ render_footer() | safe }}
+
+<!-- custom js -->
+
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+
+</body>
+</html>

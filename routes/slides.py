@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required
-from utils import sanitize_input, serve_slides_thesis, serve_admin_slides, serve_file_by_num
+from utils import sanitize_input, serve_slides_thesis, serve_admin_slides, serve_file_by_num, retrieve_db_slides
 from models.transactions import get_collection, insert_one, find_one, update_one, delete_one, DatabaseError
 from admin import admin_only
 from urllib.parse import unquote
@@ -70,12 +70,25 @@ def view(name):
     media = request.args.get('media', default=None, type=str)
 
     try:
-        document = find_one("slidesviewer", "slides", {'name': name})
-        urls = document.get('urls', [])
-        title = document.get('title', 'Title Not found')
-        urls_with_index = [(index, url) for index, url in enumerate(urls)]
+        title, urls_with_index = asyncio.run(retrieve_db_slides(name))
         if media:
             return render_template('media.html', urls=urls_with_index, title=title)
+
+        return render_template('viewer.html', urls=urls_with_index, title=title)
+
+    except DatabaseError as e:
+        flash(f"An error occurred:{e}", "error")
+        return redirect(url_for("main.error"))
+
+
+@slides_bp.route('/view-an/<name>')
+def view_anonymous(name):
+    media = request.args.get('media', default=None, type=str)
+
+    try:
+        title, urls_with_index = asyncio.run(retrieve_db_slides(name))
+        if media:
+            return render_template('media_anon.html', urls=urls_with_index, title=title)
 
         return render_template('viewer.html', urls=urls_with_index, title=title)
 
@@ -90,7 +103,8 @@ def view(name):
 def view_directory():
     try:
         slides_results = get_collection("slidesviewer", "slides").find({},
-                                                                       {"name": 1, "title": 1, "urls": 1, "media": 1})
+                                                                       {"name": 1, "title": 1, "urls": 1, "media": 1,
+                                                                        "length": 1})
         return render_template('view-directory.html', slides=slides_results, title="Media")
 
     except DatabaseError as e:

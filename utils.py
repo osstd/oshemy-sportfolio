@@ -1,4 +1,5 @@
 from flask import current_app, url_for, redirect
+from models.transactions import find_one
 import requests
 import aiosmtplib
 import re
@@ -57,6 +58,14 @@ async def serve_admin_slides(num, d):
         image_path = url_for('static', filename=filename)
         image_paths.append(image_path)
     return [(index, path) for index, path in enumerate(image_paths)]
+
+
+async def retrieve_db_slides(name):
+    document = find_one("slidesviewer", "slides", {'name': name})
+    urls = document.get('urls', [])
+    title = document.get('title', 'Title Not found')
+    urls_with_index = [(index, url) for index, url in enumerate(urls)]
+    return title, urls_with_index
 
 
 async def serve_slides_thesis():

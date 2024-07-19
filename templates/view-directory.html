@@ -105,8 +105,13 @@
                                        href="{{url_for('slides.update_slide', name=slide.name)}}">Photos</a>
                                     {% else %}
                                     <strong>View:</strong>
+                                    {% if slide.length == "short" %}
                                     <a class="not-tag"
                                        href="{{url_for('slides.view', name=slide.name, media='video')}}">Videos</a>
+                                    {% else %}
+                                    <a class="not-tag"
+                                       href="{{url_for('slides.view_anonymous', name=slide.name, media='video')}}">Videos</a>
+                                    {% endif %}
                                     {% endif %}
 
                                     <strong>Delete:</strong>

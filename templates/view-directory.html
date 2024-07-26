@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/admin.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/viewdirectory.css') }}"/>
 
+    <!--font-awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
     <!--Viewer css-->
 
     <link
@@ -60,108 +63,118 @@
             >
                 {{title}}
             </h1>
+            {% if users %}
             <div class="container">
-
-                <div>
-                    {% if users %}
-                    <div class="container">
-                        <div class="view-grid">
-                            {% for user in users %}
-                            <div class="view-item">
-                                <div class="view-item user">
-                                    <strong>Name:</strong>
-                                    <span>{{user.username.capitalize()}}</span>
-                                    <strong>Action:</strong>
-                                    <form method="POST"
-                                          action="{{url_for('users.delete_user', user_id=user._id)}}"
-                                          class="delete-form my-1"
-                                          data-user-name="{{ user.name }}">
-                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                        <button type="submit">delete</button>
-                                    </form>
-                                </div>
+                <div class="view-grid">
+                    {% for user in users %}
+                    <div class="view-item">
+                        <div class="user">
+                            <div class="user-info">
+                                <strong>Name:</strong>
+                                <span>{{user.username.capitalize()}}</span>
                             </div>
-                            {% endfor %}
+                            <form method="POST"
+                                  action="{{url_for('users.delete_user', user_id=user._id)}}"
+                                  class="delete-form my-1"
+                                  data-user-name="{{ user.username }}">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                <button type="submit" class="delete-btn" title="Delete user"><i
+                                        class="fas fa-trash-alt"></i></button>
+                            </form>
                         </div>
                     </div>
-                    {% endif %}
-
-                    {% if slides %}
-                    <div class="container">
-                        <div class="view-grid">
-                            {% for slide in slides %}
-                            <div class="view-item">
-                                <div class="view-item slide">
-
-                                    <strong>Name:</strong>
-                                    <span>{{slide.title.capitalize()}}</span>
-
-                                    {% if slide.media == "img" %}
-                                    <strong>View:</strong>
-                                    <a class="not-tag"
-                                       href="{{url_for('slides.view', name=slide.name)}}">Slides</a>
-                                    <strong>Update:</strong>
-                                    <a class="not-tag"
-                                       href="{{url_for('slides.update_slide', name=slide.name)}}">Photos</a>
-                                    {% else %}
-                                    <strong>View:</strong>
-                                    {% if slide.length == "short" %}
-                                    <a class="not-tag"
-                                       href="{{url_for('slides.view', name=slide.name, media='video')}}">Videos</a>
-                                    {% else %}
-                                    <a class="not-tag"
-                                       href="{{url_for('slides.view_anonymous', name=slide.name, media='video')}}">Videos</a>
-                                    {% endif %}
-                                    {% endif %}
-
-                                    <strong>Delete:</strong>
-                                    <form method="POST"
-                                          action="{{url_for('slides.delete_slide', name=slide.name)}}"
-                                          class="delete-form my-1"
-                                          data-user-name="{{ slide.title }}">
-                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                        <button type="submit">delete</button>
-                                    </form>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endif %}
+                    {% endfor %}
                 </div>
-                {% if slide %}
-                <div>
-                    <h2>Slide Name: {{ slide.name }}</h2>
-                    <form action="{{ url_for('slides.update_slide', name=slide.name) }}" id="editSlideForm"
-                          method="POST" class="form">
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            </div>
+            {% endif %}
+            {% if slides %}
+            <div class="container">
+                <div class="view-grid">
+                    {% for slide in slides %}
+                    <div class="view-item">
+                        <div class="slide">
+                            <div class="slide-info">
+                                <strong>Name:</strong>
+                                <span>{{slide.title}}</span>
+                            </div>
+                            <div class="slide-actions">
 
+                                {% if slide.media == "img" %}
+                                <a href="{{url_for('slides.view', name=slide.name)}}" class="action-btn"
+                                   title="View Slides">
+                                    <i class="fas fa-images"></i>
+                                </a>
+                                <a href="{{url_for('slides.update_slide', name=slide.name)}}" class="action-btn"
+                                   title="Update Photos">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                {% else %}
+                                {% if slide.length == "short" %}
+                                <a href="{{url_for('slides.view', name=slide.name, media='video')}}"
+                                   class="action-btn" title="View Videos">
+                                    <i class="fas fa-film"></i>
+                                </a>
+                                {% else %}
+                                <a href="{{url_for('slides.view_anonymous', name=slide.name, media='video')}}"
+                                   class="action-btn" title="View Videos">
+                                    <i class="fas fa-video"></i>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+
+                                <form method="POST"
+                                      action="{{url_for('slides.delete_slide', name=slide.name)}}"
+                                      class="delete-form my-1"
+                                      data-user-name="{{ slide.title }}">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                    <button type="submit" class="action-btn delete-btn" title="Delete Slide">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if slide %}
+            <div class="container">
+                <form action="{{ url_for('slides.update_slide', name=slide.name) }}" id="editSlideForm"
+                      method="POST" class="edit-form">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                    <div class="title-wrapper">
                         <label for="title" class="label">Title</label>
                         <input id="title" type="text" name="title" value="{{ slide.title }}" class="input-field">
+                    </div>
 
-                        <div id="imageContainer">
-                            {% for url in slide.urls %}
-                            <div class="grid-item" draggable="true">
-                                <div class="image-wrapper">
-                                    <img class="img-viewable" src="{{ url }}" alt="Slide image">
-                                </div>
-
-                                <div class="input-wrapper">
-                                    <input type="text" name="urls[]" value="{{ url }}">
-                                </div>
-
-                                <button type="button" class="deleteUrl">Delete</button>
+                    <div id="imageContainer">
+                        {% for url in slide.urls %}
+                        <div class="grid-item" draggable="true">
+                            <div class="image-wrapper">
+                                <img class="img-viewable" src="{{ url }}" alt="Slide image">
                             </div>
-                            {% endfor %}
-                        </div>
 
+                            <div class="input-wrapper">
+                                <input type="text" name="urls[]" value="{{ url }}">
+                            </div>
+
+                            <div class="delete-wrapper">
+                                <button type="button" class="deleteUrl"><i class="fas fa-trash-alt deleteUrl"></i>
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="button-flex-wrapper">
                         <button class="btn btn-tertiary" type="button" id="addNewUrl">Add New Image URL</button>
                         <button class="btn btn-primary" type="submit">Update Slide</button>
-                    </form>
-                </div>
-                {% endif %}
+                    </div>
+                </form>
             </div>
-
+            {% endif %}
             <div class="container">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -182,14 +195,16 @@
 
 {{ render_footer() | safe }}
 
-
+{% if slide %}
 <!--viewer js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
 
 <!--sortable js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+{% endif %}
 
 <!-- custom js -->
+
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 <script src="{{url_for('static', filename='js/scripts-vdirectory.js')}}"></script>
 

@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/admin.css') }}"/>
 
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
 <div class="preloader" data-preloader>
@@ -38,29 +40,33 @@
         <section class="section has-before" aria-label="home">
             <div class="admin-container">
                 {% if current_user.is_authenticated %}
-                <h1>Omar Shemy Signed In</h1>
-                <div class="button-container">
-                    <div>
-                        <button class="btn btn-tertiary"><a href="{{ url_for('auth.auth') }}">Auth</a>
-                        </button>
+                <div class="admin-buttons-container">
+                    <div class="buttons-menu">
+                        <div class="btn-card">
+                            <a href="{{ url_for('auth.auth') }}">
+                                <i class="fas fa-lock"></i>
+                                <span>Auth</span>
+                            </a>
+                        </div>
+                        <div class="btn-card">
+                            <a href="{{ url_for('users.view_users') }}">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </div>
+                        <div class="btn-card">
+                            <a href="{{ url_for('slides.view_directory') }}">
+                                <i class="fas fa-photo-video"></i>
+                                <span>Media</span>
+                            </a>
+                        </div>
+                        <div class="btn-card">
+                            <a href="{{ url_for('slides.input_slides') }}">
+                                <i class="fas fa-images"></i>
+                                <span>Slides</span>
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <button class="btn btn-tertiary"><a href="{{ url_for('users.view_users') }}">Users</a></button>
-                    </div>
-                    <div>
-                        <button class="btn btn-tertiary"><a href="{{ url_for('slides.view_directory') }}">Media</a>
-                        </button>
-                    </div>
-                    <div>
-                        <button class="btn btn-tertiary"><a href="{{ url_for('slides.input_slides') }}">Slides</a>
-                        </button>
-                    </div>
-                </div>
-
-                {% else %}
-                <div class="container">
-                    <h1>Login</h1>
-                    <button class="btn btn-primary"><a href="{{ url_for('auth.auth') }}">Login</a></button>
                 </div>
                 {% endif %}
                 <div class="container">
@@ -85,5 +91,14 @@
 
 <!-- custom js -->
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
 </body>
 </html>

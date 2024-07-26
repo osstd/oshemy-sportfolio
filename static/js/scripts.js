@@ -32,13 +32,3 @@ const activeHeader = function () {
 };
 
 window.addEventListener("scroll", activeHeader);
-
-document.addEventListener("submit", function (event) {
-  if (event.target.classList.contains("delete-form")) {
-    event.preventDefault();
-    var userName = event.target.getAttribute("data-user-name");
-    if (confirm(`Are you sure you want to delete ${userName}?`)) {
-      event.target.submit();
-    }
-  }
-});

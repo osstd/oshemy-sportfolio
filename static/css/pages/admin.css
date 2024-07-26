@@ -119,10 +119,6 @@ a.not-tag {
   width: 100%;
 }
 
-div {
-  margin: 1% 0%;
-}
-
 span {
   margin: 2% 0%;
 }
@@ -140,12 +136,14 @@ main {
 }
 
 .section-title {
-  margin-top: 5%;
-  margin-block-end: 2%;
+  margin-top: 1%;
+  margin-block-end: 1%;
 }
 
 .admin-container {
+  max-width: 1200px;
   margin: 5% auto;
+  padding: 3%;
 }
 
 .button-container {
@@ -159,9 +157,60 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 
+.admin-buttons-container {
+  margin-bottom: 30px;
+}
+
+.buttons-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: calc(50% - 10px);
+  max-width: 250px;
+}
+
+.btn-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+  height: 100%;
+}
+
+.btn-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: rgb(252, 99, 43);
+}
+
+.btn-card span {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
 .btn-tertiary {
   min-width: 100px;
 }
+
+/* Input */
 
 #urlForm {
   display: none;
@@ -242,23 +291,33 @@ main {
 }
 
 /* Media query */
+@media (max-width: 400px) {
+  .buttons-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
 
 @media (min-width: 768px) {
   .login-form,
   .form {
     padding: 35px;
   }
+}
 
-  @media (min-width: 992px) {
-    .login .container {
-      grid-template-columns: 1fr 0.9fr;
-      align-items: center;
-      gap: 20px;
-    }
+@media (min-width: 992px) {
+  .login .container {
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 20px;
+  }
 
-    .login-login {
-      width: 70%;
-      margin-inline: auto;
-    }
+  .login-login {
+    width: 70%;
+    margin-inline: auto;
   }
 }

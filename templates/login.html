@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/admin.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/login.css') }}"/>
 
 </head>
 <body>
@@ -38,32 +38,30 @@
         <section class="section has-before" aria-label="home">
             <div class="container-login">
                 {% if current_user.is_authenticated %}
-                <span>Omar Shemy Signed In</span>
-                <button class="btn btn-tertiary"><a href="{{ url_for('auth.logout') }}">Logout</a></button>
+                <div class="auth-container">
+                    <span>Omar Shemy Signed In</span>
+                    <div class="button-container">
+                        <button class="btn btn-tertiary"><a href="{{ url_for('auth.logout') }}">Logout</a></button>
+                    </div>
+                </div>
                 {% else %}
-                <div class="container">
+                <div class="login-container">
+                    <h1>Register or Login</h1>
                     <form method="POST" class="login-form">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <input class="input-field" type="text" name="username" placeholder="Username" required>
                         <input class="input-field" type="password" name="password" placeholder="Password" required>
                         <div class="button-container">
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="login">Login
-                                </button>
-                            </div>
-                            <div>
-                                <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
-                                </button>
-                            </div>
+                            <button class="btn btn-tertiary" type="submit" name="action" value="login">Login
+                            </button>
+                            <button class="btn btn-tertiary" type="submit" name="action" value="register">Register
+                            </button>
                         </div>
-
                     </form>
-                </div>
-                <div class="home-container">
                     <button class="btn btn-primary"><a href="{{ url_for('main.home') }}">Back to Home</a></button>
                 </div>
                 {% endif %}
-                <div class="container">
+                <div class="messages-container">
                     {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                     {% for category, message in messages %}

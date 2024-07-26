@@ -36,12 +36,13 @@
 .input-field,
 .input-url {
   margin: 1% 0;
-  padding: 1% 1%;
+  padding: 5px;
+  font-size: 1rem;
   border: 1px solid var(--jet);
   margin-block-end: 4px;
   outline: none;
   transition: box-shadow var(--transition-1);
-  max-width: 25%;
+  max-width: max(200px, 30%);
 }
 
 .input-url {
@@ -210,7 +211,7 @@ main {
   min-width: 100px;
 }
 
-/* Input URLs */
+/* Dynamic Input URLs */
 
 .container-input {
   max-width: 900px;
@@ -251,17 +252,13 @@ h1 {
   margin-right: 10px;
 }
 
-.input-field {
+.input-group .input-field {
   width: 100%;
-  max-width: 300px;
-  padding: 10px;
+  max-width: 125px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
-}
-
-#numberOfInputs {
-  max-width: 200px;
 }
 
 #urlInputsContainer {
@@ -274,6 +271,11 @@ h1 {
   overflow: hidden;
   background-color: #ffffff;
   transition: box-shadow 0.3s ease;
+}
+
+#urlInputsContainer .input-field{
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 #url-grid,
@@ -289,10 +291,10 @@ h1 {
 
 .input-url {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .grid-item {
@@ -344,7 +346,8 @@ h1 {
 }
 
 /* Media query */
-@media (max-width: 600px) {
+
+@media (max-width: 400px) {
   .buttons-menu {
     flex-direction: column;
     align-items: center;
@@ -363,11 +366,17 @@ h1 {
     margin-bottom: 5px;
   }
 
-  .input-field {
+  .input-group .input-field, #urlInputsContainer .input-field {
     width: 100%;
+    max-width: 300px;
   }
+
   #url-grid {
     grid-template-columns: 1fr;
+  }
+
+  .input-url{
+  max-width: 300px;
   }
 }
 

@@ -177,8 +177,8 @@ function handleOrientationChange() {
   }
 }
 
-function imageViewer() {
-  const images = document.querySelectorAll(".img-viewable");
+function imageViewer(querySelector) {
+  const images = document.querySelectorAll(`.${querySelector}`);
   const imageUrls = Array.from(images).map((img) => img.src);
 
   let currentIndex = 0;
@@ -187,8 +187,17 @@ function imageViewer() {
     image.addEventListener("click", function () {
       currentIndex = index;
 
-      const viewerContainer = document.createElement("div");
-      document.body.appendChild(viewerContainer);
+      let viewerContainer = document.getElementById("viewerContainer");
+
+      if (!viewerContainer) {
+        viewerContainer = document.createElement("div");
+        viewerContainer.id = "viewerContainer";
+        document.body.appendChild(viewerContainer);
+      } else {
+        while (viewerContainer.firstChild) {
+          viewerContainer.removeChild(viewerContainer.firstChild);
+        }
+      }
 
       imageUrls.forEach((url) => {
         const img = document.createElement("img");
@@ -232,7 +241,10 @@ function imageViewer() {
         hidden: function () {
           ifViewer = false;
           document.body.classList.remove("no-scroll");
-          document.body.removeChild(viewerContainer);
+          let viewerContainer = document.getElementById("viewerContainer");
+          if (viewerContainer) {
+            document.body.removeChild(viewerContainer);
+          }
         },
       });
 
@@ -242,10 +254,36 @@ function imageViewer() {
   });
 }
 
+function handleSwitch() {
+  const gridViewBtn = document.getElementById("gridViewBtn");
+  const carouselViewBtn = document.getElementById("carouselViewBtn");
+  const carousel = document.querySelector(".carousel");
+  const imageContainer = document.getElementById("imageContainer");
+
+  gridViewBtn.addEventListener("click", function () {
+    carousel.style.display = "none";
+    imageContainer.style.display = "grid";
+    imageViewer("grid-view");
+  });
+
+  carouselViewBtn.addEventListener("click", function () {
+    carousel.style.display = "flex";
+    imageContainer.style.display = "none";
+    imageViewer("block-view");
+  });
+}
+
 handleOrientationChange();
 
 window.addEventListener("resize", handleOrientationChange);
 
 document.addEventListener("DOMContentLoaded", () => {
-  imageViewer();
+  const switcherPage = document.querySelector(".view-switcher");
+  if (switcherPage) {
+    imageViewer("grid-view");
+    handleSwitch();
+  }
+  if (!switcherPage) {
+    imageViewer("img-viewable");
+  }
 });

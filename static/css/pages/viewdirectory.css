@@ -175,23 +175,23 @@
 .title-wrapper {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 
 .label {
-  flex-shrink: 0;
-  margin-right: 15px;
+  flex: 0 0 auto;
+  margin-right: 10px;
   font-weight: bold;
-  color: #2c3e50;
 }
 
-.input-field {
-  flex: 1;
-  max-width: 350px;
-  padding: 10px;
+.title-wrapper .input-field {
+  max-width: 300px;
+  margin: 0;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
+  border: 1px solid var(--jet);
 }
 
 #imageContainer {

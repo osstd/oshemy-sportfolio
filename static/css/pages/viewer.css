@@ -15,6 +15,16 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .wrapper img {
@@ -84,8 +94,14 @@ main {
 #gridViewBtn,
 #carouselViewBtn {
   cursor: pointer;
-  font-size: 24px;
+  font-size: 2rem;
   margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+#gridViewBtn:hover,
+#carouselViewBtn:hover {
+  transform: scale(1.1);
 }
 
 /* grid viewer */
@@ -93,7 +109,6 @@ main {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 #imageContainer {
@@ -108,6 +123,16 @@ main {
   justify-content: center;
   padding: 10px;
   min-height: 200px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .image-wrapper .img-viewable {

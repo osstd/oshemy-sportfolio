@@ -76,14 +76,15 @@
   padding: 15px;
   background-color: rgb(174, 208, 73);
   color: inherit;
-  margin: 15px;
+  margin: 1% 0;
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .alert-max {
-  max-width: 350px;
+  min-width: 200px;
+  max-width: max-content;
 }
 
 .alert-success {
@@ -105,7 +106,7 @@
 
 .alert-success:hover,
 .alert-danger:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 a.not-tag {
@@ -133,7 +134,6 @@ body {
 
 main {
   flex: 1;
-  background-color: var(--white);
 }
 
 .section-title {
@@ -273,7 +273,7 @@ h1 {
   transition: box-shadow 0.3s ease;
 }
 
-#urlInputsContainer .input-field{
+#urlInputsContainer .input-field {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -289,6 +289,10 @@ h1 {
   padding: 1% 0%;
 }
 
+.media-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 .input-url {
   width: 100%;
   padding: 5px;
@@ -298,7 +302,7 @@ h1 {
 }
 
 .grid-item {
-  border: 1px solid #ccc;
+  border: 0.05rem solid var(--jet);
   border-radius: 5px;
   overflow: hidden;
   padding: 10px;
@@ -311,6 +315,28 @@ h1 {
   height: auto;
   display: block;
   border-radius: 5px;
+}
+
+.grid-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.grid-item video,
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
 }
 
 .view-item.user,
@@ -348,6 +374,9 @@ h1 {
 /* Media query */
 
 @media (max-width: 400px) {
+  .alert-max {
+    max-width: 100%;
+  }
   .buttons-menu {
     flex-direction: column;
     align-items: center;
@@ -366,7 +395,8 @@ h1 {
     margin-bottom: 5px;
   }
 
-  .input-group .input-field, #urlInputsContainer .input-field {
+  .input-group .input-field,
+  #urlInputsContainer .input-field {
     width: 100%;
     max-width: 300px;
   }
@@ -375,8 +405,8 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .input-url{
-  max-width: 300px;
+  .input-url {
+    max-width: 300px;
   }
 }
 

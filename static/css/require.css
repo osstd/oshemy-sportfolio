@@ -122,6 +122,10 @@ body.loaded {
   overflow: visible;
 }
 
+main.scroll {
+  margin-top: -75px;
+}
+
 :focus-visible {
   outline-offset: 4px;
 }

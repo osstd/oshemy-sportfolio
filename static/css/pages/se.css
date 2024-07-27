@@ -12,11 +12,22 @@
   max-width: 800px;
   position: relative;
   overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .wrapper img {
   max-width: 100%;
   height: auto;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
 }
 
 .wrapper i {

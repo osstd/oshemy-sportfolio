@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, flash
+from flask import Flask, redirect, url_for, flash, session, request
 from config import Config
 from extensions import mongo, login_manager, csrf, limiter
 from routes.auth import auth_bp
@@ -8,8 +8,11 @@ from routes.users import users_bp
 from models.models import User
 from models.transactions import get_by_id, DatabaseError
 from components import render_header, render_footer
-from logging_cofig import setup_logging
-
+from logging_config import setup_logging
+from utils import get_ip_address
+import asyncio
+import time
+import datetime
 
 logger = setup_logging()
 
@@ -22,6 +25,10 @@ def create_app():
     ping_mongo()
     register_blueprints(flask_app)
     register_context_processors(flask_app)
+
+    @flask_app.before_request
+    def before_request_func():
+        track_ip()
 
     return flask_app
 
@@ -74,6 +81,16 @@ def ping_mongo():
         logger.info("Successfully connected to MongoDB")
     except Exception as e:
         logger.info(f"Failed to connect to MongoDB: {e}")
+
+
+def track_ip():
+    current_time = time.time()
+    if 'user_ip' not in session or current_time - session.get('last_ip_check', 0) > 3600:
+        logger.info('Register user_ip for current session')
+        logger.info(f"The current time for track_ip request call:"
+                    f"{datetime.datetime.fromtimestamp(current_time).strftime('%Y-%m-%d %H:%M:%S')}")
+        session['user_ip'] = asyncio.run(get_ip_address(request))
+        session['last_ip_check'] = current_time
 
 
 app = create_app()

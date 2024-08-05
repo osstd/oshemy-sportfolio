@@ -1,9 +1,19 @@
 from flask import current_app, url_for, redirect
-from models.transactions import find_one
-import requests
+from models.transactions import find_one, insert_one, DatabaseError
+from datetime import datetime
+from aiohttp import ClientTimeout
+from aiohttp.client_exceptions import ClientError
 import aiosmtplib
+import aiohttp
+import asyncio
+import requests
 import re
 import html
+import pytz
+
+from logging_config import setup_logging
+
+logger = setup_logging()
 
 
 def sanitize_input(user_input):
@@ -76,3 +86,49 @@ async def serve_slides_thesis():
         image_path = url_for('static', filename=filename)
         image_paths.append(image_path)
     return [(index, path) for index, path in enumerate(image_paths)]
+
+
+async def get_ip_address(request):
+    visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    logger.info(f"Your IP address is: {visitor_ip}")
+
+    tz = pytz.timezone('America/New_York')
+    current_time_tz = datetime.utcnow().replace(tzinfo=pytz.utc).astimezone(tz)
+    current_time = current_time_tz.strftime('%Y-%m-%d %H:%M:%S')
+
+    try:
+        timeout = ClientTimeout(total=10)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            async with session.get(f'https://ipapi.co/{visitor_ip}/json/') as response:
+                if response.status == 200:
+                    geolocation_data = await response.json()
+                    city = geolocation_data.get('city', 'Unknown')
+                    country = geolocation_data.get('country_name', 'Unknown')
+                else:
+                    logger.warning(f"API returned status code {response.status}")
+                    city = country = 'Unknown'
+    except asyncio.TimeoutError:
+        logger.error("Request to ipapi.co timed out")
+        city = country = 'Unknown'
+    except ClientError as e:
+        logger.error(f"Error occurred while fetching geolocation data: {str(e)}")
+        city = country = 'Unknown'
+    except Exception as e:
+        logger.error(f"Unexpected error occurred: {str(e)}")
+        city = country = 'Unknown'
+
+    document = {
+        'ip_address': visitor_ip,
+        'city': city,
+        'country': country,
+        'datetime': current_time
+    }
+
+    try:
+        insert_one("ip_visitors", "sportfolio", document)
+        logger.info(f"{'Known' if city != 'Unknown' else 'Unknown'} insert successful")
+    except DatabaseError as e:
+        logger.error(f"Error inserting document into database: {str(e)}")
+
+    return visitor_ip
+

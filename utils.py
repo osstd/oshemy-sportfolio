@@ -1,5 +1,5 @@
 from flask import current_app, url_for, redirect
-from models.transactions import find_one, insert_one, DatabaseError
+from models.transactions import find_one, insert_one, get_document_ip, DatabaseError
 from datetime import datetime
 from aiohttp import ClientTimeout
 from aiohttp.client_exceptions import ClientError
@@ -125,10 +125,10 @@ async def get_ip_address(request):
     }
 
     try:
-        insert_one("ip_visitors", "sportfolio", document)
+        collection_name = get_document_ip('ip_track_website_names', 'sportfolio')['name']
+        insert_one("ip_visitors", collection_name, document)
         logger.info(f"{'Known' if city != 'Unknown' else 'Unknown'} insert successful")
     except DatabaseError as e:
         logger.error(f"Error inserting document into database: {str(e)}")
 
     return visitor_ip
-

@@ -30,6 +30,13 @@ def find_one(db_name, collection_name, filter_dict):
             f"Error retrieving record from collection {collection_name} in {db_name}: {str(error)}")
 
 
+def get_document_ip(db_name, collection_name):
+    try:
+        return get_collection(db_name, collection_name).find_one()
+    except Exception as error:
+        raise DatabaseError(f"Error retrieving document from {collection_name}: {str(error)}")
+
+
 def insert_one(db_name, collection_name, document):
     try:
         get_collection(db_name, collection_name).insert_one(document)

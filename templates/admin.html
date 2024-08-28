@@ -50,7 +50,7 @@
                         </div>
                         <div class="btn-card">
                             <a href="{{ url_for('users.view_users') }}">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-key"></i>
                                 <span>Users</span>
                             </a>
                         </div>
@@ -66,6 +66,27 @@
                                 <span>Slides</span>
                             </a>
                         </div>
+                        <div class="btn-card">
+                            <a href="{{ url_for('slides.slide_management') }}">
+                                <i class="fas fa-eye"></i>
+                                <span>Visibility</span>
+                            </a>
+                        </div>
+
+                        <div class="btn-card">
+                            <a href="{{ url_for('slides.tags_management') }}">
+                                <i class="fas fa-tag"></i>
+                                <span>Tags</span>
+                            </a>
+                        </div>
+
+                        <div class="btn-card">
+                            <a href="">
+                                <i class="fas fa-users"></i>
+                                <span>Visitors</span>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
                 {% endif %}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OS | {{title}}</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.png') }}"/>
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <!-- custom css -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/require.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/portfolio.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/admin.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/viewdirectory.css') }}"/>
+
+    <!--font-awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!--    jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+{{ get_header('Admin', title) | safe}}
+
+<main>
+    <article>
+        <section class="section portfolio" aria-labelledby="portfolio-label">
+            <h1
+                    class="section-title headline-sm text-center"
+                    id="portfolio-label"
+            >
+                {{title}}
+            </h1>
+            {% if visibility_management %}
+            <div class="container">
+
+                <div class="menu-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search slides..." class="input-field long-field">
+                </div>
+
+                <div class="button-container-wide">
+                    <button id="hideSelected" class="btn btn-primary">Hide Selected</button>
+                    <button id="unhideSelected" class="btn btn-secondary">Show Selected</button>
+                    <button id="toggleAll" class="btn btn-tertiary">Toggle All</button>
+                </div>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Title</th>
+                        <th>Currently Hidden</th>
+                    </tr>
+                    </thead>
+                    <tbody id="slideTable">
+                    {% for slide in slides %}
+                    <tr data-slide-id="{{ slide._id }}">
+                        <td><input type="checkbox" class="slide-select"></td>
+                        <td>{{ slide.title }}</td>
+                        <td>
+                            {% if slide.get('hidden') is true %}
+                            <input type="checkbox" class="slide-hidden" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="slide-hidden" disabled>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            {% endif %}
+
+            {% if tag_management %}
+            <div class="container">
+                <table id="tagTable">
+                    <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tagTableBody">
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-max {% if category == 'error' %} alert-danger {% elif category == 'success' %} alert-success {% endif %}"
+                     role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+
+{{ render_footer() | safe }}
+
+<!-- custom js -->
+
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+<script src="{{url_for('static', filename='js/scripts-visibility-manage.js')}}"></script>
+
+<!--tag management-->
+{% if tag_management %}
+<script src="{{url_for('static', filename='js/scripts-tag-manage.js')}}"></script>
+{% endif %}
+<script>
+        let csrfToken = "{{ csrf_token() }}";
+
+
+
+
+
+
+</script>
+
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
+</html>

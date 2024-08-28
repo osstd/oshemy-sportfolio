@@ -1,0 +1,37 @@
+{% if not slide.get('hidden') == true %}
+<div class="view-item">
+    <div class="slide">
+        <div class="slide-info">
+            <strong>Name:</strong> <span>{{slide.title}}</span>
+        </div>
+        <div class="slide-actions">
+            {% if slide.media == "img" %}
+            <a href="{{url_for('slides.view', name=slide.name)}}" class="action-btn" title="View Slides">
+                <i class="fas fa-images"></i>
+            </a>
+            {% else %}
+            {% if slide.length == "short" %}
+            <a href="{{url_for('slides.view', name=slide.name, media='video')}}" class="action-btn" title="View Videos">
+                <i class="fas fa-film"></i>
+            </a>
+            {% else %}
+            <a href="{{url_for('slides.view_anonymous', name=slide.name, media='video')}}" class="action-btn"
+               title="View Videos">
+                <i class="fas fa-video"></i>
+            </a>
+            {% endif %}
+            {% endif %}
+            <a href="{{url_for('slides.update_slide', name=slide.name)}}" class="action-btn" title="Update Photos">
+                <i class="fas fa-pencil-alt"></i>
+            </a>
+            <form method="POST" action="{{url_for('slides.delete_slide', name=slide.name)}}" class="delete-form my-1"
+                  data-user-name="{{ slide.title }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <button type="submit" class="action-btn delete-btn" title="Delete Slide">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}

@@ -54,6 +54,19 @@ def delete_one(db_name, collection_name, filter_dict):
 
 def update_one(db_name, collection_name, filter_dict, update):
     try:
-        get_collection(db_name, collection_name).update_one(filter_dict, update)
+        result = get_collection(db_name, collection_name).update_one(filter_dict, update)
+        if not result:
+            return None
+        return result
     except Exception as error:
         raise DatabaseError(f"Error updating record from {collection_name}: {str(error)}")
+
+
+def update_many(db_name, collection_name, filter_dict, update):
+    try:
+        result = get_collection(db_name, collection_name).update_many(filter_dict, update)
+        if not result:
+            return None
+        return result
+    except Exception as error:
+        raise DatabaseError(f"Error updating records from {collection_name}: {str(error)}")

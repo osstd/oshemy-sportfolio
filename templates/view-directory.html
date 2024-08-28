@@ -41,6 +41,9 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css"
     />
 
+    <!--    jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
 
@@ -89,55 +92,27 @@
             {% endif %}
             {% if slides %}
             <div class="container">
-                <div class="view-grid">
+                <div class="menu-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search slides..." class="input-field long-field">
+
+                    <select id="tagFilter" class="custom-select">
+                        <option value="">All Tags</option>
+                        {% for tag in all_tags %}
+                        <option value="{{ tag }}">{{ tag.capitalize() }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
+
+                <div class="view-grid" id="slidesContainer">
                     {% for slide in slides %}
-                    <div class="view-item">
-                        <div class="slide">
-                            <div class="slide-info">
-                                <strong>Name:</strong>
-                                <span>{{slide.title}}</span>
-                            </div>
-                            <div class="slide-actions">
-
-                                {% if slide.media == "img" %}
-                                <a href="{{url_for('slides.view', name=slide.name)}}" class="action-btn"
-                                   title="View Slides">
-                                    <i class="fas fa-images"></i>
-                                </a>
-                                <a href="{{url_for('slides.update_slide', name=slide.name)}}" class="action-btn"
-                                   title="Update Photos">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </a>
-                                {% else %}
-                                {% if slide.length == "short" %}
-                                <a href="{{url_for('slides.view', name=slide.name, media='video')}}"
-                                   class="action-btn" title="View Videos">
-                                    <i class="fas fa-film"></i>
-                                </a>
-                                {% else %}
-                                <a href="{{url_for('slides.view_anonymous', name=slide.name, media='video')}}"
-                                   class="action-btn" title="View Videos">
-                                    <i class="fas fa-video"></i>
-                                </a>
-                                {% endif %}
-                                {% endif %}
-
-                                <form method="POST"
-                                      action="{{url_for('slides.delete_slide', name=slide.name)}}"
-                                      class="delete-form my-1"
-                                      data-user-name="{{ slide.title }}">
-                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                    <button type="submit" class="action-btn delete-btn" title="Delete Slide">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    {% include 'slide_template.html' %}
                     {% endfor %}
                 </div>
             </div>
             {% endif %}
+
             {% if slide %}
             <div class="container">
                 <form action="{{ url_for('slides.update_slide', name=slide.name) }}" id="editSlideForm"
@@ -149,12 +124,37 @@
                         <input id="title" type="text" name="title" value="{{ slide.title }}" class="input-field">
                     </div>
 
+                    <div class="tags-wrapper">
+                        <label for="tags" class="label">Tags</label>
+                        <input id="tags" type="text" name="tags"
+                               value="{{ slide.tags|join(', ') if slide.tags else '' }}"
+                               class="input-field"
+                               placeholder="Enter tags comma separated">
+                    </div>
+
+                    <div class="hidden-wrapper">
+                        <label for="hidden" class="label">Hidden</label>
+                        {% if slide.get('hidden') is true %}
+                        <input id="hidden" type="checkbox" name="hidden" checked>
+                        {% else %}
+                        <input type="checkbox" name="hidden" >
+                        {% endif %}
+                    </div>
+
+                    {% if slide.media != 'img' %}
+                    <label for="length" class="label">Length</label>
+                    <input id="length" type="text" name="length" value="{{slide.length}}">
+                    {% endif %}
+
+
                     <div id="imageContainer">
                         {% for url in slide.urls %}
                         <div class="grid-item" draggable="true">
+                            {% if slide.media == 'img' %}
                             <div class="image-wrapper">
                                 <img class="img-viewable" src="{{ url }}" alt="Slide image">
                             </div>
+                            {% endif %}
 
                             <div class="input-wrapper">
                                 <input type="text" name="urls[]" value="{{ url }}">
@@ -169,12 +169,19 @@
                     </div>
 
                     <div class="button-flex-wrapper">
-                        <button class="btn btn-tertiary" type="button" id="addNewUrl">Add New Image URL</button>
+                        <button class="btn btn-tertiary" type="button"
+                                onclick="addNewUrl({% if slide.media == 'img'%}image=true{% endif %})">Add New URL
+                        </button>
+                    </div>
+
+                    <div class="button-flex-wrapper">
                         <button class="btn btn-primary" type="submit">Update Slide</button>
                     </div>
                 </form>
             </div>
             {% endif %}
+
+
             <div class="container">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -207,6 +214,11 @@
 
 <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 <script src="{{url_for('static', filename='js/scripts-vdirectory.js')}}"></script>
+
+<script>
+        let csrfToken = "{{ csrf_token() }}";
+
+</script>
 
 <script
         type="module"

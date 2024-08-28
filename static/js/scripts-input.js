@@ -3,6 +3,7 @@ function generateUrlInputs() {
 
   const numberOfInputs = document.getElementById("numberOfInputs").value;
   const urlInputsContainer = document.getElementById("urlInputsContainer");
+  const mediaSelect = document.getElementById("mediaSelect");
 
   urlInputsContainer.innerHTML = "";
 
@@ -34,6 +35,30 @@ function generateUrlInputs() {
     mediaInput.setAttribute("placeholder", "Media type");
     mediaInput.classList.add("input-field");
     urlInputsContainer.appendChild(mediaInput);
+    mediaInput.style.display = "none";
+    mediaInput.value = mediaSelect.value;
+  }
+
+  if (mediaSelect.value === "vid") {
+    if (!document.getElementById("mediaLength")) {
+      const mediaLength = document.createElement("select");
+      mediaLength.setAttribute("name", "length");
+      mediaLength.setAttribute("id", "mediaLength");
+      mediaLength.classList.add("custom-select");
+
+      const optionShort = document.createElement("option");
+      optionShort.value = "short";
+      optionShort.textContent = "Short";
+
+      const optionLong = document.createElement("option");
+      optionLong.value = "long";
+      optionLong.textContent = "Long";
+
+      mediaLength.appendChild(optionShort);
+      mediaLength.appendChild(optionLong);
+
+      urlInputsContainer.appendChild(mediaLength);
+    }
   }
 
   if (!document.getElementById("url-grid")) {

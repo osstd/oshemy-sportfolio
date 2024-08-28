@@ -1,4 +1,4 @@
-from flask import url_for, current_app, render_template
+from flask import url_for, current_app, render_template, render_template_string
 from collections import OrderedDict
 
 
@@ -46,3 +46,17 @@ def render_header(active_page, subcategory=None):
 
 def render_footer():
     return render_template('footer.html')
+
+
+def render_slide_management_view(slides_results):
+    return render_template_string("""
+                            {% for slide in slides %}
+                                <tr data-slide-id="{{ slide._id }}">
+                                <td><input type="checkbox" class="slide-select"></td>
+                                <td>{{ slide.title }}</td>
+                                <td><input type="checkbox" class="slide-hidden" {% if slide.get('hidden') == true %}checked{%
+                                    endif %} disabled>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        """, slides=slides_results)

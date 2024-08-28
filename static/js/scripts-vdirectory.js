@@ -18,32 +18,33 @@ function editSlides() {
       }
     });
   }
-
-  const addNewUrl = document.getElementById("addNewUrl");
-
-  if (addNewUrl) {
-    addNewUrl.addEventListener("click", function () {
-      let newItem = document.createElement("div");
-      newItem.className = "grid-item";
-      newItem.draggable = true;
-      newItem.innerHTML = `
-        <div class="image-wrapper"><img src="" alt="New image"></div>
-        <div class="input-wrapper"><input type="text" name="urls[]" value="New URL" placeholder=""></div>
-        <div class="delete-wrapper">
-                                <button type="button" class="deleteUrl"><i class="fas fa-trash-alt deleteUrl"></i></button>
-                            </div>
-    `;
-
-      document.getElementById("imageContainer").appendChild(newItem);
-
-      let input = newItem.querySelector("input");
-      let img = newItem.querySelector("img");
-      input.addEventListener("input", function () {
-        img.src = this.value;
-      });
-    });
-  }
 }
+
+function addNewUrl(image = false) {
+  let newItem = document.createElement("div");
+  newItem.className = "grid-item";
+  newItem.draggable = true;
+  newItem.innerHTML = `
+    ${
+      image
+        ? '<div class="image-wrapper"><img src="" alt="New image"></div>'
+        : ""
+    }
+    <div class="input-wrapper"><input type="text" name="urls[]" value="New URL" placeholder=""></div>
+    <div class="delete-wrapper">
+        <button type="button" class="deleteUrl"><i class="fas fa-trash-alt deleteUrl"></i></button>
+    </div>
+`;
+
+  document.getElementById("imageContainer").appendChild(newItem);
+
+  let input = newItem.querySelector("input");
+  let img = newItem.querySelector("img");
+  input.addEventListener("input", function () {
+    img.src = this.value;
+  });
+}
+
 function imageViewer() {
   const images = document.querySelectorAll(".img-viewable");
 
@@ -96,6 +97,39 @@ function execLinks() {
     }
   });
 }
+
+$(document).ready(function () {
+  $("#searchInput").on("input", function () {
+    var query = $(this).val();
+    $.ajax({
+      url: "/search_slides",
+      data: { query: query },
+      success: function (data) {
+        if (data.html) {
+          $("#slidesContainer").html(data.html);
+        } else if (data.error) {
+          console.error("Error:", data.error);
+        }
+      },
+    });
+  });
+});
+
+$(document).ready(function () {
+  $("#tagFilter").on("change", function () {
+    var selectedTag = $(this).val();
+    $.ajax({
+      url: "/slides-directory",
+      data: { tag: selectedTag },
+      success: function (data) {
+        $("#slidesContainer").html(data.html);
+      },
+      error: function (xhr, status, error) {
+        console.error("An error occurred: " + error);
+      },
+    });
+  });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   imageViewer();

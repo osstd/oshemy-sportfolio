@@ -7,6 +7,7 @@ from bson import ObjectId
 from admin import admin_only
 from urllib.parse import unquote
 import asyncio
+import re
 
 slides_bp = Blueprint('slides', __name__)
 
@@ -139,17 +140,25 @@ def view_directory():
 @admin_only
 @login_required
 def search_slides():
-    search_query = request.args.get('query', '')
+    search_query = request.args.get('query', '').strip()
+
     try:
+        regex_pattern = re.escape(search_query)
+
         slides_results = get_collection("slidesviewer", "slides").find(
-            {"title": {"$regex": search_query, "$options": "i"}},
+            {"title": {"$regex": regex_pattern, "$options": "i"}},
             {"name": 1, "title": 1, "urls": 1, "media": 1, "length": 1, "hidden": 1}
         )
-        rendered_slides = []
-        for slide in slides_results:
-            rendered_slide = render_template('slide_template.html', slide=slide)
-            rendered_slides.append(rendered_slide)
-        return jsonify({"html": "".join(rendered_slides)})
+
+        slides_list = list(slides_results)
+
+        if not slides_list:
+            message = 'No matching results found.'
+            return jsonify({"html": message, "count": 0})
+
+        rendered_slides = [render_template('slide_template.html', slide=slide) for slide in slides_list]
+        return jsonify({"html": "".join(rendered_slides), "count": len(slides_list)})
+
     except DatabaseError as e:
         return jsonify({"error": str(e)}), 500
 

@@ -90,7 +90,7 @@ def track_ip():
     if 'user_ip' not in session or current_time - session.get('last_ip_check', 0) > 3600:
         logger.info('Register user_ip for current session')
         logger.info(f"The current time for track_ip request call:"
-                    f"{datetime.datetime.fromtimestamp(current_time).strftime('%Y-%m-%d %H:%M:%S')}")
+                    f"{datetime.fromtimestamp(current_time).strftime('%Y-%m-%d %H:%M:%S')}")
         session['user_ip'] = asyncio.run(get_ip_address(request))
         session['last_ip_check'] = current_time
 

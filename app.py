@@ -69,11 +69,13 @@ def inject_header():
 def inject_footer():
     return dict(render_footer=render_footer)
 
+def inject_current_year():
+    return {"current_year": datetime.now().year}
 
 def register_context_processors(flask_app):
     flask_app.context_processor(inject_header)
     flask_app.context_processor(inject_footer)
-
+    flask_app.context_processor(inject_current_year)
 
 def ping_mongo():
     try:

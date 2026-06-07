@@ -12,7 +12,7 @@ from logging_config import setup_logging
 from utils import get_ip_address
 import asyncio
 import time
-import datetime
+from datetime import datetime
 
 logger = setup_logging()
 
